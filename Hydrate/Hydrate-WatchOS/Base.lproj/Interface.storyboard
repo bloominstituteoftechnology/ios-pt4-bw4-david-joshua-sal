@@ -9,9 +9,30 @@
         <!--Main Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="Hydrate_WatchOS_Extension"/>
+                <controller id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="Hydrate_WatchOS_Extension">
+                    <items>
+                        <label alignment="left" text="Hydrate" id="emx-GT-dAn">
+                            <color key="textColor" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" weight="medium" pointSize="17"/>
+                        </label>
+                        <group width="1" alignment="left" id="NDn-ed-5hD">
+                            <items>
+                                <activity width="50" height="50" alignment="left" id="PIP-3O-1LH"/>
+                                <label alignment="left" verticalAlignment="center" text="~ 75%" id="TMq-qc-yvM">
+                                    <fontDescription key="font" type="system" pointSize="30"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="gG4-Su-CF7">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="Remaining: 3 Cups" textAlignment="center" minimumScaleFactor="0.90000000000000002" id="JGO-yA-ynA"/>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="ADD DRINK" id="WJc-iB-IhZ"/>
+                    </items>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="143" y="318"/>
+            <point key="canvasLocation" x="96" y="97"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
