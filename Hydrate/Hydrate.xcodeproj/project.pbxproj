@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EEE2499A774001DAA60 /* AppDelegate.swift */; };
 		42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF02499A774001DAA60 /* SceneDelegate.swift */; };
-		42443EF32499A774001DAA60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF22499A774001DAA60 /* ViewController.swift */; };
+		42443EF32499A774001DAA60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF22499A774001DAA60 /* MainViewController.swift */; };
 		42443EF82499A776001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443EF72499A776001DAA60 /* Assets.xcassets */; };
 		42443EFB2499A776001DAA60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42443EF92499A776001DAA60 /* LaunchScreen.storyboard */; };
 		42443F082499C08A001DAA60 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42443F062499C08A001DAA60 /* Interface.storyboard */; };
@@ -20,6 +20,7 @@
 		42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F192499C08C001DAA60 /* NotificationController.swift */; };
 		42443F1C2499C08E001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443F1B2499C08E001DAA60 /* Assets.xcassets */; };
 		42443F212499C08E001DAA60 /* Hydrate-WatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 42443F042499C08A001DAA60 /* Hydrate-WatchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +69,7 @@
 		42443EEB2499A774001DAA60 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42443EEE2499A774001DAA60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42443EF02499A774001DAA60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		42443EF22499A774001DAA60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		42443EF22499A774001DAA60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		42443EF72499A776001DAA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42443EFA2499A776001DAA60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42443EFC2499A776001DAA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		42443F1B2499C08E001DAA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42443F1D2499C08E001DAA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,9 +128,10 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				42443F2B249A2B0A001DAA60 /* Extensions */,
 				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
 				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
-				42443EF22499A774001DAA60 /* ViewController.swift */,
+				42443F2A249A2B00001DAA60 /* View Controllers */,
 				42443EF72499A776001DAA60 /* Assets.xcassets */,
 				42443EF92499A776001DAA60 /* LaunchScreen.storyboard */,
 				42443EFC2499A776001DAA60 /* Info.plist */,
@@ -157,6 +160,22 @@
 				42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */,
 			);
 			path = "Hydrate-WatchOS Extension";
+			sourceTree = "<group>";
+		};
+		42443F2A249A2B00001DAA60 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42443EF22499A774001DAA60 /* MainViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		42443F2B249A2B0A001DAA60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,8 +309,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42443EF32499A774001DAA60 /* ViewController.swift in Sources */,
+				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
+				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
