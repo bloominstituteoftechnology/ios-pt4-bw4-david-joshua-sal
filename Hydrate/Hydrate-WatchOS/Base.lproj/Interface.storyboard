@@ -32,7 +32,43 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="96" y="97"/>
+            <point key="canvasLocation" x="104" y="-13"/>
+        </scene>
+        <!--V2-->
+        <scene sceneID="hQU-I6-kXU">
+            <objects>
+                <controller title="V2" id="VCZ-U7-JTW">
+                    <items>
+                        <group width="1" alignment="left" id="cao-HY-Obx">
+                            <items>
+                                <label alignment="left" text="4 Cups" id="Yxo-ph-6Dr"/>
+                                <label alignment="right" text="58%" id="2Jd-Oh-uKX"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="q6o-kH-IIm">
+                            <items>
+                                <label alignment="left" text="Remaining: 3 Cups" minimumScaleFactor="0.90000000000000002" id="VLq-nj-gIr">
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </label>
+                                <slider width="1" alignment="left" alpha="0.84999999999999998" value="68" maximum="100" steps="1" id="VCa-FJ-ulR">
+                                    <color key="color" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </slider>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="XNO-EX-m8l">
+                            <items>
+                                <button width="1" alignment="left" title="+ 1/2 Glass" id="IGn-pi-7AT">
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </button>
+                                <button width="1" alignment="left" title="+ 1 Glass" id="AxB-pQ-iNr">
+                                    <color key="backgroundColor" red="0.015686274510000001" green="0.87058823529999996" blue="0.4431372549" alpha="0.49803921569999998" colorSpace="calibratedRGB"/>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="452" y="-5"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
