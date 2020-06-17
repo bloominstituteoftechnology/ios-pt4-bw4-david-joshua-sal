@@ -42,6 +42,11 @@ class MainViewController: UIViewController {
         setupViews()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    
     //MARK: - Private
     
     /// Sets up programmatic views for view controller
