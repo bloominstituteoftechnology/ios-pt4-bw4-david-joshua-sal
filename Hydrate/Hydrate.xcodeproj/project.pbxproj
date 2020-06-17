@@ -15,11 +15,11 @@
 		42443F082499C08A001DAA60 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42443F062499C08A001DAA60 /* Interface.storyboard */; };
 		42443F0A2499C08C001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443F092499C08C001DAA60 /* Assets.xcassets */; };
 		42443F112499C08C001DAA60 /* Hydrate-WatchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42443F102499C08C001DAA60 /* Hydrate-WatchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		42443F162499C08C001DAA60 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F152499C08C001DAA60 /* InterfaceController.swift */; };
 		42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F172499C08C001DAA60 /* ExtensionDelegate.swift */; };
 		42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F192499C08C001DAA60 /* NotificationController.swift */; };
 		42443F1C2499C08E001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443F1B2499C08E001DAA60 /* Assets.xcassets */; };
 		42443F212499C08E001DAA60 /* Hydrate-WatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 42443F042499C08A001DAA60 /* Hydrate-WatchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E054DAB4249A0EC10096E8D5 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,12 +77,12 @@
 		42443F092499C08C001DAA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42443F0B2499C08C001DAA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42443F102499C08C001DAA60 /* Hydrate-WatchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Hydrate-WatchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		42443F152499C08C001DAA60 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		42443F172499C08C001DAA60 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		42443F192499C08C001DAA60 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		42443F1B2499C08E001DAA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42443F1D2499C08E001DAA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,12 +149,12 @@
 		42443F142499C08C001DAA60 /* Hydrate-WatchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
-				42443F152499C08C001DAA60 /* InterfaceController.swift */,
 				42443F172499C08C001DAA60 /* ExtensionDelegate.swift */,
 				42443F192499C08C001DAA60 /* NotificationController.swift */,
 				42443F1B2499C08E001DAA60 /* Assets.xcassets */,
 				42443F1D2499C08E001DAA60 /* Info.plist */,
 				42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */,
+				E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */,
 			);
 			path = "Hydrate-WatchOS Extension";
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 			files = (
 				42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */,
 				42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */,
-				42443F162499C08C001DAA60 /* InterfaceController.swift in Sources */,
+				E054DAB4249A0EC10096E8D5 /* MainInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
