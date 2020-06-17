@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
         button.contentHorizontalAlignment = .left
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 0.0, right: 0.0);
+        button.addTarget(self, action: #selector(handleShowHistoryTapped), for: .touchUpInside)
         return button
     }()
     
@@ -34,6 +35,7 @@ class MainViewController: UIViewController {
         button.contentHorizontalAlignment = .right
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 20.0);
+        button.addTarget(self, action: #selector(handleShowSettingsTapped), for: .touchUpInside)
         return button
     }()
 
@@ -80,6 +82,18 @@ class MainViewController: UIViewController {
             topControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             topControlsStackView.heightAnchor.constraint(equalToConstant: 60)
         ])
+    }
+    
+    @objc fileprivate func handleShowHistoryTapped() {
+        let hvc = HistoryTableViewController()
+        hvc.modalTransitionStyle = .flipHorizontal
+        present(hvc, animated: true, completion: nil)
+    }
+    
+    @objc fileprivate func handleShowSettingsTapped() {
+        let svc = SettingsTableViewController()
+        svc.modalTransitionStyle = .flipHorizontal
+        present(svc, animated: true, completion: nil)
     }
 
 
