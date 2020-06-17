@@ -75,7 +75,7 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                        <label alignment="left" text="Drink Some Water (Label)" numberOfLines="0" id="IdU-wH-bcW"/>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
@@ -97,7 +97,12 @@
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Hydrate_WatchOS" customModuleProvider="target"/>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Hydrate_WatchOS" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="left" title="1 Glass" id="FFv-D5-chH"/>
+                        <button width="1" alignment="left" title="1/2 Glass" id="YSf-j3-NQq"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
