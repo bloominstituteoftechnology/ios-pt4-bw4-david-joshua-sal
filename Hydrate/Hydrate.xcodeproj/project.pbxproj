@@ -25,6 +25,7 @@
 		42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */; };
 		42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F55249AF6F1001DAA60 /* PopupView.swift */; };
 		42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F57249AF70B001DAA60 /* CustomTextField.swift */; };
+		42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC5249B9946001DAA60 /* WaveAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		42443F55249AF6F1001DAA60 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		42443F57249AF70B001DAA60 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		42443FC5249B9946001DAA60 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				42443F55249AF6F1001DAA60 /* PopupView.swift */,
+				42443FC5249B9946001DAA60 /* WaveAnimationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */,
 				42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */,
 				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
 				42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */,
