@@ -106,14 +106,25 @@
             </objects>
             <point key="canvasLocation" x="-272" y="189"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Custom Picker Interface Controller-->
         <scene sceneID="5NV-vS-esp">
             <objects>
-                <controller id="mhp-tk-jVD">
+                <controller id="mhp-tk-jVD" customClass="CustomPickerInterfaceController" customModule="Hydrate_WatchOS_Extension">
                     <items>
-                        <picker height="100" alignment="left" id="HEj-7t-Wyx"/>
-                        <button width="1" alignment="left" title="Save" id="dTM-Lq-Sra"/>
+                        <picker height="100" alignment="left" id="HEj-7t-Wyx">
+                            <connections>
+                                <action selector="pickerValuesChanged:" destination="mhp-tk-jVD" id="DbK-uu-vme"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" title="Save" id="dTM-Lq-Sra">
+                            <connections>
+                                <action selector="saveBtnWasPressed" destination="mhp-tk-jVD" id="iS4-0L-piN"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="customPicker" destination="HEj-7t-Wyx" id="10S-fU-gwx"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="88" y="204"/>

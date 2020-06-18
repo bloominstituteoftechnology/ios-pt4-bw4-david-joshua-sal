@@ -8,9 +8,15 @@
 
 import WatchKit
 import Foundation
+import HealthKit
 
 
 class CustomPickerInterfaceController: WKInterfaceController {
+    
+    
+    //MARK: Outlets
+    @IBOutlet weak var customPicker: WKInterfacePicker!
+    
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -27,5 +33,18 @@ class CustomPickerInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
+    
+    //MARK: Actions
+    
+    @IBAction func saveBtnWasPressed() {
+       //TODO save to healthkit DataStore
+        self.dismiss()
+        
+    }
+    
+    @IBAction func pickerValuesChanged(_ value: Int) {
+    }
+    
+    
 }

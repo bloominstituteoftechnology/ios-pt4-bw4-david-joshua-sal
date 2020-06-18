@@ -34,5 +34,11 @@
 	</dict>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
+	<key>WKRunsIndependentlyOfCompanionApp</key>
+	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>$(PRODUCT_NAME) Needs to Access HealthKit to Track Water Intake</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>$(PRODUCT_NAME) Needs to Access HealthKit to Track Water Intake</string>
 </dict>
 </plist>
