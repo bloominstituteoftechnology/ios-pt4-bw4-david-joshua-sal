@@ -26,6 +26,7 @@
 		42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F55249AF6F1001DAA60 /* PopupView.swift */; };
 		42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F57249AF70B001DAA60 /* CustomTextField.swift */; };
 		42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC5249B9946001DAA60 /* WaveAnimationView.swift */; };
+		42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		42443F55249AF6F1001DAA60 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		42443F57249AF70B001DAA60 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		42443FC5249B9946001DAA60 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
+		42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			children = (
 				42443F57249AF70B001DAA60 /* CustomTextField.swift */,
 				42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */,
+				42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
 				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
+				42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
