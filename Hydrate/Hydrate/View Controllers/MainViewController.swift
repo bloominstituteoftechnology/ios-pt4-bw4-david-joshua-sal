@@ -114,14 +114,39 @@ class MainViewController: UIViewController {
         print("Normal tap")
     }
     
+    /// Sets up the begin state of view animations when using UILongPressGestureRecognizer
+    /// - Parameter sender: UILongPressGestureRecognizer
+    fileprivate func handleGestureBegan(sender: UILongPressGestureRecognizer) {
+        addWaterIntakeButton.isHighlighted = true
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+
+    }
+
+    /// Sets up the changed state of view animations when using UILongPressGestureRecognizer
+    /// - Parameter sender: UILongPressGestureRecognizer
+    fileprivate func handleGestureChanged(sender: UILongPressGestureRecognizer) {
+
+    }
+    
+    /// Sets up the changed state of view animations when using UILongPressGestureRecognizer
+    /// - Parameter sender: UILongPressGestureRecognizer
+    fileprivate func handleGestureEnded(sender: UILongPressGestureRecognizer) {
+        let pop = Popup()
+        self.view.addSubview(pop)
+    }
+    
     @objc func handleLongPress(sender : UILongPressGestureRecognizer){
         if sender.state == .ended {
             print("\(sender.state): ended")
+            handleGestureEnded(sender: sender)
         } else if sender.state == .began {
             print("\(sender.state): began")
+            handleGestureBegan(sender: sender)
         } else if sender.state == .changed {
             // Gets called if gesture state changes (i.e. moving finger/mouse)
             print("\(sender.state): is changing")
+            handleGestureChanged(sender: sender)
         }
     }
 }
