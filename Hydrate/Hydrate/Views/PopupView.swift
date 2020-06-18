@@ -14,8 +14,8 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     fileprivate let inputTextField: CustomTextField = {
        let textField = CustomTextField()
         textField.placeholder = "0.5"
-        textField.backgroundColor = UIColor(named: "UndeadWhite")
-        textField.textColor = UIColor(named: "RavenclawBlue")
+        textField.backgroundColor = UIColor.undeadWhite
+        textField.textColor = UIColor.sicklySmurfBlue
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 8
         return textField
@@ -24,7 +24,7 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     fileprivate let cupLabel: UILabel = {
        let label = UILabel()
         label.text = "cup(s)"
-        label.textColor = UIColor(named: "SicklySmurfBlue")
+        label.textColor = UIColor.sicklySmurfBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -38,8 +38,8 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     fileprivate let addOneCupButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("+1 cup", for: .normal )
-        button.setTitleColor(UIColor(named: "RavenclawBlue"), for: .normal)
-        button.backgroundColor = UIColor(named: "UndeadWhite")
+        button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
+        button.backgroundColor = UIColor.undeadWhite
         button.layer.cornerRadius = 8
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height:4)
@@ -52,8 +52,8 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     fileprivate let addTwoCupsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitleColor(UIColor(named: "RavenclawBlue"), for: .normal)
-        button.backgroundColor = UIColor(named: "UndeadWhite")
+        button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
+        button.backgroundColor = UIColor.undeadWhite
         button.setTitle("+2 cups", for: .normal)
         button.layer.cornerRadius = 8
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
@@ -68,8 +68,8 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     fileprivate let addFourCupsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("+4 cups", for: .normal)
-        button.setTitleColor(UIColor(named: "RavenclawBlue"), for: .normal)
-        button.backgroundColor = UIColor(named: "UndeadWhite")
+        button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
+        button.backgroundColor = UIColor.undeadWhite
         button.layer.cornerRadius = 8
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height:4)
@@ -182,7 +182,7 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         container.addSubview(picker)
         picker.delegate = self as UIPickerViewDelegate
         picker.dataSource = self as UIPickerViewDataSource
-        picker.setValue(UIColor(named: "MausoleumWhite"), forKeyPath: "textColor")
+        picker.setValue(UIColor.undeadWhite, forKeyPath: "textColor")
         picker.topAnchor.constraint(equalTo: bottomHorizontalStackView.bottomAnchor).isActive = true
         picker.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         picker.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
