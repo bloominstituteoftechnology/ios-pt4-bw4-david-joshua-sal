@@ -22,6 +22,7 @@
 		E0418865249B695C00CF73CE /* ProgressInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418864249B695C00CF73CE /* ProgressInterfaceController.swift */; };
 		E0418867249B787900CF73CE /* WaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418866249B787900CF73CE /* WaterModel.swift */; };
 		E0418868249B787900CF73CE /* WaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418866249B787900CF73CE /* WaterModel.swift */; };
+		E041886C249B7B6F00CF73CE /* AddWaterInputInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041886A249B7B6F00CF73CE /* AddWaterInputInterfaceController.swift */; };
 		E054DAB4249A0EC10096E8D5 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		E0418864249B695C00CF73CE /* ProgressInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressInterfaceController.swift; sourceTree = "<group>"; };
 		E0418866249B787900CF73CE /* WaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterModel.swift; sourceTree = "<group>"; };
+		E041886A249B7B6F00CF73CE /* AddWaterInputInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterInputInterfaceController.swift; sourceTree = "<group>"; };
 		E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 				42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */,
 				E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */,
 				E0418864249B695C00CF73CE /* ProgressInterfaceController.swift */,
+				E041886A249B7B6F00CF73CE /* AddWaterInputInterfaceController.swift */,
 			);
 			path = "Hydrate-WatchOS Extension";
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E041886C249B7B6F00CF73CE /* AddWaterInputInterfaceController.swift in Sources */,
 				42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */,
 				42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */,
 				E0418865249B695C00CF73CE /* ProgressInterfaceController.swift in Sources */,

@@ -33,23 +33,38 @@
                         </group>
                         <button width="1" alignment="left" title="ADD DRINK" id="WJc-iB-IhZ">
                             <connections>
+                                <action selector="addDrinkBtnWasPressed" destination="AgC-eL-Hgc" id="ppu-nZ-iIL"/>
                                 <segue destination="izB-VQ-LaK" kind="push" id="mbt-Hc-kf7"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="lastDrinkTimeLbl" destination="dW1-3g-LlP" id="KTh-0r-Oki"/>
+                        <outlet property="remainingWaterIntakeLbl" destination="JGO-yA-ynA" id="byu-mr-cxa"/>
+                        <outlet property="waterDrankTodayLbl" destination="TMq-qc-yvM" id="muF-kn-BcP"/>
+                        <outlet property="waterDrankTodayPercentageLbl" destination="zkg-ah-G04" id="dZv-LI-gyz"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-245" y="-194"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Add Water Input Interface Controller-->
         <scene sceneID="x8b-mt-Fbk">
             <objects>
-                <controller id="izB-VQ-LaK">
+                <controller id="izB-VQ-LaK" customClass="AddWaterInputInterfaceController" customModule="Hydrate_WatchOS_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="wV2-2F-1ut">
                             <items>
-                                <button width="1" alignment="left" title="+ 1 Cup" id="4cm-ij-eaC"/>
-                                <button width="1" alignment="left" title="+ 2 Cup" id="JaJ-RT-N4N"/>
+                                <button width="1" alignment="left" title="+ 1 Cup" id="4cm-ij-eaC">
+                                    <connections>
+                                        <action selector="oneCupBtnPressed" destination="izB-VQ-LaK" id="Ywh-uA-TJ0"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="+ 2 Cup" id="JaJ-RT-N4N">
+                                    <connections>
+                                        <action selector="twoCupBtnPressed" destination="izB-VQ-LaK" id="3db-09-uMT"/>
+                                    </connections>
+                                </button>
                                 <button width="1" alignment="left" title="CUSTOM" id="8Oa-UD-sDk">
                                     <connections>
                                         <segue destination="mhp-tk-jVD" kind="push" id="t6i-dp-Dxc"/>
@@ -58,6 +73,10 @@
                             </items>
                         </group>
                     </items>
+                    <connections>
+                        <outlet property="singleCupButton" destination="4cm-ij-eaC" id="10m-Xs-BBa"/>
+                        <outlet property="twoCupButton" destination="JaJ-RT-N4N" id="4KI-bK-097"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="115" y="-205"/>
