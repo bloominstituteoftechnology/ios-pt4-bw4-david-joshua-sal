@@ -26,6 +26,8 @@
 		E041886F249B7E6900CF73CE /* CustomPickerInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041886E249B7E6900CF73CE /* CustomPickerInterfaceController.swift */; };
 		E0418871249B80F300CF73CE /* HealthKitSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418870249B80F300CF73CE /* HealthKitSetupHelper.swift */; };
 		E0418872249B80F300CF73CE /* HealthKitSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418870249B80F300CF73CE /* HealthKitSetupHelper.swift */; };
+		E0418874249B83F500CF73CE /* HealthKitWaterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418873249B83F500CF73CE /* HealthKitWaterDataStore.swift */; };
+		E0418875249B83F500CF73CE /* HealthKitWaterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418873249B83F500CF73CE /* HealthKitWaterDataStore.swift */; };
 		E054DAB4249A0EC10096E8D5 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,7 @@
 		E041886A249B7B6F00CF73CE /* AddWaterInputInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterInputInterfaceController.swift; sourceTree = "<group>"; };
 		E041886E249B7E6900CF73CE /* CustomPickerInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerInterfaceController.swift; sourceTree = "<group>"; };
 		E0418870249B80F300CF73CE /* HealthKitSetupHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupHelper.swift; sourceTree = "<group>"; };
+		E0418873249B83F500CF73CE /* HealthKitWaterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitWaterDataStore.swift; sourceTree = "<group>"; };
 		E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				E0418870249B80F300CF73CE /* HealthKitSetupHelper.swift */,
+				E0418873249B83F500CF73CE /* HealthKitWaterDataStore.swift */,
 			);
 			path = "HealthKit Helpers";
 			sourceTree = "<group>";
@@ -327,6 +331,7 @@
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
 				E0418867249B787900CF73CE /* WaterModel.swift in Sources */,
+				E0418874249B83F500CF73CE /* HealthKitWaterDataStore.swift in Sources */,
 				E0418871249B80F300CF73CE /* HealthKitSetupHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E041886C249B7B6F00CF73CE /* AddWaterInputInterfaceController.swift in Sources */,
+				E0418875249B83F500CF73CE /* HealthKitWaterDataStore.swift in Sources */,
 				42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */,
 				42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */,
 				E0418865249B695C00CF73CE /* ProgressInterfaceController.swift in Sources */,
