@@ -11,6 +11,8 @@ import WatchKit
 
 class ProgressController: WKInterfaceController {
 
+    //MARK: Outlets
+    
     @IBOutlet var progressGroup: WKInterfaceGroup!
     @IBOutlet var picker: WKInterfacePicker!
     
@@ -34,4 +36,7 @@ class ProgressController: WKInterfaceController {
         picker.setItems(pickerItems)
     }
     
+    //MARK: Actions
+    @IBAction func addDrinkBtnWasPressed() {
+    }
 }

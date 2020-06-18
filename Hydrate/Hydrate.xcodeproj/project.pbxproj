@@ -20,6 +20,8 @@
 		42443F1C2499C08E001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443F1B2499C08E001DAA60 /* Assets.xcassets */; };
 		42443F212499C08E001DAA60 /* Hydrate-WatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 42443F042499C08A001DAA60 /* Hydrate-WatchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E0418865249B695C00CF73CE /* ProgressInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418864249B695C00CF73CE /* ProgressInterfaceController.swift */; };
+		E0418867249B787900CF73CE /* WaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418866249B787900CF73CE /* WaterModel.swift */; };
+		E0418868249B787900CF73CE /* WaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418866249B787900CF73CE /* WaterModel.swift */; };
 		E054DAB4249A0EC10096E8D5 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,7 @@
 		42443F1D2499C08E001DAA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		E0418864249B695C00CF73CE /* ProgressInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressInterfaceController.swift; sourceTree = "<group>"; };
+		E0418866249B787900CF73CE /* WaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterModel.swift; sourceTree = "<group>"; };
 		E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +131,7 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				E0418869249B78A400CF73CE /* WatchOSModel */,
 				E0418863249B5EC700CF73CE /* HealthKit Helpers */,
 				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
 				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
@@ -168,6 +172,14 @@
 			children = (
 			);
 			path = "HealthKit Helpers";
+			sourceTree = "<group>";
+		};
+		E0418869249B78A400CF73CE /* WatchOSModel */ = {
+			isa = PBXGroup;
+			children = (
+				E0418866249B787900CF73CE /* WaterModel.swift */,
+			);
+			path = WatchOSModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +316,7 @@
 				42443EF32499A774001DAA60 /* ViewController.swift in Sources */,
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
+				E0418867249B787900CF73CE /* WaterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +327,7 @@
 				42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */,
 				42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */,
 				E0418865249B695C00CF73CE /* ProgressInterfaceController.swift in Sources */,
+				E0418868249B787900CF73CE /* WaterModel.swift in Sources */,
 				E054DAB4249A0EC10096E8D5 /* MainInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

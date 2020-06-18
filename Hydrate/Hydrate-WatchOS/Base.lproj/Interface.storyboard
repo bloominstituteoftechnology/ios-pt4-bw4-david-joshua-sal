@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T5z-Yk-s3u">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -62,16 +62,22 @@
             </objects>
             <point key="canvasLocation" x="115" y="-205"/>
         </scene>
-        <!--V3-SimplePickerUpdate-->
+        <!--V3-GasTank-->
         <scene sceneID="LGL-8U-G3O">
             <objects>
-                <controller title="V3-SimplePickerUpdate" id="T5z-Yk-s3u" customClass="ProgressController" customModule="Hydrate_WatchOS_Extension">
+                <controller title="V3-GasTank" fullBounds="YES" id="T5z-Yk-s3u" customClass="ProgressController" customModule="Hydrate_WatchOS_Extension">
                     <items>
                         <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-0" contentMode="scaleAspectFill" id="ddQ-tn-0px">
                             <items>
                                 <picker width="1" height="30" alignment="left" verticalAlignment="center" alpha="0.59999999999999998" id="O7f-dE-EdD"/>
                             </items>
                         </group>
+                        <button width="1" alignment="center" verticalAlignment="center" title="ADD DRINK" id="znL-wG-xQs">
+                            <color key="backgroundColor" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addDrinkBtnWasPressed" destination="T5z-Yk-s3u" id="7Vs-WQ-8WO"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="picker" destination="O7f-dE-EdD" id="pht-hp-MUe"/>
