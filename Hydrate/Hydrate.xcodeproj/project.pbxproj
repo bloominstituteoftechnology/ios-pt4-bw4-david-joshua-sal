@@ -23,6 +23,7 @@
 		42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */; };
 		42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */; };
 		42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */; };
+		63157877249B2F8500379C8B /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63157875249B2F8500379C8B /* Hydrate.xcdatamodeld */; };
 		63BC9266249AF038004168BF /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC9265249AF038004168BF /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		63157876249B2F8500379C8B /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
 		63BC9265249AF038004168BF /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				63BC9265249AF038004168BF /* CoreDataStack.swift */,
+				63157875249B2F8500379C8B /* Hydrate.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */,
 				42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */,
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
+				63157877249B2F8500379C8B /* Hydrate.xcdatamodeld in Sources */,
 				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
 			);
@@ -655,6 +659,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63157875249B2F8500379C8B /* Hydrate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63157876249B2F8500379C8B /* Hydrate.xcdatamodel */,
+			);
+			currentVersion = 63157876249B2F8500379C8B /* Hydrate.xcdatamodel */;
+			path = Hydrate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 42443EE32499A774001DAA60 /* Project object */;
 }
