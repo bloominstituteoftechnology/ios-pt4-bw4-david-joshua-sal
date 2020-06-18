@@ -7,14 +7,30 @@
 //
 
 import UIKit
+import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
+    let healthKitStore = HKHealthStore()
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // add HealthKitSetup Helper to app startup
+        HealthKitSetupHelper().authorize { (authorized, error) in
+            guard authorized else {
+                let notAuthMessage = "Authorization to HealthKit Failed"
+                
+                if let error = error {
+                    print("\(notAuthMessage) Because: \(error.localizedDescription)")
+                } else {
+                    print(notAuthMessage)
+                }
+                return
+            }
+            print("HealthKit Authorization Successful")
+        }
         return true
     }
 
