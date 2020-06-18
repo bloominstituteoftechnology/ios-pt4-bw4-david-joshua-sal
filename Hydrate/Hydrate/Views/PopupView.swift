@@ -184,7 +184,7 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         container.addSubview(picker)
         picker.delegate = self as UIPickerViewDelegate
         picker.dataSource = self as UIPickerViewDataSource
-        picker.setValue(UIColor(named: "MausoleumWhite"), forKeyPath: "textColor")
+        picker.setValue(UIColor(named: "UndeadWhite"), forKeyPath: "textColor")
         picker.topAnchor.constraint(equalTo: bottomHorizontalStackView.bottomAnchor).isActive = true
         picker.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         picker.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
