@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EEE2499A774001DAA60 /* AppDelegate.swift */; };
 		42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF02499A774001DAA60 /* SceneDelegate.swift */; };
-		42443EF32499A774001DAA60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF22499A774001DAA60 /* ViewController.swift */; };
+		42443EF32499A774001DAA60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF22499A774001DAA60 /* MainViewController.swift */; };
 		42443EF82499A776001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443EF72499A776001DAA60 /* Assets.xcassets */; };
 		42443EFB2499A776001DAA60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42443EF92499A776001DAA60 /* LaunchScreen.storyboard */; };
 		42443F082499C08A001DAA60 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42443F062499C08A001DAA60 /* Interface.storyboard */; };
@@ -29,6 +29,11 @@
 		E0418874249B83F500CF73CE /* HealthKitWaterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418873249B83F500CF73CE /* HealthKitWaterDataStore.swift */; };
 		E0418875249B83F500CF73CE /* HealthKitWaterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0418873249B83F500CF73CE /* HealthKitWaterDataStore.swift */; };
 		E054DAB4249A0EC10096E8D5 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */; };
+		42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */; };
+		42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */; };
+		42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */; };
+		42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F55249AF6F1001DAA60 /* PopupView.swift */; };
+		42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F57249AF70B001DAA60 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +82,7 @@
 		42443EEB2499A774001DAA60 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42443EEE2499A774001DAA60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42443EF02499A774001DAA60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		42443EF22499A774001DAA60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		42443EF22499A774001DAA60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		42443EF72499A776001DAA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42443EFA2499A776001DAA60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42443EFC2499A776001DAA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +103,11 @@
 		E0418870249B80F300CF73CE /* HealthKitSetupHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupHelper.swift; sourceTree = "<group>"; };
 		E0418873249B83F500CF73CE /* HealthKitWaterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitWaterDataStore.swift; sourceTree = "<group>"; };
 		E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
+		42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		42443F55249AF6F1001DAA60 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		42443F57249AF70B001DAA60 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,9 +153,11 @@
 			children = (
 				E0418869249B78A400CF73CE /* WatchOSModel */,
 				E0418863249B5EC700CF73CE /* HealthKit Helpers */,
+				42443F54249AF6E1001DAA60 /* Views */,
+				42443F2B249A2B0A001DAA60 /* Extensions */,
 				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
 				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
-				42443EF22499A774001DAA60 /* ViewController.swift */,
+				42443F2A249A2B00001DAA60 /* View Controllers */,
 				42443EF72499A776001DAA60 /* Assets.xcassets */,
 				42443EF92499A776001DAA60 /* LaunchScreen.storyboard */,
 				42443EFC2499A776001DAA60 /* Info.plist */,
@@ -194,6 +206,31 @@
 				E0418866249B787900CF73CE /* WaterModel.swift */,
 			);
 			path = WatchOSModel;
+		42443F2A249A2B00001DAA60 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42443EF22499A774001DAA60 /* MainViewController.swift */,
+				42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */,
+				42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		42443F2B249A2B0A001DAA60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				42443F57249AF70B001DAA60 /* CustomTextField.swift */,
+				42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		42443F54249AF6E1001DAA60 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42443F55249AF6F1001DAA60 /* PopupView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,8 +364,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42443EF32499A774001DAA60 /* ViewController.swift in Sources */,
+				42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */,
+				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
+				42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */,
+				42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */,
+				42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */,
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
+				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
 				E0418867249B787900CF73CE /* WaterModel.swift in Sources */,
 				E0418874249B83F500CF73CE /* HealthKitWaterDataStore.swift in Sources */,
