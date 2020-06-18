@@ -41,6 +41,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTapGestures()
         setupViews()
     }
     
@@ -48,8 +49,21 @@ class MainViewController: UIViewController {
         return .lightContent
     }
     
-    
     //MARK: - Private
+    
+    /// Sets up long and short press tap gestures. Change default by using `numberofTapsRequired`.
+    /// Change default duration by using `minimumPressDuration`
+    fileprivate func setupTapGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleNormalPress))
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        addWaterIntakeButton.addGestureRecognizer(tapGesture)
+        addWaterIntakeButton.addGestureRecognizer(longGesture)
+        
+        // UILongPressGestureRecognizer by default cancels touches in the hierarchy once recognized
+        // The touch event on the UIButton is canceled and then becomes unhighlighted
+        // set cancelsTouchesInView to false to change default behaviour
+        longGesture.cancelsTouchesInView = false
+    }
     
     /// Sets up programmatic views for view controller
     fileprivate func setupViews() {
@@ -61,7 +75,6 @@ class MainViewController: UIViewController {
                                     trailing: view.trailingAnchor,
                                     padding: .init(top: 0, left: 0, bottom: 20, right: 0))
         setupTopControls()
-        
     }
     
     /// Sets up top stackView
@@ -84,6 +97,7 @@ class MainViewController: UIViewController {
         ])
     }
     
+    //MARK: -  UIButton Methods
     @objc fileprivate func handleShowHistoryTapped() {
         let hvc = HistoryTableViewController()
         hvc.modalTransitionStyle = .flipHorizontal
@@ -95,7 +109,44 @@ class MainViewController: UIViewController {
         svc.modalTransitionStyle = .flipHorizontal
         present(svc, animated: true, completion: nil)
     }
+    
+    @objc func handleNormalPress(){
+        print("Normal tap")
+    }
+    
+    /// Sets up the begin state of view animations when using UILongPressGestureRecognizer
+    /// - Parameter sender: UILongPressGestureRecognizer
+    fileprivate func handleGestureBegan(sender: UILongPressGestureRecognizer) {
+        addWaterIntakeButton.isHighlighted = true
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
 
+    }
 
+    /// Sets up the changed state of view animations when using UILongPressGestureRecognizer
+    /// - Parameter sender: UILongPressGestureRecognizer
+    fileprivate func handleGestureChanged(sender: UILongPressGestureRecognizer) {
+
+    }
+    
+    /// Sets up the changed state of view animations when using UILongPressGestureRecognizer
+    /// - Parameter sender: UILongPressGestureRecognizer
+    fileprivate func handleGestureEnded(sender: UILongPressGestureRecognizer) {
+        let pop = Popup()
+        self.view.addSubview(pop)
+    }
+    
+    @objc func handleLongPress(sender : UILongPressGestureRecognizer){
+        if sender.state == .ended {
+            print("\(sender.state): ended")
+            handleGestureEnded(sender: sender)
+        } else if sender.state == .began {
+            print("\(sender.state): began")
+            handleGestureBegan(sender: sender)
+        } else if sender.state == .changed {
+            // Gets called if gesture state changes (i.e. moving finger/mouse)
+            print("\(sender.state): is changing")
+            handleGestureChanged(sender: sender)
+        }
+    }
 }
-
