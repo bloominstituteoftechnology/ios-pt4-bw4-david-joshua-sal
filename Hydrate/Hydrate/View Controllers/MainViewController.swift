@@ -10,6 +10,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    //Properties
+    var wave: WaveAnimationView!
+    // sets the current waterLevel for the wave animation. Values are 0.0...1.0.
+    var waterLevel: Float = 0.7
+    
     //MARK: - UI Components
     let addWaterIntakeButton: UIButton = {
         let button = UIButton()
@@ -20,7 +25,7 @@ class MainViewController: UIViewController {
     let showHistoryButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "calendar-button"), for: .normal)
-        button.tintColor = UIColor(named: "MausoleumWhite")
+        button.tintColor = UIColor(named: "UndeadmWhite")
         button.contentHorizontalAlignment = .left
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 0.0, right: 0.0);
@@ -31,7 +36,7 @@ class MainViewController: UIViewController {
     let showSettingsButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "settings-button"), for: .normal)
-        button.tintColor = UIColor(named: "MausoleumWhite")
+        button.tintColor = UIColor(named: "UndeadmWhite")
         button.contentHorizontalAlignment = .right
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 20.0);
@@ -41,8 +46,23 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        wave = WaveAnimationView(frame: CGRect(origin: .zero, size: view.bounds.size),
+                                 color: UIColor.sicklySmurfBlue.withAlphaComponent(0.5))
+        view.addSubview(wave)
+        wave.startAnimation()
+        wave.setProgress(waterLevel)
+        print(waterLevel)
+        print(wave.bounds.size.height)
+        
         setupTapGestures()
         setupViews()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        wave.stopAnimation()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -148,5 +168,33 @@ class MainViewController: UIViewController {
             print("\(sender.state): is changing")
             handleGestureChanged(sender: sender)
         }
+    }
+}
+
+extension UIColor {
+    
+    // Setup custom colours we can use throughout the app using hex values
+    static let undeadWhite = UIColor(hex: 0xd8d8d8)
+    static let sicklySmurfBlue = UIColor(hex: 0x4b8a9c)
+    static let ravenClawBlue = UIColor(hex: 0x363e56)
+    
+    // Create a UIColor from RGB
+    convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
+        self.init(
+            red: CGFloat(red) / 255.0,
+            green: CGFloat(green) / 255.0,
+            blue: CGFloat(blue) / 255.0,
+            alpha: a
+        )
+    }
+    
+    // Create a UIColor from a hex value (E.g 0x000000)
+    convenience init(hex: Int, a: CGFloat = 1.0) {
+        self.init(
+            red: (hex >> 16) & 0xFF,
+            green: (hex >> 8) & 0xFF,
+            blue: hex & 0xFF,
+            a: a
+        )
     }
 }
