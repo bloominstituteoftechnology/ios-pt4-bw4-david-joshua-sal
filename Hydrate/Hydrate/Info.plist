@@ -56,5 +56,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>$(PRODUCT_NAME) Needs to Access HealthKit to Track Water Intake</string>
+	<key>NSHomeKitUsageDescription</key>
+	<string>$(PRODUCT_NAME) Needs to Access HealthKit to Track Water Intake</string>
 </dict>
 </plist>
