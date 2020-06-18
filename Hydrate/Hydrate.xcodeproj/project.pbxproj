@@ -23,6 +23,7 @@
 		42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */; };
 		42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */; };
 		42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */; };
+		63BC9266249AF038004168BF /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC9265249AF038004168BF /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		42443F30249A2CDC001DAA60 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		63BC9265249AF038004168BF /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				63BC9264249AEF0D004168BF /* Model */,
 				42443F2B249A2B0A001DAA60 /* Extensions */,
 				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
 				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
@@ -182,6 +185,14 @@
 				42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		63BC9264249AEF0D004168BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63BC9265249AF038004168BF /* CoreDataStack.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BC9266249AF038004168BF /* CoreDataStack.swift in Sources */,
 				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
 				42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */,
 				42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */,
