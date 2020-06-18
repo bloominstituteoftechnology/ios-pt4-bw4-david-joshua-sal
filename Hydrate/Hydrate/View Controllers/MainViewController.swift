@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     //Properties
     var wave: WaveAnimationView!
     // sets the current waterLevel for the wave animation. Values are 0.0...1.0.
-    var waterLevel: Float = 0.7
+    var waterLevel: Float = 0.8
     
     //MARK: - UI Components
     let addWaterIntakeButton: UIButton = {
@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     let showHistoryButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "calendar-button"), for: .normal)
-        button.tintColor = UIColor(named: "UndeadmWhite")
+        button.tintColor = UIColor.undeadWhite
         button.contentHorizontalAlignment = .left
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 0.0, right: 0.0);
@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     let showSettingsButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "settings-button"), for: .normal)
-        button.tintColor = UIColor(named: "UndeadmWhite")
+        button.tintColor = UIColor.undeadWhite
         button.contentHorizontalAlignment = .right
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 20.0);
@@ -87,7 +87,7 @@ class MainViewController: UIViewController {
     
     /// Sets up programmatic views for view controller
     fileprivate func setupViews() {
-        view.backgroundColor = UIColor(named: "RavenclawBlue")
+        view.backgroundColor = UIColor.ravenClawBlue
         view.addSubview(addWaterIntakeButton)
         addWaterIntakeButton.anchor(top: nil,
                                     leading: view.leadingAnchor,
