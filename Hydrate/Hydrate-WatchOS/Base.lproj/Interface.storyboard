@@ -15,24 +15,63 @@
                             <color key="textColor" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" type="system" weight="medium" pointSize="17"/>
                         </label>
-                        <group width="1" alignment="left" id="NDn-ed-5hD">
+                        <group alignment="center" id="NDn-ed-5hD">
                             <items>
-                                <activity width="50" height="50" alignment="left" id="PIP-3O-1LH"/>
-                                <label alignment="left" verticalAlignment="center" text="~ 75%" id="TMq-qc-yvM">
-                                    <fontDescription key="font" type="system" pointSize="30"/>
+                                <label alignment="left" verticalAlignment="center" text="650 ml" id="TMq-qc-yvM">
+                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                </label>
+                                <label alignment="left" verticalAlignment="center" text="~ 75%" id="zkg-ah-G04">
+                                    <fontDescription key="font" type="system" pointSize="20"/>
                                 </label>
                             </items>
                         </group>
                         <group width="1" alignment="left" id="gG4-Su-CF7">
                             <items>
-                                <label alignment="left" verticalAlignment="center" text="Remaining: 3 Cups" textAlignment="center" minimumScaleFactor="0.90000000000000002" id="JGO-yA-ynA"/>
+                                <label alignment="left" verticalAlignment="center" text="Remaining: 1300 ml" textAlignment="center" minimumScaleFactor="0.90000000000000002" id="JGO-yA-ynA"/>
                             </items>
                         </group>
-                        <button width="1" alignment="left" title="ADD DRINK" id="WJc-iB-IhZ"/>
+                        <button width="1" alignment="left" title="ADD DRINK" id="WJc-iB-IhZ">
+                            <connections>
+                                <segue destination="izB-VQ-LaK" kind="push" id="mbt-Hc-kf7"/>
+                            </connections>
+                        </button>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="104" y="-13"/>
+            <point key="canvasLocation" x="-299" y="-125"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="x8b-mt-Fbk">
+            <objects>
+                <controller id="izB-VQ-LaK">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="wV2-2F-1ut">
+                            <items>
+                                <button width="1" alignment="left" title="+ 1 Cup" id="4cm-ij-eaC"/>
+                                <button width="1" alignment="left" title="+ 2 Cup" id="JaJ-RT-N4N"/>
+                                <button width="1" alignment="left" title="CUSTOM" id="8Oa-UD-sDk">
+                                    <connections>
+                                        <segue destination="mhp-tk-jVD" kind="push" id="t6i-dp-Dxc"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-125"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="5NV-vS-esp">
+            <objects>
+                <controller id="mhp-tk-jVD">
+                    <items>
+                        <picker height="100" alignment="left" id="HEj-7t-Wyx"/>
+                        <button width="1" alignment="left" title="Save" id="dTM-Lq-Sra"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-219" y="286"/>
         </scene>
         <!--V2-->
         <scene sceneID="hQU-I6-kXU">
@@ -68,7 +107,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="452" y="-5"/>
+            <point key="canvasLocation" x="422" y="-75"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
