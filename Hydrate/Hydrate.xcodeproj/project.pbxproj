@@ -126,6 +126,7 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				E0418863249B5EC700CF73CE /* HealthKit Helpers */,
 				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
 				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
 				42443EF22499A774001DAA60 /* ViewController.swift */,
@@ -157,6 +158,13 @@
 				E054DAB3249A0EC10096E8D5 /* MainInterfaceController.swift */,
 			);
 			path = "Hydrate-WatchOS Extension";
+			sourceTree = "<group>";
+		};
+		E0418863249B5EC700CF73CE /* HealthKit Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "HealthKit Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
