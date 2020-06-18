@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T5z-Yk-s3u">
     <device id="watch38"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -25,9 +25,10 @@
                                 </label>
                             </items>
                         </group>
-                        <group width="1" alignment="left" id="gG4-Su-CF7">
+                        <group width="1" alignment="left" layout="vertical" id="gG4-Su-CF7">
                             <items>
                                 <label alignment="left" verticalAlignment="center" text="Remaining: 1300 ml" textAlignment="center" minimumScaleFactor="0.90000000000000002" id="JGO-yA-ynA"/>
+                                <label alignment="left" verticalAlignment="center" text="Last Drink: 2:45PM" textAlignment="center" minimumScaleFactor="0.90000000000000002" id="dW1-3g-LlP"/>
                             </items>
                         </group>
                         <button width="1" alignment="left" title="ADD DRINK" id="WJc-iB-IhZ">
@@ -38,7 +39,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-299" y="-125"/>
+            <point key="canvasLocation" x="-245" y="-194"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="x8b-mt-Fbk">
@@ -59,7 +60,26 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="0.0" y="-125"/>
+            <point key="canvasLocation" x="115" y="-205"/>
+        </scene>
+        <!--V3-SimplePickerUpdate-->
+        <scene sceneID="LGL-8U-G3O">
+            <objects>
+                <controller title="V3-SimplePickerUpdate" id="T5z-Yk-s3u" customClass="ProgressController" customModule="Hydrate_WatchOS_Extension">
+                    <items>
+                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-0" contentMode="scaleAspectFill" id="ddQ-tn-0px">
+                            <items>
+                                <picker width="1" height="30" alignment="left" verticalAlignment="center" alpha="0.59999999999999998" id="O7f-dE-EdD"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="picker" destination="O7f-dE-EdD" id="pht-hp-MUe"/>
+                        <outlet property="progressGroup" destination="ddQ-tn-0px" id="yaW-eb-avG"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-272" y="189"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="5NV-vS-esp">
@@ -71,7 +91,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-219" y="286"/>
+            <point key="canvasLocation" x="88" y="204"/>
         </scene>
         <!--V2-->
         <scene sceneID="hQU-I6-kXU">
@@ -147,4 +167,7 @@
         </scene>
     </scenes>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <resources>
+        <image name="activity-0" width="280" height="280"/>
+    </resources>
 </document>
