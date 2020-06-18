@@ -90,8 +90,6 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         return button
     }()
     
-    
-    
     fileprivate let picker: UIPickerView = {
         let picker = UIPickerView()
         picker.translatesAutoresizingMaskIntoConstraints = false
@@ -184,7 +182,7 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         container.addSubview(picker)
         picker.delegate = self as UIPickerViewDelegate
         picker.dataSource = self as UIPickerViewDataSource
-        picker.setValue(UIColor(named: "UndeadWhite"), forKeyPath: "textColor")
+        picker.setValue(UIColor(named: "MausoleumWhite"), forKeyPath: "textColor")
         picker.topAnchor.constraint(equalTo: bottomHorizontalStackView.bottomAnchor).isActive = true
         picker.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         picker.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
@@ -222,6 +220,8 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
 
         }) { (complete) in
             if complete {
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.impactOccurred()
                 self.removeFromSuperview()
             }
         }
