@@ -10,10 +10,17 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    //Properties
+    // MARK: - Properties
     var wave: WaveAnimationView!
+    
     // sets the current waterLevel for the wave animation. Values are 0.0...1.0.
-    var waterLevel: Float = 0.8
+    var waterLevel: Float {
+        let percentOfTargetReached = Float(intakeEntryController.totalIntakeAmount) / targetDailyIntake
+        return min(percentOfTargetReached, 1.0)
+    }
+    
+    var intakeEntryController = IntakeEntryController()
+    var targetDailyIntake: Float = 100.0
     
     //MARK: - UI Components
     let addWaterIntakeButton: UIButton = {
@@ -47,6 +54,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        intakeEntryController.loadIntakeEntries()
         
         wave = WaveAnimationView(frame: CGRect(origin: .zero, size: view.bounds.size),
                                  color: UIColor.sicklySmurfBlue.withAlphaComponent(0.5))
@@ -131,7 +139,13 @@ class MainViewController: UIViewController {
     }
     
     @objc func handleNormalPress(){
-        print("Normal tap")
+        intakeEntryController.addIntakeEntry(withIntakeAmount: 8)
+        print("Added 8 ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
+        updateViews()
+    }
+    
+    fileprivate func updateViews() {
+        wave.setProgress(waterLevel)
     }
     
     /// Sets up the begin state of view animations when using UILongPressGestureRecognizer
