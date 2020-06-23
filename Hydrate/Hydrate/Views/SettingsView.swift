@@ -64,10 +64,35 @@ struct SettingsView: View {
                     }.toggleStyle(ColoredToggleStyle())
                 }.listRowBackground(Color.init(UIColor.ravenClawBlue).opacity(0.9))
                     .foregroundColor(Color.init(UIColor.undeadWhite))
+                
+                //About Section
+                Section(header: Text("About")) {
+                    Button(action: {
+                        if let url = URL(string: "https://github.com/LambdaSchool/ios-pt4-bw4-david-joshua-sal/issues") {
+                            UIApplication.shared.open(url) }
+                    }) {
+                        Text("Report an issue")
+                    }
+                    Button(action: {
+                        if let url = URL(string: "https://google.com") { UIApplication.shared.open(url) }
+                    }) {
+                        Text("Rate the app")
+                    }
+                    NavigationLink(destination: SecondContentView()) {
+                        Text("About Us")
+                    }
+                }.listRowBackground(Color.init(UIColor.ravenClawBlue).opacity(0.9))
+                    .foregroundColor(Color.init(UIColor.undeadWhite))
             }
             .navigationBarTitle("Settings")
-
+            
         }
+    }
+}
+
+struct SecondContentView: View {
+    var body: some View {
+        Text("Coming Soon!")
     }
 }
 
