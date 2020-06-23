@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MainViewController: UIViewController {
     
@@ -133,9 +134,13 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func handleShowSettingsTapped() {
-        let svc = SettingsTableViewController()
-        svc.modalTransitionStyle = .flipHorizontal
-        present(svc, animated: true, completion: nil)
+//        let svc = SettingsTableViewController()
+//        svc.modalTransitionStyle = .flipHorizontal
+//        present(svc, animated: true, completion: nil)
+        let hostingController = UIHostingController(rootView: SettingsView())
+        self.present(hostingController, animated: true, completion: nil)
+  
+        
     }
     
     @objc func handleNormalPress(){
