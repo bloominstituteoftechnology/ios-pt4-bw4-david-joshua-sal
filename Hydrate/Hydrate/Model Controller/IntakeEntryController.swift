@@ -22,5 +22,25 @@ class IntakeEntryController {
     
     // MARK: - CRUD Methods
     
+    func loadIntakeEntries(for date: Date = Date()) {
+        self.intakeEntries = fetchIntakeEntries(for: date)
+    }
+    
+    func fetchIntakeEntries(for date: Date = Date()) -> [IntakeEntry] {
+        let fetchRequest: NSFetchRequest<IntakeEntry> = IntakeEntry.fetchRequest()
+        let datePredicate = NSPredicate(format: "(%K >= %@) AND (%K < %@)",
+                                        #keyPath(IntakeEntry.timestamp), date.startOfDay as NSDate,
+                                        #keyPath(IntakeEntry.timestamp), date.startOfNextDay as NSDate)
+        fetchRequest.predicate = datePredicate
+        
+        do {
+            let intakeEntries = try coreDataStack.mainContext.fetch(fetchRequest)
+            return intakeEntries
+        } catch let error as NSError {
+            print("Error fetching: \(error), \(error.userInfo)")
+            return []
+        }
+    }
+    
     
 }
