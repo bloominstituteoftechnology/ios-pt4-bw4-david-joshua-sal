@@ -55,7 +55,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        intakeEntryController.loadIntakeEntries()
+        intakeEntryController.fetchIntakeEntries()
         
         wave = WaveAnimationView(frame: CGRect(origin: .zero, size: view.bounds.size),
                                  color: UIColor.sicklySmurfBlue.withAlphaComponent(0.5))
