@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import CoreData
+
+extension IntakeEntry {
+    
+    @discardableResult
+    convenience init(intakeAmount: Int,
+                     timestamp: Date = Date(),
+                     identifier: UUID = UUID(),
+                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        
+        self.init(context: context)
+        self.intakeAmount = Int32(intakeAmount)
+        self.timestamp = timestamp
+        self.identifier = identifier
+    }
+}
