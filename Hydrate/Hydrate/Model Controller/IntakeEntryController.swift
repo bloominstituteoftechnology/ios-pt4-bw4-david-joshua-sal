@@ -42,5 +42,25 @@ class IntakeEntryController {
         }
     }
     
+    func addIntakeEntry(withIntakeAmount intakeAmount: Int) {
+        let intakeEntry = IntakeEntry(intakeAmount: intakeAmount)
+        
+        do {
+            try CoreDataStack.shared.saveContext()
+            intakeEntries.insert(intakeEntry, at: 0)
+        } catch {
+            print("Error adding intakeEntry: \(error)")
+        }
+    }
     
+    func deleteIntakeEntry(_ intakeEntry: IntakeEntry) {
+        let context = CoreDataStack.shared.mainContext
+        do {
+            context.delete(intakeEntry)
+            try context.save()
+            intakeEntries.removeAll(where: { $0 == intakeEntry })
+        } catch {
+            print("Error deleting intakeEntry: \(error)")
+        }
+    }
 }
