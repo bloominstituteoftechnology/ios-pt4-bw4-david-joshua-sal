@@ -10,6 +10,12 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
 
+    // MARK: - Properties
+    
+    var intakeEntryController: IntakeEntryController!
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
