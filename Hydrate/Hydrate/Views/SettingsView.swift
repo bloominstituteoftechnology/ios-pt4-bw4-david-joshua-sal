@@ -79,8 +79,8 @@ struct SettingsView_Previews: PreviewProvider {
 
 struct ColoredToggleStyle: ToggleStyle {
     var onColor = Color(UIColor.sicklySmurfBlue)
-    var offColor = Color(UIColor.systemGray5)
-    var thumbColor = Color.white
+    var offColor = Color(UIColor.ravenClawBlue)
+    var thumbColor = Color(UIColor.undeadWhite)
     
     func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
