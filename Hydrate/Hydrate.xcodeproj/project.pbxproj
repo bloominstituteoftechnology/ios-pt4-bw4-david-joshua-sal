@@ -27,6 +27,7 @@
 		42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F57249AF70B001DAA60 /* CustomTextField.swift */; };
 		42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC5249B9946001DAA60 /* WaveAnimationView.swift */; };
 		42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */; };
+		63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		42443F57249AF70B001DAA60 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		42443FC5249B9946001DAA60 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
 		42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
+		63F31FA624A1DD900096FE29 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,8 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				63F31FA424A1DD6A0096FE29 /* Model */,
+				63F31FA324A1DD3D0096FE29 /* Model Controller */,
 				42443F54249AF6E1001DAA60 /* Views */,
 				42443F2B249A2B0A001DAA60 /* Extensions */,
 				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
@@ -203,6 +207,22 @@
 			);
 			path = Views;
 			sourceTree = "<group>";
+		};
+		63F31FA324A1DD3D0096FE29 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		63F31FA424A1DD6A0096FE29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */,
+			);
+			name = Model;
+			path = Hydrate/Model;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -336,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */,
+				63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */,
 				42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */,
 				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
 				42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */,
@@ -665,6 +686,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63F31FA624A1DD900096FE29 /* Hydrate.xcdatamodel */,
+			);
+			currentVersion = 63F31FA624A1DD900096FE29 /* Hydrate.xcdatamodel */;
+			path = Hydrate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 42443EE32499A774001DAA60 /* Project object */;
 }

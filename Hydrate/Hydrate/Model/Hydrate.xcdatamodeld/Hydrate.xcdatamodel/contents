@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="IntakeEntry" representedClassName="IntakeEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="intakeAmount" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="IntakeEntry" positionX="-18" positionY="27" width="128" height="88"/>
+    </elements>
+</model>
