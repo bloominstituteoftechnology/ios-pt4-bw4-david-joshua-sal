@@ -28,6 +28,8 @@
 		42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC5249B9946001DAA60 /* WaveAnimationView.swift */; };
 		42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */; };
 		63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */; };
+		63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */; };
+		63F31FAB24A1DEF10096FE29 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		42443FC5249B9946001DAA60 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
 		42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		63F31FA624A1DD900096FE29 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
+		63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntakeEntry+Convenience.swift"; sourceTree = "<group>"; };
+		63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */,
+				63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */,
+				63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */,
 			);
 			name = Model;
 			path = Hydrate/Model;
@@ -361,10 +367,12 @@
 				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
 				42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */,
 				42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */,
+				63F31FAB24A1DEF10096FE29 /* CoreDataStack.swift in Sources */,
 				42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */,
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
 				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
+				63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */,
 				42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
