@@ -14,6 +14,10 @@ class IntakeEntryController {
     // MARK: - Public Properties
     
     var intakeEntries: [IntakeEntry] = []
+    // MARK: - Properties
+    
+    var intakeEntries: [IntakeEntry] = []
+    var coreDataStack = CoreDataStack.shared
     
     var totalIntakeAmount: Int {
         Int(intakeEntries.reduce(0) { $0 + $1.intakeAmount })
@@ -30,6 +34,13 @@ class IntakeEntryController {
     // MARK: - Public CRUD Methods
     
     func fetchIntakeEntries(for date: Date = Date()) {
+    // MARK: - CRUD Methods
+    
+    func loadIntakeEntries(for date: Date = Date()) {
+        self.intakeEntries = fetchIntakeEntries(for: date)
+    }
+    
+    func fetchIntakeEntries(for date: Date = Date()) -> [IntakeEntry] {
         let fetchRequest: NSFetchRequest<IntakeEntry> = IntakeEntry.fetchRequest()
         let datePredicate = NSPredicate(format: "(%K >= %@) AND (%K < %@)",
                                         #keyPath(IntakeEntry.timestamp), date.startOfDay as NSDate,
@@ -42,6 +53,10 @@ class IntakeEntryController {
         } catch let error as NSError {
             print("Error fetching: \(error), \(error.userInfo)")
             self.intakeEntries = []
+            return intakeEntries
+        } catch let error as NSError {
+            print("Error fetching: \(error), \(error.userInfo)")
+            return []
         }
     }
     
@@ -99,4 +114,5 @@ class IntakeEntryController {
         }
     }
     */
+
 }
