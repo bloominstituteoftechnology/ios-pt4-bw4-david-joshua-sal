@@ -33,6 +33,8 @@
 		63F31FAB24A1DEF10096FE29 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */; };
 		63F31FAD24A1E0130096FE29 /* IntakeEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FAC24A1E0130096FE29 /* IntakeEntryController.swift */; };
 		63F31FAF24A1E18A0096FE29 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FAE24A1E18A0096FE29 /* Extensions+Date.swift */; };
+		63F31FB124A279B80096FE29 /* DailyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FB024A279B80096FE29 /* DailyLog.swift */; };
+		63F31FB324A27D440096FE29 /* DailyLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FB224A27D440096FE29 /* DailyLogController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		63F31FAC24A1E0130096FE29 /* IntakeEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeEntryController.swift; sourceTree = "<group>"; };
 		63F31FAE24A1E18A0096FE29 /* Extensions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Date.swift"; sourceTree = "<group>"; };
+		63F31FB024A279B80096FE29 /* DailyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLog.swift; sourceTree = "<group>"; };
+		63F31FB224A27D440096FE29 /* DailyLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				63F31FAC24A1E0130096FE29 /* IntakeEntryController.swift */,
+				63F31FB224A27D440096FE29 /* DailyLogController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */,
 				63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */,
 				63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */,
+				63F31FB024A279B80096FE29 /* DailyLog.swift */,
 			);
 			name = Model;
 			path = Hydrate/Model;
@@ -374,6 +380,7 @@
 				63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */,
 				42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */,
 				63F31FAF24A1E18A0096FE29 /* Extensions+Date.swift in Sources */,
+				63F31FB324A27D440096FE29 /* DailyLogController.swift in Sources */,
 				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
 				42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */,
 				42443F31249A2CDC001DAA60 /* HistoryTableViewController.swift in Sources */,
@@ -385,6 +392,7 @@
 				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
 				63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */,
+				63F31FB124A279B80096FE29 /* DailyLog.swift in Sources */,
 				42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
