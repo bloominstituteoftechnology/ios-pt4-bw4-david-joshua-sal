@@ -22,4 +22,8 @@ extension IntakeEntry {
         self.timestamp = timestamp
         self.identifier = identifier
     }
+    
+    static func ==(lhs: IntakeEntry, rhs: IntakeEntry) -> Bool {
+        lhs.identifier == rhs.identifier
+    }
 }
