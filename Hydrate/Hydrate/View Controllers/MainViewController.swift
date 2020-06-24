@@ -127,7 +127,7 @@ class MainViewController: UIViewController {
     
     //MARK: -  UIButton Methods
     @objc fileprivate func handleShowHistoryTapped() {
-        let hvc = HistoryTableViewController()
+        let hvc = DailyLogTableViewController()
         hvc.modalTransitionStyle = .flipHorizontal
         present(hvc, animated: true, completion: nil)
     }
