@@ -31,6 +31,8 @@ struct SettingsView: View {
         
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.undeadWhite]
+        self.setNotification()
+
     }
     
     var body: some View {
@@ -96,6 +98,14 @@ struct SettingsView: View {
             .navigationBarTitle("Settings")
             
         }
+    }
+    
+    
+    func setNotification() -> Void {
+        let manager = LocalNotificationManager()
+        manager.requestPermission()
+        manager.addNotification(title: "This is a test reminder")
+        manager.scheduleNotifications()
     }
 }
 
