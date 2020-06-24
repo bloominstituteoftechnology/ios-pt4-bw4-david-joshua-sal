@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4213096824A3D14700370194 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4213096724A3D14700370194 /* UserSettings.swift */; };
+		4213096C24A3EE7E00370194 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4213096B24A3EE7E00370194 /* LocalNotificationManager.swift */; };
 		42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EEE2499A774001DAA60 /* AppDelegate.swift */; };
 		42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF02499A774001DAA60 /* SceneDelegate.swift */; };
 		42443EF32499A774001DAA60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF22499A774001DAA60 /* MainViewController.swift */; };
@@ -83,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		4213096724A3D14700370194 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserSettings.swift; path = ../../../../../UserSettings.swift; sourceTree = "<group>"; };
+		4213096A24A3EE7200370194 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		4213096B24A3EE7E00370194 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalNotificationManager.swift; path = ../../../../../../LocalNotificationManager.swift; sourceTree = "<group>"; };
 		42443EEB2499A774001DAA60 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42443EEE2499A774001DAA60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42443EF02499A774001DAA60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +140,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4213096924A3EE6700370194 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4213096A24A3EE7200370194 /* UserSettings.swift */,
+				4213096B24A3EE7E00370194 /* LocalNotificationManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		42443EE22499A774001DAA60 = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +237,7 @@
 		63F31FA424A1DD6A0096FE29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4213096924A3EE6700370194 /* Helpers */,
 				63F31FB024A279B80096FE29 /* DailyLog.swift */,
 				63F31FE024A310E90096FE29 /* Core Data */,
 				4213096724A3D14700370194 /* UserSettings.swift */,
@@ -406,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4213096C24A3EE7E00370194 /* LocalNotificationManager.swift in Sources */,
 				42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */,
 				63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */,
 				42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */,
