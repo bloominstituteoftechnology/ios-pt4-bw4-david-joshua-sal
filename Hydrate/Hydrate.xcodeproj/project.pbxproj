@@ -163,11 +163,7 @@
 				42443F54249AF6E1001DAA60 /* Views */,
 				63F31FDE24A30D2A0096FE29 /* Extensions */,
 				42443F2A249A2B00001DAA60 /* View Controllers */,
-				42443EF72499A776001DAA60 /* Assets.xcassets */,
-				42443EF92499A776001DAA60 /* LaunchScreen.storyboard */,
-				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
-				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
-				42443EFC2499A776001DAA60 /* Info.plist */,
+				63F31FDF24A30E380096FE29 /* Resources */,
 			);
 			path = Hydrate;
 			sourceTree = "<group>";
@@ -246,6 +242,18 @@
 				63F31FAE24A1E18A0096FE29 /* Extensions+Date.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63F31FDF24A30E380096FE29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				42443EF72499A776001DAA60 /* Assets.xcassets */,
+				42443EF92499A776001DAA60 /* LaunchScreen.storyboard */,
+				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
+				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
+				42443EFC2499A776001DAA60 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -566,7 +574,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2YCSRP8773;
-				INFOPLIST_FILE = Hydrate/Info.plist;
+				INFOPLIST_FILE = Hydrate/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -584,7 +592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2YCSRP8773;
-				INFOPLIST_FILE = Hydrate/Info.plist;
+				INFOPLIST_FILE = Hydrate/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
