@@ -100,5 +100,4 @@ class HistoryViewController: UIViewController {
                                                   bottom: containerView.bottomAnchor,
                                                   trailing: containerView.trailingAnchor)
     }
-    
 }
