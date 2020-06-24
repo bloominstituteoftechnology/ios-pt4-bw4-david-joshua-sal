@@ -31,8 +31,8 @@ struct SettingsView: View {
         
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.undeadWhite]
-        self.setNotification()
-
+//        self.setNotification()
+        
     }
     
     var body: some View {
@@ -43,6 +43,9 @@ struct SettingsView: View {
                 Section(header: Text("Notifcations")) {
                     Toggle(isOn: $userSettings.recieveNotifications) {
                         Text("Receive Notifications")
+                        if (userSettings.recieveNotifications) {
+                            Text("\(self.setNotification())")
+                        }
                     }
                     .toggleStyle(ColoredToggleStyle())
 //
@@ -98,15 +101,22 @@ struct SettingsView: View {
             .navigationBarTitle("Settings")
             
         }
+        
+
     }
     
     
-    func setNotification() -> Void {
+    
+    
+    func setNotification() -> String {
         let manager = LocalNotificationManager()
         manager.requestPermission()
         manager.addNotification(title: "This is a test reminder")
         manager.scheduleNotifications()
+        return ""
     }
+    
+
 }
 
 struct SecondContentView: View {
@@ -144,4 +154,5 @@ struct ColoredToggleStyle: ToggleStyle {
         }
         .font(.body)
     }
+
 }

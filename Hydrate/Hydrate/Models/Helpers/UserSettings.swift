@@ -44,6 +44,6 @@ class UserSettings: ObservableObject {
         self.enableHapticFeedback = UserDefaults.standard.objectIsForced(forKey: "isEnabledLocalNotifications") as? Bool ?? true
         
         self.addToHealthApp = UserDefaults.standard.objectIsForced(forKey: "isEnabledLocalNotifications") as? Bool ?? false
-        
     }
+
 }
