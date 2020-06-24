@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4213096824A3D14700370194 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4213096724A3D14700370194 /* UserSettings.swift */; };
 		42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EEE2499A774001DAA60 /* AppDelegate.swift */; };
 		42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF02499A774001DAA60 /* SceneDelegate.swift */; };
 		42443EF32499A774001DAA60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443EF22499A774001DAA60 /* MainViewController.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4213096724A3D14700370194 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserSettings.swift; path = ../../../../../UserSettings.swift; sourceTree = "<group>"; };
 		42443EEB2499A774001DAA60 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42443EEE2499A774001DAA60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42443EF02499A774001DAA60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				63F31FB024A279B80096FE29 /* DailyLog.swift */,
 				63F31FE024A310E90096FE29 /* Core Data */,
+				4213096724A3D14700370194 /* UserSettings.swift */,
 			);
 			name = Models;
 			path = Hydrate/Models;
@@ -416,6 +419,7 @@
 				63F31FDB24A307FB0096FE29 /* DailyLogTableViewController.swift in Sources */,
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
 				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
+				4213096824A3D14700370194 /* UserSettings.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
 				63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */,
 				63F31FD924A307CC0096FE29 /* HistoryViewController.swift in Sources */,
