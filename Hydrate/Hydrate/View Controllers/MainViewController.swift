@@ -62,8 +62,7 @@ class MainViewController: UIViewController {
         view.addSubview(wave)
         wave.startAnimation()
         wave.setProgress(waterLevel)
-        print(waterLevel)
-        print(wave.bounds.size.height)
+        print("The total water intake so far today is: \(intakeEntryController.totalIntakeAmount) ounces.")
         
         setupTapGestures()
         setupViews()
