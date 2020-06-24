@@ -283,6 +283,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		63F31FDF24A30E380096FE29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				42443EF72499A776001DAA60 /* Assets.xcassets */,
+				42443EF92499A776001DAA60 /* LaunchScreen.storyboard */,
+				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
+				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
+				42443EFC2499A776001DAA60 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
