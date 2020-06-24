@@ -195,9 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				42443EF22499A774001DAA60 /* MainViewController.swift */,
-				63F31FD824A307CC0096FE29 /* HistoryViewController.swift */,
-				63F31FDA24A307FB0096FE29 /* DailyLogTableViewController.swift */,
-				63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */,
+				63F31FE124A311570096FE29 /* History VCs */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -224,10 +222,8 @@
 		63F31FA424A1DD6A0096FE29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */,
-				63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */,
-				63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */,
 				63F31FB024A279B80096FE29 /* DailyLog.swift */,
+				63F31FE024A310E90096FE29 /* Core Data */,
 			);
 			name = Models;
 			path = Hydrate/Models;
@@ -254,6 +250,26 @@
 				42443EFC2499A776001DAA60 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		63F31FE024A310E90096FE29 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */,
+				63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */,
+				63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		63F31FE124A311570096FE29 /* History VCs */ = {
+			isa = PBXGroup;
+			children = (
+				63F31FD824A307CC0096FE29 /* HistoryViewController.swift */,
+				63F31FDA24A307FB0096FE29 /* DailyLogTableViewController.swift */,
+				63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */,
+			);
+			path = "History VCs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
