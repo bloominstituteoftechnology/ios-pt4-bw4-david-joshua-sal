@@ -205,6 +205,7 @@
 			children = (
 				42443F55249AF6F1001DAA60 /* PopupView.swift */,
 				42443FC5249B9946001DAA60 /* WaveAnimationView.swift */,
+				42443F57249AF70B001DAA60 /* CustomTextField.swift */,
 				4271F75224A20D8100838864 /* SettingsView.swift */,
 			);
 			path = Views;
@@ -232,7 +233,6 @@
 		63F31FDE24A30D2A0096FE29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				42443F57249AF70B001DAA60 /* CustomTextField.swift */,
 				42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */,
 				42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */,
 				63F31FAE24A1E18A0096FE29 /* Extensions+Date.swift */,
