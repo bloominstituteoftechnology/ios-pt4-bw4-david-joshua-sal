@@ -36,6 +36,7 @@
 		63F31FB124A279B80096FE29 /* DailyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FB024A279B80096FE29 /* DailyLog.swift */; };
 		63F31FB324A27D440096FE29 /* DailyLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FB224A27D440096FE29 /* DailyLogController.swift */; };
 		E064D83224A33AED00634C1A /* CustsomPickerInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D83124A33AED00634C1A /* CustsomPickerInterfaceController.swift */; };
+		E064D83424A3441C00634C1A /* AddWaterInputInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D83324A3441C00634C1A /* AddWaterInputInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		63F31FB024A279B80096FE29 /* DailyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLog.swift; sourceTree = "<group>"; };
 		63F31FB224A27D440096FE29 /* DailyLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogController.swift; sourceTree = "<group>"; };
 		E064D83124A33AED00634C1A /* CustsomPickerInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustsomPickerInterfaceController.swift; sourceTree = "<group>"; };
+		E064D83324A3441C00634C1A /* AddWaterInputInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterInputInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				42443F1D2499C08E001DAA60 /* Info.plist */,
 				42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */,
 				E064D83124A33AED00634C1A /* CustsomPickerInterfaceController.swift */,
+				E064D83324A3441C00634C1A /* AddWaterInputInterfaceController.swift */,
 			);
 			path = "Hydrate-WatchOS Extension";
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */,
 				42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */,
 				E064D83224A33AED00634C1A /* CustsomPickerInterfaceController.swift in Sources */,
+				E064D83424A3441C00634C1A /* AddWaterInputInterfaceController.swift in Sources */,
 				42443F162499C08C001DAA60 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
