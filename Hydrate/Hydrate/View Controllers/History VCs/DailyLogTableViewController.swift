@@ -42,6 +42,14 @@ class DailyLogTableViewController: UITableViewController {
         cell.selectionStyle = .none
         return cell
     }
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        title = "Daily Logs"
+        updateViews()
+    }
+    
+    // MARK: - Internal
     
     fileprivate var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -73,6 +81,7 @@ class DailyLogTableViewController: UITableViewController {
         var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "dailyLogCell")
         if cell == nil {
             cell = DailyLogTableViewController.dailyLogCell
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "dailyLogCell")
         }
         
         let dailyLog = dailyLogController.dailyLogs[indexPath.row]
@@ -114,4 +123,13 @@ extension UITableViewCell {
         self.accessoryView = button
         self.editingAccessoryView = button
     }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 }

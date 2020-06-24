@@ -133,6 +133,8 @@ class MainViewController: UIViewController {
     
     @objc fileprivate func handleShowHistoryTapped() {
         let hvc = HistoryViewController()
+        let hvc = DailyLogTableViewController()
+        hvc.modalTransitionStyle = .flipHorizontal
         present(hvc, animated: true, completion: nil)
     }
     
