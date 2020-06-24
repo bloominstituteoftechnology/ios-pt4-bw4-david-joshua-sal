@@ -162,8 +162,8 @@
 				63F31FA324A1DD3D0096FE29 /* Model Controllers */,
 				42443F54249AF6E1001DAA60 /* Views */,
 				42443F2A249A2B00001DAA60 /* View Controllers */,
-				63F31FDF24A30E380096FE29 /* Resources */,
 				63F31FDE24A30D2A0096FE29 /* Extensions */,
+				63F31FDF24A30E380096FE29 /* Resources */,
 			);
 			path = Hydrate;
 			sourceTree = "<group>";
@@ -270,29 +270,6 @@
 				63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */,
 			);
 			path = "History VCs";
-			sourceTree = "<group>";
-		};
-		63F31FDE24A30D2A0096FE29 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				42443F57249AF70B001DAA60 /* CustomTextField.swift */,
-				42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */,
-				42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */,
-				63F31FAE24A1E18A0096FE29 /* Extensions+Date.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		63F31FDF24A30E380096FE29 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				42443EF72499A776001DAA60 /* Assets.xcassets */,
-				42443EF92499A776001DAA60 /* LaunchScreen.storyboard */,
-				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
-				42443EF02499A774001DAA60 /* SceneDelegate.swift */,
-				42443EFC2499A776001DAA60 /* Info.plist */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
