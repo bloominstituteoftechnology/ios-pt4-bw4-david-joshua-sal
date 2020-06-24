@@ -22,14 +22,26 @@ class DailyLogTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        title = "Daily Logs"
+        configureTableView()
         updateViews()
     }
     
-    // MARK: - Internal
+    // MARK: - Private Properties
+    
+    fileprivate static var dailyLogCell: UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "intakeEntryCell")
+        cell.backgroundColor = .ravenClawBlue90
+        cell.tintColor = .sicklySmurfBlue
+        cell.textLabel?.textColor = .undeadWhite
+        cell.detailTextLabel?.textColor = .undeadWhite
+        cell.addDisclosureIndicator()
+//        cell.accessoryType = .disclosureIndicator
+//        cell.editingAccessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
+        return cell
+    }
     
     fileprivate var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -37,6 +49,14 @@ class DailyLogTableViewController: UITableViewController {
         dateFormatter.timeStyle = .none
         return dateFormatter
     }()
+    
+    // MARK: - Private Methods
+    
+    fileprivate func configureTableView() {
+        title = "Daily Logs"
+        tableView.backgroundColor = .ravenClawBlue
+        tableView.separatorColor = .ravenClawBlue
+    }
     
     fileprivate func updateViews() {
         guard isViewLoaded else { return }
@@ -52,7 +72,7 @@ class DailyLogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "dailyLogCell")
         if cell == nil {
-            cell = UITableViewCell(style: .value1, reuseIdentifier: "dailyLogCell")
+            cell = DailyLogTableViewController.dailyLogCell
         }
         
         let dailyLog = dailyLogController.dailyLogs[indexPath.row]
@@ -81,5 +101,17 @@ class DailyLogTableViewController: UITableViewController {
         let intakeEntryTableVC = IntakeEntryTableViewController()
         intakeEntryTableVC.dailyLog = dailyLog
         navigationController?.pushViewController(intakeEntryTableVC, animated: true)
+    }
+}
+
+extension UITableViewCell {
+    func addDisclosureIndicator(){
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 13, weight: UIImage.SymbolWeight.semibold)
+        let image = UIImage(systemName: "chevron.right", withConfiguration: symbolConfiguration)
+        button.setImage(image, for: .normal)
+        button.tintColor = .ravenClawBlue70
+        self.accessoryView = button
+        self.editingAccessoryView = button
     }
 }
