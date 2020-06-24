@@ -48,9 +48,57 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
     }
     
     // MARK: - Private Methods
     
+    fileprivate func setupViews() {
+        view.backgroundColor = .ravenClawBlue
+        setupNavigationBar()
+        setupChartView()
+        setupContainerView()
+    }
+    
+    fileprivate func setupNavigationBar() {
+        view.addSubview(navigationBar)
+        navigationBar.anchor(top: view.topAnchor,
+                                   leading: view.leadingAnchor,
+                                   bottom: nil,
+                                   trailing: view.trailingAnchor)
+    }
+    
+    fileprivate func setupChartView() {
+        view.addSubview(chartView)
+        chartView.anchor(top: navigationBar.bottomAnchor,
+                             leading: view.leadingAnchor,
+                             bottom: nil,
+                             trailing: view.trailingAnchor,
+                             size: CGSize(width: view.bounds.width, height: 220))
+        setupChart()
+    }
+    
+    fileprivate func setupChart() {
+        // TODO: Setup chart
+    }
+    
+    fileprivate func setupContainerView() {
+        view.addSubview(containerView)
+        containerView.anchor(top: chartView.bottomAnchor,
+                             leading: view.leadingAnchor,
+                             bottom: view.bottomAnchor,
+                             trailing: view.trailingAnchor)
+        setupTableViewNavigationController()
+    }
+    
+    fileprivate func setupTableViewNavigationController() {
+        addChild(tableViewNavigationController)
+        containerView.addSubview(tableViewNavigationController.view)
+        tableViewNavigationController.didMove(toParent: self)
+        tableViewNavigationController.view.anchor(top: containerView.topAnchor,
+                                                  leading: containerView.leadingAnchor,
+                                                  bottom: containerView.bottomAnchor,
+                                                  trailing: containerView.trailingAnchor)
+    }
     
 }
