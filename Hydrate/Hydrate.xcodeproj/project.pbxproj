@@ -158,11 +158,11 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
-				63F31FA424A1DD6A0096FE29 /* Model */,
-				63F31FA324A1DD3D0096FE29 /* Model Controller */,
+				63F31FA424A1DD6A0096FE29 /* Models */,
+				63F31FA324A1DD3D0096FE29 /* Model Controllers */,
 				42443F54249AF6E1001DAA60 /* Views */,
-				63F31FDE24A30D2A0096FE29 /* Extensions */,
 				42443F2A249A2B00001DAA60 /* View Controllers */,
+				63F31FDE24A30D2A0096FE29 /* Extensions */,
 				63F31FDF24A30E380096FE29 /* Resources */,
 			);
 			path = Hydrate;
@@ -212,16 +212,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		63F31FA324A1DD3D0096FE29 /* Model Controller */ = {
+		63F31FA324A1DD3D0096FE29 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				63F31FAC24A1E0130096FE29 /* IntakeEntryController.swift */,
 				63F31FB224A27D440096FE29 /* DailyLogController.swift */,
 			);
-			path = "Model Controller";
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
-		63F31FA424A1DD6A0096FE29 /* Model */ = {
+		63F31FA424A1DD6A0096FE29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */,
@@ -229,8 +229,8 @@
 				63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */,
 				63F31FB024A279B80096FE29 /* DailyLog.swift */,
 			);
-			name = Model;
-			path = Hydrate/Model;
+			name = Models;
+			path = Hydrate/Models;
 			sourceTree = SOURCE_ROOT;
 		};
 		63F31FDE24A30D2A0096FE29 /* Extensions */ = {
