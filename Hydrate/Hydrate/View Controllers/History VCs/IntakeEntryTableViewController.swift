@@ -21,10 +21,21 @@ class IntakeEntryTableViewController: UITableViewController {
 
 //        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        configureTableView()
         updateViews()
     }
     
-    // MARK: - Private
+    // MARK: - Private Properties
+    
+    fileprivate static var intakeEntryCell: UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "intakeEntryCell")
+        cell.backgroundColor = .ravenClawBlue90
+        cell.tintColor = .sicklySmurfBlue
+        cell.textLabel?.textColor = .undeadWhite
+        cell.detailTextLabel?.textColor = .undeadWhite
+        cell.selectionStyle = .none
+        return cell
+    }
     
     fileprivate var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -40,6 +51,15 @@ class IntakeEntryTableViewController: UITableViewController {
         return dateFormatter
     }()
     
+    // MARK: - Private Methods
+    
+    fileprivate func configureTableView() {
+        title = dateFormatter.string(from: dailyLog.date)
+        tableView = UITableView(frame: self.tableView.frame, style: .insetGrouped)
+        tableView.backgroundColor = .ravenClawBlue
+        tableView.separatorColor = .ravenClawBlue
+    }
+    
     fileprivate func updateViews() {
         guard isViewLoaded else { return }
         tableView.reloadData()
@@ -54,7 +74,7 @@ class IntakeEntryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "intakeEntryCell")
         if cell == nil {
-            cell = UITableViewCell(style: .value1, reuseIdentifier: "intakeEntryCell")
+            cell = IntakeEntryTableViewController.intakeEntryCell
         }
         
         let intakeEntry = dailyLog.entries[indexPath.row]
