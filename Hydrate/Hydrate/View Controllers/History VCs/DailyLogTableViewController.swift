@@ -18,10 +18,10 @@ class DailyLogTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
 //        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         configureTableView()
@@ -37,8 +37,6 @@ class DailyLogTableViewController: UITableViewController {
         cell.textLabel?.textColor = .undeadWhite
         cell.detailTextLabel?.textColor = .undeadWhite
         cell.addDisclosureIndicator()
-//        cell.accessoryType = .disclosureIndicator
-//        cell.editingAccessoryType = .disclosureIndicator
         cell.selectionStyle = .none
         return cell
     }
