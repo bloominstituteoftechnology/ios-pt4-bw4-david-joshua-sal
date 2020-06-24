@@ -25,9 +25,7 @@ class HistoryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-//        let dailyLogCell = UITableViewCell(style: .value2, reuseIdentifier: "dailyLogCell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "dailyLogCell")
-        
+        title = "Daily Logs"
         updateViews()
     }
     
@@ -52,11 +50,15 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dailyLogCell", for: indexPath)
+        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "dailyLogCell")
+        
+        if cell == nil {
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "dailyLogCell")
+        }
+        
         let dailyLog = dailyLogController.dailyLogs[indexPath.row]
         
         cell.textLabel?.text = dateFormatter.string(from: dailyLog.date)
-            + "      Total intake: \(dailyLog.totalIntakeAmount) oz." // FIXME: Remove line after figuring out how to get the detailTextLabel to show up
         cell.detailTextLabel?.text = "\(dailyLog.totalIntakeAmount) oz."
         
         return cell
