@@ -21,7 +21,6 @@
 		42443F1C2499C08E001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443F1B2499C08E001DAA60 /* Assets.xcassets */; };
 		42443F212499C08E001DAA60 /* Hydrate-WatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 42443F042499C08A001DAA60 /* Hydrate-WatchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */; };
-		42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */; };
 		42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F55249AF6F1001DAA60 /* PopupView.swift */; };
 		42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F57249AF70B001DAA60 /* CustomTextField.swift */; };
 		42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC5249B9946001DAA60 /* WaveAnimationView.swift */; };
@@ -101,7 +100,6 @@
 		42443F1D2499C08E001DAA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		42443F2C249A2B33001DAA60 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
-		42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		42443F55249AF6F1001DAA60 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		42443F57249AF70B001DAA60 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		42443FC5249B9946001DAA60 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				42443EF22499A774001DAA60 /* MainViewController.swift */,
-				42443F2E249A2CCD001DAA60 /* SettingsTableViewController.swift */,
 				63F31FD824A307CC0096FE29 /* HistoryViewController.swift */,
 				63F31FDA24A307FB0096FE29 /* DailyLogTableViewController.swift */,
 				63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */,
@@ -388,7 +385,6 @@
 				63F31FAF24A1E18A0096FE29 /* Extensions+Date.swift in Sources */,
 				63F31FB324A27D440096FE29 /* DailyLogController.swift in Sources */,
 				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
-				42443F2F249A2CCD001DAA60 /* SettingsTableViewController.swift in Sources */,
 				63F31FAB24A1DEF10096FE29 /* CoreDataStack.swift in Sources */,
 				42443F58249AF70B001DAA60 /* CustomTextField.swift in Sources */,
 				4271F75324A20D8100838864 /* SettingsView.swift in Sources */,
