@@ -14,6 +14,8 @@ extension UIColor {
     static let undeadWhite = UIColor(hex: 0xd8d8d8)
     static let sicklySmurfBlue = UIColor(hex: 0x4b8a9c)
     static let ravenClawBlue = UIColor(hex: 0x363e56)
+    static let ravenClawBlue90 = UIColor(hex: 0x4a5167)
+    static let ravenClawBlue70 = UIColor(hex: 0x727788)
     
     // Create a UIColor from RGB
     convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
