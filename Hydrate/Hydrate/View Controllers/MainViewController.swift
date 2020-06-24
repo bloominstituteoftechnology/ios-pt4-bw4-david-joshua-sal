@@ -12,6 +12,7 @@ import SwiftUI
 class MainViewController: UIViewController {
     
     // MARK: - Properties
+    
     var wave: WaveAnimationView!
     
     // sets the current waterLevel for the wave animation. Values are 0.0...1.0.
@@ -24,6 +25,7 @@ class MainViewController: UIViewController {
     var targetDailyIntake: Float = 100.0
     
     //MARK: - UI Components
+    
     let addWaterIntakeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "water-button"), for: .normal)
@@ -52,6 +54,8 @@ class MainViewController: UIViewController {
         return button
     }()
 
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -126,9 +130,9 @@ class MainViewController: UIViewController {
     }
     
     //MARK: -  UIButton Methods
+    
     @objc fileprivate func handleShowHistoryTapped() {
-        let hvc = DailyLogTableViewController()
-        hvc.modalTransitionStyle = .flipHorizontal
+        let hvc = HistoryViewController()
         present(hvc, animated: true, completion: nil)
     }
     
