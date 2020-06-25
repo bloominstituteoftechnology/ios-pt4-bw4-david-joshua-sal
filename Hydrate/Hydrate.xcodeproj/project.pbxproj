@@ -37,7 +37,6 @@
 		63F31FDB24A307FB0096FE29 /* DailyLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FDA24A307FB0096FE29 /* DailyLogTableViewController.swift */; };
 		63F31FDD24A308340096FE29 /* IntakeEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */; };
 		E064D83C24A4414B00634C1A /* WaterSelectionInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D83B24A4414B00634C1A /* WaterSelectionInterfaceController.swift */; };
-		E064D83E24A4494D00634C1A /* exampleInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D83D24A4494D00634C1A /* exampleInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +117,6 @@
 		63F31FDA24A307FB0096FE29 /* DailyLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTableViewController.swift; sourceTree = "<group>"; };
 		63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeEntryTableViewController.swift; sourceTree = "<group>"; };
 		E064D83B24A4414B00634C1A /* WaterSelectionInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSelectionInterfaceController.swift; sourceTree = "<group>"; };
-		E064D83D24A4494D00634C1A /* exampleInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +190,6 @@
 				42443F1D2499C08E001DAA60 /* Info.plist */,
 				42443F1E2499C08E001DAA60 /* PushNotificationPayload.apns */,
 				E064D83B24A4414B00634C1A /* WaterSelectionInterfaceController.swift */,
-				E064D83D24A4494D00634C1A /* exampleInterfaceController.swift */,
 			);
 			path = "Hydrate-WatchOS Extension";
 			sourceTree = "<group>";
@@ -437,7 +434,6 @@
 			files = (
 				E064D83C24A4414B00634C1A /* WaterSelectionInterfaceController.swift in Sources */,
 				42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */,
-				E064D83E24A4494D00634C1A /* exampleInterfaceController.swift in Sources */,
 				42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */,
 				42443F162499C08C001DAA60 /* InterfaceController.swift in Sources */,
 			);
