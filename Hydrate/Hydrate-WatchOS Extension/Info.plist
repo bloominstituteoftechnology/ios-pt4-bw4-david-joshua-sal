@@ -32,5 +32,9 @@
 	</dict>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>$(PRODUCT_NAME) Uses Data from HealthApp</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>$(PRODUCT_NAME) Uses Data from HealthApp</string>
 </dict>
 </plist>
