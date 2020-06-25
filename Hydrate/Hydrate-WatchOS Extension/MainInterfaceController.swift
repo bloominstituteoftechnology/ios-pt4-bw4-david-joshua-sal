@@ -1,5 +1,5 @@
 //
-//  InterfaceController.swift
+//  MainInterfaceController.swift
 //  Hydrate-WatchOS Extension
 //
 //  Created by Joshua Rutkowski on 6/16/20.
@@ -10,7 +10,13 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+class MainInterfaceController: WKInterfaceController {
+    
+    //MARK: IBOutlets
+    @IBOutlet weak var backgrounImageProgressGroup: WKInterfaceGroup!
+    
+    @IBOutlet weak var waterPercentageLbl: WKInterfaceGroup!
+    
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -27,5 +33,9 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    //MARK: Actions
+    //not needed direct connection to addDrinkInterfaceController
+    
 
 }
