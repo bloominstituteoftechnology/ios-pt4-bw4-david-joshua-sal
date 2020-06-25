@@ -33,6 +33,8 @@ class MainViewController: UIViewController {
         }
     }
     
+    var undoButtonCenterXAnchor: NSLayoutConstraint!
+    
     //MARK: - UI Components
     
     let addWaterIntakeButton: UIButton = {
@@ -121,15 +123,19 @@ class MainViewController: UIViewController {
         view.backgroundColor = UIColor.ravenClawBlue
         view.addSubview(undoWaterIntakeButton)
         view.addSubview(addWaterIntakeButton)
-        
-        addWaterIntakeButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor,
-                                    trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 20, right: 0))
+                
+        addWaterIntakeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addWaterIntakeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addWaterIntakeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            addWaterIntakeButton.widthAnchor.constraint(equalToConstant: 98),
+            addWaterIntakeButton.heightAnchor.constraint(equalToConstant: 98),
+        ])
         
         undoWaterIntakeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            undoWaterIntakeButton.centerXAnchor.constraint(equalTo: addWaterIntakeButton.centerXAnchor),
-            undoWaterIntakeButton.centerYAnchor.constraint(equalTo: addWaterIntakeButton.centerYAnchor)
-        ])
+        undoWaterIntakeButton.centerYAnchor.constraint(equalTo: addWaterIntakeButton.centerYAnchor).isActive = true
+        undoButtonCenterXAnchor = undoWaterIntakeButton.centerXAnchor.constraint(equalTo: addWaterIntakeButton.centerXAnchor)
+        undoButtonCenterXAnchor.isActive = true
         
         setupTopControls()
         setupMeasurementGuageStackViews()
@@ -168,7 +174,6 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func handleUndoButtonTapped() {
-        //guard let lastIntakeEntry = intakeEntryController.intakeEntries.first else { return }
         guard let lastIntakeEntry = recentlyAddedIntakeEntry else { return }
         let removeAmount = lastIntakeEntry.intakeAmount
         intakeEntryController.delete(lastIntakeEntry)
@@ -179,7 +184,7 @@ class MainViewController: UIViewController {
     
     @objc func handleNormalPress(){
         recentlyAddedIntakeEntry = intakeEntryController.addIntakeEntry(withIntakeAmount: 8)
-        print("Added 8 ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
+        print("Added \(recentlyAddedIntakeEntry?.intakeAmount ?? 0) ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
     }
     
     fileprivate func updateViews() {
@@ -223,13 +228,17 @@ class MainViewController: UIViewController {
     }
     
     fileprivate func showUndoButton() {
-        self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
+        undoWaterIntakeButton.layer.removeAllAnimations()
+        undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
+        undoButtonCenterXAnchor.constant = 112
         
+        // move right animation
         UIView.animate(withDuration: 0.15, delay: 0.05, options: [.curveEaseOut], animations: {
             self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            self.undoWaterIntakeButton.center.x = self.addWaterIntakeButton.center.x * 1.6
+            self.view.layoutIfNeeded()
         }, completion: nil)
         
+        // pulse animation
         UIView.animate(withDuration: 0.45, delay: 0.1, options: [.repeat, .curveEaseIn, .autoreverse, .allowUserInteraction], animations: {
             self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 1.12, y: 1.12)
         }, completion: nil)
@@ -238,10 +247,15 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func hideUndoButton() {
+        undoButtonCenterXAnchor.constant = 0
+        
+        // move left animation
         UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseIn], animations: {
             self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
-            self.undoWaterIntakeButton.center.x = self.addWaterIntakeButton.center.x
-        }, completion: nil)
+            self.view.layoutIfNeeded()
+        }, completion: { _ in
+            self.undoWaterIntakeButton.layer.removeAllAnimations()
+        })
     }
 }
 

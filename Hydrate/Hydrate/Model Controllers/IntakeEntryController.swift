@@ -58,12 +58,12 @@ class IntakeEntryController {
         return intakeEntry
     }
     
-    func deleteIntakeEntry(_ intakeEntry: IntakeEntry) {
+    func delete(_ intakeEntry: IntakeEntry) {
         let context = CoreDataStack.shared.mainContext
         do {
             context.delete(intakeEntry)
-            try context.save()
             intakeEntries.removeAll(where: { $0 == intakeEntry })
+            try context.save()
         } catch {
             print("Error deleting intakeEntry: \(error)")
         }
