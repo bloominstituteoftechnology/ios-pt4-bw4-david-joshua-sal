@@ -16,7 +16,6 @@ class MainInterfaceController: WKInterfaceController {
     
     //MARK: IBOutlets
     @IBOutlet weak var backgrounImageProgressGroup: WKInterfaceGroup!
-    
     @IBOutlet weak var waterPercentageLabel: WKInterfaceLabel!
     
 //    let intakeEntryController = IntakeEntryController() -- unable to access coreData
