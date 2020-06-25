@@ -147,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		423D4DA624A4ACA40007735A /* watchOS Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E064D84724A4806F00634C1A /* HealthKitSetupHelper.swift */,
+				E064D84924A4807B00634C1A /* HealthKitWaterDataStore.swift */,
+			);
+			name = "watchOS Helpers";
+			sourceTree = "<group>";
+		};
 		42443EE22499A774001DAA60 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +180,7 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				423D4DA624A4ACA40007735A /* watchOS Helpers */,
 				63F31FA424A1DD6A0096FE29 /* Models */,
 				63F31FA324A1DD3D0096FE29 /* Model Controllers */,
 				42443F54249AF6E1001DAA60 /* Views */,
@@ -195,8 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				E064D84B24A48F4B00634C1A /* Hydrate-WatchOS Extension.entitlements */,
-				E064D84724A4806F00634C1A /* HealthKitSetupHelper.swift */,
-				E064D84924A4807B00634C1A /* HealthKitWaterDataStore.swift */,
 				42443F152499C08C001DAA60 /* MainInterfaceController.swift */,
 				E064D83F24A4770400634C1A /* AddDrinkInterfaceController.swift */,
 				E064D84124A478D500634C1A /* CustomDrinkInterfaceController.swift */,
