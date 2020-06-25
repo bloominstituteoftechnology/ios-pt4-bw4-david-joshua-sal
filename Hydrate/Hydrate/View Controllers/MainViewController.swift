@@ -25,6 +25,14 @@ class MainViewController: UIViewController {
     
     var targetDailyIntake: Float = 100.0
     
+    var recentlyAddedIntakeEntry: IntakeEntry? {
+        didSet {
+            guard recentlyAddedIntakeEntry != nil else { return }
+            updateViews()
+            showUndoButton()
+        }
+    }
+    
     //MARK: - UI Components
     
     let addWaterIntakeButton: UIButton = {
@@ -157,14 +165,21 @@ class MainViewController: UIViewController {
     @objc fileprivate func handleShowSettingsTapped() {
         let hostingController = UIHostingController(rootView: SettingsView())
         self.present(hostingController, animated: true, completion: nil)
-  
-        
+    }
+    
+    @objc fileprivate func handleUndoButtonTapped() {
+        //guard let lastIntakeEntry = intakeEntryController.intakeEntries.first else { return }
+        guard let lastIntakeEntry = recentlyAddedIntakeEntry else { return }
+        let removeAmount = lastIntakeEntry.intakeAmount
+        intakeEntryController.delete(lastIntakeEntry)
+        print("Removed \(removeAmount) ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
+        updateViews()
+        hideUndoButton()
     }
     
     @objc func handleNormalPress(){
-        intakeEntryController.addIntakeEntry(withIntakeAmount: 8)
+        recentlyAddedIntakeEntry = intakeEntryController.addIntakeEntry(withIntakeAmount: 8)
         print("Added 8 ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
-        updateViews()
     }
     
     fileprivate func updateViews() {
