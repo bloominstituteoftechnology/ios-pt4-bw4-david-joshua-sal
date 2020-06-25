@@ -15,7 +15,8 @@ class MainInterfaceController: WKInterfaceController {
     //MARK: IBOutlets
     @IBOutlet weak var backgrounImageProgressGroup: WKInterfaceGroup!
     
-    @IBOutlet weak var waterPercentageLbl: WKInterfaceGroup!
+    @IBOutlet weak var waterPercentageLabel: WKInterfaceLabel!
+    
     
 
     override func awake(withContext context: Any?) {
