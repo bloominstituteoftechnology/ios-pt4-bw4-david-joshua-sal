@@ -45,7 +45,8 @@ class IntakeEntryController {
         }
     }
     
-    func addIntakeEntry(withIntakeAmount intakeAmount: Int) {
+    @discardableResult
+    func addIntakeEntry(withIntakeAmount intakeAmount: Int) -> IntakeEntry {
         let intakeEntry = IntakeEntry(intakeAmount: intakeAmount)
         
         do {
@@ -54,6 +55,7 @@ class IntakeEntryController {
         } catch {
             print("Error adding intakeEntry: \(error)")
         }
+        return intakeEntry
     }
     
     func deleteIntakeEntry(_ intakeEntry: IntakeEntry) {

@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     }
     
     var intakeEntryController = IntakeEntryController()
+    
     var targetDailyIntake: Float = 100.0
     
     //MARK: - UI Components
@@ -29,6 +30,16 @@ class MainViewController: UIViewController {
     let addWaterIntakeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "water-button"), for: .normal)
+        return button
+    }()
+    
+    let undoWaterIntakeButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = #colorLiteral(red: 0.8172292593, green: 0.8253206381, blue: 0.8253206381, alpha: 1)
+        let config = UIImage.SymbolConfiguration(pointSize: 60)
+        let image = UIImage(systemName: "arrowshape.turn.up.left.circle.fill", withConfiguration: config)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(handleUndoButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -100,13 +111,20 @@ class MainViewController: UIViewController {
     /// Sets up programmatic views for view controller
     fileprivate func setupViews() {
         view.backgroundColor = UIColor.ravenClawBlue
+        view.addSubview(undoWaterIntakeButton)
         view.addSubview(addWaterIntakeButton)
-        addWaterIntakeButton.anchor(top: nil,
-                                    leading: view.leadingAnchor,
-                                    bottom: view.bottomAnchor,
-                                    trailing: view.trailingAnchor,
-                                    padding: .init(top: 0, left: 0, bottom: 20, right: 0))
+        
+        addWaterIntakeButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor,
+                                    trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 20, right: 0))
+        
+        undoWaterIntakeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            undoWaterIntakeButton.centerXAnchor.constraint(equalTo: addWaterIntakeButton.centerXAnchor),
+            undoWaterIntakeButton.centerYAnchor.constraint(equalTo: addWaterIntakeButton.centerYAnchor)
+        ])
+        
         setupTopControls()
+        setupMeasurementGuageStackViews()
     }
     
     /// Sets up top stackView
@@ -137,9 +155,6 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func handleShowSettingsTapped() {
-//        let svc = SettingsTableViewController()
-//        svc.modalTransitionStyle = .flipHorizontal
-//        present(svc, animated: true, completion: nil)
         let hostingController = UIHostingController(rootView: SettingsView())
         self.present(hostingController, animated: true, completion: nil)
   
