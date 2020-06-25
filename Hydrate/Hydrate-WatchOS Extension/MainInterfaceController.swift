@@ -9,6 +9,7 @@
 import WatchKit
 import CoreData
 import UIKit
+import HealthKit
 
 
 class MainInterfaceController: WKInterfaceController {
