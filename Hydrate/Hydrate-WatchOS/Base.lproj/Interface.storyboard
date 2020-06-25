@@ -1,39 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jb7-26-Reo">
     <device id="watch38"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
+        <!--Main Interface Controller-->
+        <scene sceneID="jlZ-Ic-TBV">
+            <objects>
+                <controller id="jb7-26-Reo" customClass="MainInterfaceController" customModule="Hydrate_WatchOS_Extension">
+                    <items>
+                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-44" contentMode="scaleAspectFill" id="amR-Ei-tGb"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-205" y="-5"/>
+        </scene>
         <!--MainView-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="MainView" id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="Hydrate_WatchOS" customModuleProvider="target">
+                <controller title="MainView" id="AgC-eL-Hgc">
                     <items>
-                        <group width="110" height="110" alignment="center" verticalAlignment="center" backgroundImage="activity-0" contentMode="scaleAspectFill" id="2TK-tb-Bof">
-                            <items>
-                                <label alignment="center" verticalAlignment="center" text="75%" id="JIC-eQ-LTB">
-                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" type="system" weight="semibold" pointSize="22"/>
-                                </label>
-                            </items>
-                        </group>
-                        <button width="1" alignment="center" verticalAlignment="center" title="Add Drink" id="j0o-7l-Bxj">
-                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="font" type="system" pointSize="11"/>
-                            <connections>
-                                <segue destination="Cz2-Oq-tJg" kind="push" id="sTa-Wr-wGE"/>
-                            </connections>
-                        </button>
+                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-64" contentMode="scaleAspectFill" id="Gyu-hn-RF6"/>
                     </items>
-                    <connections>
-                        <outlet property="backgrounImageProgressGroup" destination="2TK-tb-Bof" id="Ktb-Re-Otc"/>
-                        <outlet property="waterPercentageLabel" destination="JIC-eQ-LTB" id="3Dq-8T-a6C"/>
-                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-36" y="51"/>
+            <point key="canvasLocation" x="102" y="-68"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -116,7 +109,9 @@
             <point key="canvasLocation" x="883" y="540"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="activity-0" width="280" height="280"/>
+        <image name="activity-44" width="280" height="280"/>
+        <image name="activity-64" width="280" height="280"/>
     </resources>
 </document>
