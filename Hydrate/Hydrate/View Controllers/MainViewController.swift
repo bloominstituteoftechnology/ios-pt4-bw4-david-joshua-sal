@@ -206,5 +206,27 @@ class MainViewController: UIViewController {
             handleGestureChanged(sender: sender)
         }
     }
+    
+    fileprivate func showUndoButton() {
+        self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
+        
+        UIView.animate(withDuration: 0.15, delay: 0.05, options: [.curveEaseOut], animations: {
+            self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.undoWaterIntakeButton.center.x = self.addWaterIntakeButton.center.x * 1.6
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.45, delay: 0.1, options: [.repeat, .curveEaseIn, .autoreverse, .allowUserInteraction], animations: {
+            self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 1.12, y: 1.12)
+        }, completion: nil)
+        
+        perform(#selector(hideUndoButton), with: nil, afterDelay: 3.65)
+    }
+    
+    @objc fileprivate func hideUndoButton() {
+        UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseIn], animations: {
+            self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
+            self.undoWaterIntakeButton.center.x = self.addWaterIntakeButton.center.x
+        }, completion: nil)
+    }
 }
 
