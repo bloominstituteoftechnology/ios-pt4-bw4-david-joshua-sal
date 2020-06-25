@@ -21,11 +21,14 @@
                         </group>
                         <button width="1" alignment="center" verticalAlignment="bottom" title="Add Drink" id="j0o-7l-Bxj">
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Cz2-Oq-tJg" kind="push" id="sTa-Wr-wGE"/>
+                            </connections>
                         </button>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-1" y="243"/>
+            <point key="canvasLocation" x="-90" y="61"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -51,12 +54,47 @@
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
+        <!--Interface Controller-->
+        <scene sceneID="rLO-bn-xTH">
+            <objects>
+                <controller id="Cz2-Oq-tJg">
+                    <items>
+                        <group width="1" alignment="center" verticalAlignment="center" layout="vertical" id="5sB-uw-p5I">
+                            <items>
+                                <button width="1" alignment="left" title="+ 16 oz" id="JF6-ZP-ZAf"/>
+                                <button width="1" alignment="left" title="Custom" id="roD-Y6-04x">
+                                    <connections>
+                                        <segue destination="JuG-0s-8v2" kind="push" id="3cv-KV-T5b"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="+ 8 oz" id="lGu-hn-tlq"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="339" y="45"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="nN3-9H-s1Y">
+            <objects>
+                <controller id="JuG-0s-8v2">
+                    <items>
+                        <picker height="100" alignment="left" id="ZKV-ss-kEA"/>
+                        <button width="1" alignment="left" title="Save" id="2lz-ic-3Bm">
+                            <color key="backgroundColor" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="763" y="66"/>
+        </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
                 <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Hydrate_WatchOS" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="468" y="345"/>
+            <point key="canvasLocation" x="883" y="540"/>
         </scene>
     </scenes>
     <resources>
