@@ -27,12 +27,12 @@ class HistoryViewController: UIViewController {
         let chartView = OCKCartesianChartView(type: .bar)
         chartView.headerView.titleLabel.text = "Water Intake"
         chartView.headerView.detailLabel.text = "This week"
-        
         chartView.graphView.horizontalAxisMarkers = ["S", "M", "T", "W", "T", "F", "S"]
-        chartView.graphView.dataSeries = [OCKDataSeries(values: [1, 2, 3, 4, 5, 6, 7], title: "oz")]
+        chartView.graphView.dataSeries = [OCKDataSeries(values: [1, 2, 3, 4, 5, 6, 7], title: "Water (oz.)", gradientStartColor: .sicklySmurfBlue, gradientEndColor: .sicklySmurfBlue, size: 20)]
         return chartView
     }()
     
+
     fileprivate let containerView: UIView = {
         let containerView = UIView()
         containerView.backgroundColor = .lightGray
