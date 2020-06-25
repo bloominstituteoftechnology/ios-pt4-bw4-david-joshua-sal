@@ -38,6 +38,8 @@
 		63F31FDD24A308340096FE29 /* IntakeEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */; };
 		E064D84024A4770400634C1A /* AddDrinkInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D83F24A4770400634C1A /* AddDrinkInterfaceController.swift */; };
 		E064D84224A478D500634C1A /* CustomDrinkInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D84124A478D500634C1A /* CustomDrinkInterfaceController.swift */; };
+		E064D84824A4806F00634C1A /* HealthKitSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D84724A4806F00634C1A /* HealthKitSetupHelper.swift */; };
+		E064D84A24A4807B00634C1A /* HealthKitWaterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D84924A4807B00634C1A /* HealthKitWaterDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeEntryTableViewController.swift; sourceTree = "<group>"; };
 		E064D83F24A4770400634C1A /* AddDrinkInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinkInterfaceController.swift; sourceTree = "<group>"; };
 		E064D84124A478D500634C1A /* CustomDrinkInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkInterfaceController.swift; sourceTree = "<group>"; };
+		E064D84724A4806F00634C1A /* HealthKitSetupHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitSetupHelper.swift; sourceTree = "<group>"; };
+		E064D84924A4807B00634C1A /* HealthKitWaterDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitWaterDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,8 @@
 		42443F142499C08C001DAA60 /* Hydrate-WatchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E064D84724A4806F00634C1A /* HealthKitSetupHelper.swift */,
+				E064D84924A4807B00634C1A /* HealthKitWaterDataStore.swift */,
 				42443F152499C08C001DAA60 /* MainInterfaceController.swift */,
 				E064D83F24A4770400634C1A /* AddDrinkInterfaceController.swift */,
 				E064D84124A478D500634C1A /* CustomDrinkInterfaceController.swift */,
@@ -437,9 +443,11 @@
 			files = (
 				42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */,
 				42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */,
+				E064D84824A4806F00634C1A /* HealthKitSetupHelper.swift in Sources */,
 				E064D84224A478D500634C1A /* CustomDrinkInterfaceController.swift in Sources */,
 				E064D84024A4770400634C1A /* AddDrinkInterfaceController.swift in Sources */,
 				42443F162499C08C001DAA60 /* MainInterfaceController.swift in Sources */,
+				E064D84A24A4807B00634C1A /* HealthKitWaterDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,8 @@
 //
 
 import WatchKit
-import Foundation
+import CoreData
+import UIKit
 
 
 class MainInterfaceController: WKInterfaceController {
@@ -17,6 +18,7 @@ class MainInterfaceController: WKInterfaceController {
     
     @IBOutlet weak var waterPercentageLabel: WKInterfaceLabel!
     
+//    let intakeEntryController = IntakeEntryController()
     
 
     override func awake(withContext context: Any?) {
