@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CareKitUI
 
 class HistoryViewController: UIViewController {
     
@@ -22,9 +23,13 @@ class HistoryViewController: UIViewController {
         return navigationBar
     }()
     
-    fileprivate let chartView: UIView = {
-        let chartView = UIView()
-        chartView.backgroundColor = .systemGray
+    fileprivate let chartView: OCKCartesianChartView = {
+        let chartView = OCKCartesianChartView(type: .bar)
+        chartView.headerView.titleLabel.text = "Water Intake"
+        chartView.headerView.detailLabel.text = "This week"
+        
+        chartView.graphView.horizontalAxisMarkers = ["S", "M", "T", "W", "T", "F", "S"]
+        chartView.graphView.dataSeries = [OCKDataSeries(values: [1, 2, 3, 4, 5, 6, 7], title: "oz")]
         return chartView
     }()
     

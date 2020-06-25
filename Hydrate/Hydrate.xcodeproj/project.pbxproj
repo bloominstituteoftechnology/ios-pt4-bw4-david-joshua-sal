@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,9 @@
 		42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC5249B9946001DAA60 /* WaveAnimationView.swift */; };
 		42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */; };
 		4271F75324A20D8100838864 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F75224A20D8100838864 /* SettingsView.swift */; };
+		42A5EB0824A430D50070A412 /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42A5EB0724A430D50070A412 /* CareKitUI */; };
+		42A5EB0A24A430D50070A412 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42A5EB0924A430D50070A412 /* CareKit */; };
+		42A5EB0C24A430D50070A412 /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = 42A5EB0B24A430D50070A412 /* CareKitStore */; };
 		63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */; };
 		63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */; };
 		63F31FAB24A1DEF10096FE29 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */; };
@@ -122,6 +125,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A5EB0A24A430D50070A412 /* CareKit in Frameworks */,
+				42A5EB0824A430D50070A412 /* CareKitUI in Frameworks */,
+				42A5EB0C24A430D50070A412 /* CareKitStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +296,11 @@
 				42443F202499C08E001DAA60 /* PBXTargetDependency */,
 			);
 			name = Hydrate;
+			packageProductDependencies = (
+				42A5EB0724A430D50070A412 /* CareKitUI */,
+				42A5EB0924A430D50070A412 /* CareKit */,
+				42A5EB0B24A430D50070A412 /* CareKitStore */,
+			);
 			productName = Hydrate;
 			productReference = 42443EEB2499A774001DAA60 /* Hydrate.app */;
 			productType = "com.apple.product-type.application";
@@ -358,6 +369,9 @@
 				Base,
 			);
 			mainGroup = 42443EE22499A774001DAA60;
+			packageReferences = (
+				42A5EB0624A430D50070A412 /* XCRemoteSwiftPackageReference "CareKit" */,
+			);
 			productRefGroup = 42443EEC2499A774001DAA60 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -742,6 +756,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		42A5EB0624A430D50070A412 /* XCRemoteSwiftPackageReference "CareKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/carekit-apple/CareKit";
+			requirement = {
+				branch = stable;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		42A5EB0724A430D50070A412 /* CareKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42A5EB0624A430D50070A412 /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKitUI;
+		};
+		42A5EB0924A430D50070A412 /* CareKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42A5EB0624A430D50070A412 /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKit;
+		};
+		42A5EB0B24A430D50070A412 /* CareKitStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42A5EB0624A430D50070A412 /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKitStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */ = {
