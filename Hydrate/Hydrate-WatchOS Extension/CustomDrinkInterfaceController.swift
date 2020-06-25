@@ -1,5 +1,5 @@
 //
-//  WaterSelectionInterfaceController.swift
+//  CustomDrinkInterfaceController.swift
 //  Hydrate-WatchOS Extension
 //
 //  Created by Sal B Amer on 6/24/20.
@@ -10,8 +10,12 @@ import WatchKit
 import Foundation
 
 
-class WaterSelectionInterfaceController: WKInterfaceController {
+class CustomDrinkInterfaceController: WKInterfaceController {
 
+    //MARK: Outlets
+    
+    @IBOutlet weak var customDrinkSizePicker: WKInterfacePicker!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -27,5 +31,10 @@ class WaterSelectionInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
+    //MARK: Action
+    
+    @IBAction func saveBtnWasPressed() {
+    }
+    
 }
