@@ -98,7 +98,11 @@
             <objects>
                 <controller id="JuG-0s-8v2" customClass="CustomDrinkInterfaceController" customModule="Hydrate_WatchOS_Extension">
                     <items>
-                        <picker height="100" alignment="left" id="ZKV-ss-kEA"/>
+                        <picker height="100" alignment="left" id="ZKV-ss-kEA">
+                            <connections>
+                                <action selector="pickerWasSelected:" destination="JuG-0s-8v2" id="k5f-S1-ImL"/>
+                            </connections>
+                        </picker>
                         <button width="1" alignment="left" title="Save" id="2lz-ic-3Bm">
                             <color key="backgroundColor" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
