@@ -21,15 +21,21 @@ class Popup: UIView {
         textField.placeholder = "10"
         textField.backgroundColor = UIColor.undeadWhite
         textField.textColor = UIColor.sicklySmurfBlue
+        textField.textAlignment = .center
+        textField.font = .systemFont(ofSize: 18, weight: .bold)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 8
         textField.keyboardType = .numberPad
+        textField.keyboardAppearance = UIKeyboardAppearance.dark
+        textField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
         return textField
     }()
     
     fileprivate let unitsLabel: UILabel = {
        let label = UILabel()
         label.text = "ounces"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 18, weight: .medium)
         label.textColor = UIColor.sicklySmurfBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,8 +50,9 @@ class Popup: UIView {
     fileprivate let addWaterButton12: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("+12 oz.", for: .normal )
-        button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
-        button.backgroundColor = UIColor.undeadWhite
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.setTitleColor(UIColor.undeadWhite, for: .normal)
+        button.backgroundColor = UIColor.sicklySmurfBlue
         button.layer.cornerRadius = 8
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height:4)
@@ -59,9 +66,10 @@ class Popup: UIView {
     
     fileprivate let addWaterButton17: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
-        button.backgroundColor = UIColor.undeadWhite
         button.setTitle("+17 oz.", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.setTitleColor(UIColor.undeadWhite, for: .normal)
+        button.backgroundColor = UIColor.sicklySmurfBlue
         button.layer.cornerRadius = 8
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height:4)
@@ -76,13 +84,14 @@ class Popup: UIView {
     fileprivate let addWaterButton32: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("+32 oz.", for: .normal)
-        button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
-        button.backgroundColor = UIColor.undeadWhite
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.setTitleColor(UIColor.undeadWhite, for: .normal)
+        button.backgroundColor = UIColor.sicklySmurfBlue
         button.layer.cornerRadius = 8
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height:4)
         button.layer.shadowOpacity = 1.0
-        button.layer.shadowRadius = 4.0
+        button.layer.shadowRadius = 10.0
         button.layer.masksToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(addWaterButton32Tapped), for: .touchUpInside)
@@ -91,7 +100,14 @@ class Popup: UIView {
     
     fileprivate let submitButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "check-mark"), for: .normal)
+        //button.setImage(UIImage(named: "check-mark"), for: .normal)
+        button.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        
+        button.tintColor = #colorLiteral(red: 0.2941176471, green: 0.3098039216, blue: 0.3333333333, alpha: 1)
+        let config = UIImage.SymbolConfiguration(pointSize: 40)
+        let image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: config)
+        button.setImage(image, for: .normal)
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         return button
@@ -177,6 +193,15 @@ class Popup: UIView {
         submitButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: 12).isActive = true
     }
     
+    @objc func textFieldValueChanged() {
+        if let text = inputTextField.text, Int(text) != nil {
+            submitButton.tintColor = .sicklySmurfBlue
+        } else {
+            submitButton.tintColor = #colorLiteral(red: 0.2941176471, green: 0.3098039216, blue: 0.3333333333, alpha: 1)
+        }
+        layoutIfNeeded()
+    }
+    
     @objc func addWaterButton12Tapped() {
         delegate.addedWater(intakeAmount: 12)
         animateOut()
@@ -238,7 +263,6 @@ class Popup: UIView {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.container.transform = .identity
             self.alpha = 1
-
         })
     }
 }
