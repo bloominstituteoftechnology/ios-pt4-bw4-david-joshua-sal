@@ -100,14 +100,10 @@ class Popup: UIView {
     
     fileprivate let submitButton: UIButton = {
         let button = UIButton()
-        //button.setImage(UIImage(named: "check-mark"), for: .normal)
-        button.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-        
-        button.tintColor = #colorLiteral(red: 0.2941176471, green: 0.3098039216, blue: 0.3333333333, alpha: 1)
+        button.tintColor = .disabledButtonColor
         let config = UIImage.SymbolConfiguration(pointSize: 40)
         let image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: config)
         button.setImage(image, for: .normal)
-        
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         return button
@@ -125,7 +121,6 @@ class Popup: UIView {
     
     fileprivate lazy var bottomHorizontalStackView: UIStackView = {
         let padding: CGFloat = 8
-
         let stack = UIStackView(arrangedSubviews: [addWaterButton12, addWaterButton17, addWaterButton32 ])
         stack.spacing = padding
         stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
@@ -139,7 +134,6 @@ class Popup: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.ravenClawBlue.withAlphaComponent(0.75)
         view.isOpaque = false
-        
         view.layer.cornerRadius = 24
         return view
     }()
@@ -197,7 +191,7 @@ class Popup: UIView {
         if let text = inputTextField.text, Int(text) != nil {
             submitButton.tintColor = .sicklySmurfBlue
         } else {
-            submitButton.tintColor = #colorLiteral(red: 0.2941176471, green: 0.3098039216, blue: 0.3333333333, alpha: 1)
+            submitButton.tintColor = .disabledButtonColor
         }
         layoutIfNeeded()
     }
