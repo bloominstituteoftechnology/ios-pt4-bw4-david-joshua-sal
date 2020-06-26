@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jb7-26-Reo">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
-        <!--Main Interface Controller-->
-        <scene sceneID="jlZ-Ic-TBV">
-            <objects>
-                <controller id="jb7-26-Reo" customClass="MainInterfaceController" customModule="Hydrate_WatchOS_Extension">
-                    <items>
-                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-44" contentMode="scaleAspectFill" id="amR-Ei-tGb"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="-205" y="-5"/>
-        </scene>
         <!--MainView-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="MainView" id="AgC-eL-Hgc">
+                <controller title="MainView" id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="Hydrate_WatchOS_Extension">
                     <items>
-                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-64" contentMode="scaleAspectFill" id="Gyu-hn-RF6"/>
+                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-45" contentMode="scaleAspectFill" id="Gyu-hn-RF6">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="35%" id="msL-oA-nFS">
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="25"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Add Drink" id="8Tg-NY-eCX">
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Cz2-Oq-tJg" kind="push" id="jwe-bD-gfd"/>
+                            </connections>
+                        </button>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="102" y="-68"/>
+            <point key="canvasLocation" x="71" y="66"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -79,7 +81,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="339" y="45"/>
+            <point key="canvasLocation" x="373" y="50"/>
         </scene>
         <!--Custom Drink Interface Controller-->
         <scene sceneID="nN3-9H-s1Y">
@@ -111,7 +113,6 @@
     </scenes>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="activity-44" width="280" height="280"/>
-        <image name="activity-64" width="280" height="280"/>
+        <image name="activity-45" width="280" height="280"/>
     </resources>
 </document>
