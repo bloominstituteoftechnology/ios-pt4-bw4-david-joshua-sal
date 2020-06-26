@@ -17,13 +17,13 @@ class MainViewController: UIViewController {
     
     // sets the current waterLevel for the wave animation. Values are 0.0...1.0.
     var waterLevel: Float {
-        let percentOfTargetReached = Float(intakeEntryController.totalIntakeAmount) / targetDailyIntake
+        let percentOfTargetReached = Float(intakeEntryController.totalIntakeAmount) / Float(targetDailyIntake)
         return min(percentOfTargetReached, 1.0)
     }
     
     var intakeEntryController = IntakeEntryController()
     
-    var targetDailyIntake: Float = 100.0
+    var targetDailyIntake: Int = 100
     
     var recentlyAddedIntakeEntry: IntakeEntry? {
         didSet {
@@ -40,11 +40,13 @@ class MainViewController: UIViewController {
     let addWaterIntakeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "water-button"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     let undoWaterIntakeButton: UIButton = {
         let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = #colorLiteral(red: 0.8172292593, green: 0.8253206381, blue: 0.8253206381, alpha: 1)
         let config = UIImage.SymbolConfiguration(pointSize: 60)
         let image = UIImage(systemName: "arrowshape.turn.up.left.circle.fill", withConfiguration: config)
@@ -74,7 +76,66 @@ class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(handleShowSettingsTapped), for: .touchUpInside)
         return button
     }()
-
+    
+    let topControlsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    lazy var measurementMarkerStackView: UIStackView = {
+        let intervalSize = 8 // number of water units (i.e. ounces) between measurement markers
+        
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 0
+        stackView.backgroundColor = .white
+        
+        let finalIntervalOffset = targetDailyIntake % intervalSize
+        let finalInterval = (finalIntervalOffset == 0) ? intervalSize : finalIntervalOffset
+        let ratioIntervalToFinalInterval = CGFloat(intervalSize) / CGFloat(finalIntervalOffset)
+        
+        // helper function used only during initialization of 'numberStackView'
+        @discardableResult func createNewMarker(withDisplayNumber displayNumber: Int) -> UIView {
+            guard displayNumber >= 0 else { return UIView() }
+            let markerView = UIView()
+            let label = UILabel()
+            markerView.addSubview(label)
+            stackView.addArrangedSubview(markerView)
+            
+            label.textAlignment = .right
+            label.font = UIFont.boldSystemFont(ofSize: 20)
+            label.textColor = #colorLiteral(red: 0.8469634652, green: 0.8471123576, blue: 0.8469651341, alpha: 0.3020387414)
+            label.text = (displayNumber == 0) ? " " : "\(displayNumber) oz."
+            
+            markerView.translatesAutoresizingMaskIntoConstraints = false
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.leadingAnchor.constraint(equalTo: markerView.leadingAnchor).isActive = true
+            label.bottomAnchor.constraint(equalTo: markerView.bottomAnchor).isActive = true
+            
+            //label.backgroundColor = .blue
+            //markerView.backgroundColor = .yellow
+            
+            return markerView
+        }
+        
+        // create top two measurement markers
+        createNewMarker(withDisplayNumber: targetDailyIntake)
+        let finalIntervalView = createNewMarker(withDisplayNumber: targetDailyIntake - finalInterval)
+        
+        // create all remaining measurement markers
+        let nextMarkerLabelNumber = targetDailyIntake - intervalSize - finalInterval
+        for number in stride(from: nextMarkerLabelNumber, through: 0, by: -intervalSize) {
+            let intervalView = createNewMarker(withDisplayNumber: number)
+            intervalView.heightAnchor.constraint(equalTo: finalIntervalView.heightAnchor, multiplier: ratioIntervalToFinalInterval).isActive = true
+        }
+        
+        return stackView
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -121,10 +182,18 @@ class MainViewController: UIViewController {
     /// Sets up programmatic views for view controller
     fileprivate func setupViews() {
         view.backgroundColor = UIColor.ravenClawBlue
+        
+        // Add subviews
+        view.addSubview(measurementMarkerStackView)
+        view.addSubview(topControlsStackView)
         view.addSubview(undoWaterIntakeButton)
         view.addSubview(addWaterIntakeButton)
-                
-        addWaterIntakeButton.translatesAutoresizingMaskIntoConstraints = false
+
+        // Setup subviews
+        setupMeasurementMarkers()
+        setupTopControls()
+        
+        // Setup bottom buttons
         NSLayoutConstraint.activate([
             addWaterIntakeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addWaterIntakeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
@@ -132,13 +201,9 @@ class MainViewController: UIViewController {
             addWaterIntakeButton.heightAnchor.constraint(equalToConstant: 98),
         ])
         
-        undoWaterIntakeButton.translatesAutoresizingMaskIntoConstraints = false
         undoWaterIntakeButton.centerYAnchor.constraint(equalTo: addWaterIntakeButton.centerYAnchor).isActive = true
         undoButtonCenterXAnchor = undoWaterIntakeButton.centerXAnchor.constraint(equalTo: addWaterIntakeButton.centerXAnchor)
         undoButtonCenterXAnchor.isActive = true
-        
-        setupTopControls()
-        setupMeasurementGuageStackViews()
     }
     
     /// Sets up top stackView
@@ -147,11 +212,9 @@ class MainViewController: UIViewController {
         let spacerView = UIView()
         spacerView.backgroundColor = .clear
         
-        let topControlsStackView = UIStackView(arrangedSubviews: [showHistoryButton, spacerView, showSettingsButton])
-        
-        view.addSubview(topControlsStackView)
-        topControlsStackView.translatesAutoresizingMaskIntoConstraints = false
-        topControlsStackView.distribution  = .fillEqually
+        topControlsStackView.addArrangedSubview(showSettingsButton)
+        topControlsStackView.addArrangedSubview(spacerView)
+        topControlsStackView.addArrangedSubview(showHistoryButton)
         
         NSLayoutConstraint.activate([
             topControlsStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -161,7 +224,18 @@ class MainViewController: UIViewController {
         ])
     }
     
-    //MARK: -  UIButton Methods
+    fileprivate func setupMeasurementMarkers() {
+        measurementMarkerStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                                          leading: view.safeAreaLayoutGuide.leadingAnchor,
+                                          bottom: view.bottomAnchor,
+                                          trailing: view.safeAreaLayoutGuide.trailingAnchor,
+                                          padding: .init(top: 76, left: 16, bottom: 0, right: 16))
+        view.layoutIfNeeded()
+    }
+    
+    // MARK: - UIButton Methods
+    
+    // Page Navigation
     
     @objc fileprivate func handleShowHistoryTapped() {
         let hvc = HistoryViewController()
