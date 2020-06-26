@@ -17,6 +17,9 @@ struct ChartsView: View {
     10, 20, 30 , 40, 50, 60, 70
     ]
     
+    init() {
+    }
+    
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.2122643888, green: 0.2450331748, blue: 0.3367856145, alpha: 1))
