@@ -83,57 +83,7 @@ class MainViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    /*
-    lazy var measurementMarkerStackView: UIStackView = {
-        let intervalSize = 8 // number of water units (i.e. ounces) between measurement markers
-        
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.spacing = 0
-        
-        let finalIntervalOffset = targetDailyIntake % intervalSize
-        let finalInterval = (finalIntervalOffset == 0) ? intervalSize : finalIntervalOffset
-        let ratioIntervalToFinalInterval = CGFloat(intervalSize) / CGFloat(finalIntervalOffset)
-        
-        // helper function used only during initialization of 'numberStackView'
-        @discardableResult func createNewMarker(withDisplayNumber displayNumber: Int) -> UIView {
-            guard displayNumber >= 0 else { return UIView() }
-            let markerView = UIView()
-            let label = UILabel()
-            markerView.addSubview(label)
-            
-            label.textAlignment = .right
-            label.font = UIFont.boldSystemFont(ofSize: 20)
-            label.textColor = #colorLiteral(red: 0.8469634652, green: 0.8471123576, blue: 0.8469651341, alpha: 0.3020387414)
-            label.text = (displayNumber == 0) ? " " : "\(displayNumber) oz."
-            
-            markerView.translatesAutoresizingMaskIntoConstraints = false
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.leadingAnchor.constraint(equalTo: markerView.leadingAnchor).isActive = true
-            label.bottomAnchor.constraint(equalTo: markerView.bottomAnchor).isActive = true
-            
-            //label.backgroundColor = .blue
-            //markerView.backgroundColor = .yellow
-            
-            return markerView
-        }
-        
-        // create top two measurement markers
-        createNewMarker(withDisplayNumber: targetDailyIntake)
-        let finalIntervalView = createNewMarker(withDisplayNumber: targetDailyIntake - finalInterval)
-        
-        // create all remaining measurement markers
-        let nextMarkerLabelNumber = targetDailyIntake - intervalSize - finalInterval
-        for number in stride(from: nextMarkerLabelNumber, through: 0, by: -intervalSize) {
-            let intervalView = createNewMarker(withDisplayNumber: number)
-            intervalView.heightAnchor.constraint(equalTo: finalIntervalView.heightAnchor, multiplier: ratioIntervalToFinalInterval).isActive = true
-        }
-        
-        return stackView
-    }()
-    */
+    
     let measurementMarkersView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -227,6 +177,8 @@ class MainViewController: UIViewController {
             topControlsStackView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    
+    // MARK: - Measurement Markers
     
     fileprivate func setupMeasurementMarkers() {
         let markerIntervalSize = 8 // number of water units (i.e. ounces) between measurement markers
