@@ -13,11 +13,10 @@ struct ChartsView: View {
     
     let dailyLogController = DailyLogController()
     var dailyLogs: [DailyLog] = []
+    var lastSevenDays: [DailyLog] = []
 
     // Dummy data
-    @State var dataPoints: [CGFloat] = [
-    10, 20, 30 , 40, 50, 60, 70
-    ]
+    @State var dataPoints: [CGFloat] = []
     
     init() {
         updateDailyLogs()
@@ -44,6 +43,16 @@ struct ChartsView: View {
         let dailyLogTotalIntakeAmount = dailyLogController.dailyLogs[0].totalIntakeAmount
         print("+_______________________________________+\n|\t\t\tTotal Intake Amount\t\t\t|\n+_______________________________________+")
         print(dailyLogTotalIntakeAmount)
+        
+        let slice = dailyLogs.suffix(7)
+        let weekArray = Array(slice)
+        lastSevenDays = weekArray
+        print(weekArray)
+        
+    }
+    
+    func updateArray() {
+        
     }
     
     var body: some View {
@@ -60,13 +69,13 @@ struct ChartsView: View {
                 }
 
                 HStack (spacing: 16) {
-                    BarView(value: CGFloat(dailyLogs[0].totalIntakeAmount))
-                    BarView(value: dataPoints[1])
-                    BarView(value: dataPoints[2])
-                    BarView(value: dataPoints[3])
-                    BarView(value: dataPoints[4])
-                    BarView(value: dataPoints[5])
-                    BarView(value: dataPoints[6])
+                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
+                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
+                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
+                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
+                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
+                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
+                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
 
                 }.padding(.top, 0)
                     .animation(.default)
