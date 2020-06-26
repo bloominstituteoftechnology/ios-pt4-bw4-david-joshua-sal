@@ -2,7 +2,7 @@
 //  HealthKitWaterDataStore.swift
 //  Hydrate
 //
-//  Created by Sal B Amer on 6/18/20.
+//  Created by Sal B Amer on 6/26/20.
 //  Copyright © 2020 Hydrate. All rights reserved.
 //
 
