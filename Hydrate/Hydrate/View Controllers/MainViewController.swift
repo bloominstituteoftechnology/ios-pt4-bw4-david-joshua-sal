@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
     var recentlyAddedIntakeEntry: IntakeEntry? {
         didSet {
             guard recentlyAddedIntakeEntry != nil else { return }
-            updateViews()
+            wave.setProgress(waterLevel)
             showUndoButton()
         }
     }
@@ -173,23 +173,25 @@ class MainViewController: UIViewController {
         self.present(hostingController, animated: true, completion: nil)
     }
     
+    // Undo Button Tapped
+    
     @objc fileprivate func handleUndoButtonTapped() {
         guard let lastIntakeEntry = recentlyAddedIntakeEntry else { return }
         let removeAmount = lastIntakeEntry.intakeAmount
         intakeEntryController.delete(lastIntakeEntry)
         print("Removed \(removeAmount) ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
-        updateViews()
+        wave.setProgress(waterLevel)
         hideUndoButton()
     }
+    
+    // Add Water Button (Short Tap)
     
     @objc func handleNormalPress(){
         recentlyAddedIntakeEntry = intakeEntryController.addIntakeEntry(withIntakeAmount: 8)
         print("Added \(recentlyAddedIntakeEntry?.intakeAmount ?? 0) ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
     }
     
-    fileprivate func updateViews() {
-        wave.setProgress(waterLevel)
-    }
+    // Gesture Handlers
     
     /// Sets up the begin state of view animations when using UILongPressGestureRecognizer
     /// - Parameter sender: UILongPressGestureRecognizer
@@ -213,6 +215,8 @@ class MainViewController: UIViewController {
         self.view.addSubview(pop)
     }
     
+    // Add Water (Long Tap)
+    
     @objc func handleLongPress(sender : UILongPressGestureRecognizer){
         if sender.state == .ended {
             print("\(sender.state): ended")
@@ -227,12 +231,14 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - Undo Button Animations
+    
     fileprivate func showUndoButton() {
         undoWaterIntakeButton.layer.removeAllAnimations()
         undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
         undoButtonCenterXAnchor.constant = 112
         
-        // move right animation
+        // move right and scale up animation
         UIView.animate(withDuration: 0.15, delay: 0.05, options: [.curveEaseOut], animations: {
             self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             self.view.layoutIfNeeded()
@@ -249,7 +255,7 @@ class MainViewController: UIViewController {
     @objc fileprivate func hideUndoButton() {
         undoButtonCenterXAnchor.constant = 0
         
-        // move left animation
+        // move left and scale down animation
         UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseIn], animations: {
             self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
             self.view.layoutIfNeeded()
