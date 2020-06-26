@@ -17,6 +17,7 @@ class MainInterfaceController: WKInterfaceController {
     //MARK: IBOutlets
     @IBOutlet weak var backgrounImageProgressGroup: WKInterfaceGroup!
     @IBOutlet weak var waterPercentageLabel: WKInterfaceLabel!
+    @IBOutlet weak var waterPerDayRemainingLabel: WKInterfaceLabel!
     
 //    let intakeEntryController = IntakeEntryController() -- unable to access coreData
     let healthKitStore = HKHealthStore()
@@ -24,19 +25,21 @@ class MainInterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        readWater()
         
-        // Configure interface objects here.
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        readWater()
         
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        readWater()
     }
     
     func authorizeHealthKit() {
@@ -74,9 +77,14 @@ class MainInterfaceController: WKInterfaceController {
     //read water levels
     private func readWater() {
         HealthKitWaterDataStore().readWaterData(completion: {total in
-        print("total water: \(total)") //TODO Convert to Percentage
+        print("total water consumed so far today: \(total) ml") //TODO Convert to Percentage
+            // TODO create function to convert from ml to oz
+            // 100 oz = 2950 ml
+            let mlConverstion = Int(total/2950 * 100)// intake / 2950 ml
+            let remainingOzConversion = Int((2950 - total) / 29.54)
         DispatchQueue.main.async {
-            self.waterPercentageLabel.setText("\(total) %") //currently in ML
+            self.waterPercentageLabel.setText("\(mlConverstion) %") //TODO - in Percentage currently in ML
+            self.waterPerDayRemainingLabel.setText("\(remainingOzConversion) oz left") // 100 oz total per day
         }
     })
 }
