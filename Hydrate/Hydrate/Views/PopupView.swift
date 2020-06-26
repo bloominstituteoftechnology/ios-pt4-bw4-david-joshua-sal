@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol PopupDelegate: class {
+    func addedWater(intakeAmount: Int)
+}
+
 class Popup: UIView {
     
+    weak var delegate: PopupDelegate!
+    
     fileprivate let inputTextField: CustomTextField = {
-       let textField = CustomTextField()
+        let textField = CustomTextField()
         textField.placeholder = "10"
         textField.backgroundColor = UIColor.undeadWhite
         textField.textColor = UIColor.sicklySmurfBlue
@@ -34,9 +40,9 @@ class Popup: UIView {
         return spacer
     }()
     
-    fileprivate let addWaterButton8: UIButton = {
+    fileprivate let addWaterButton12: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("+8 oz.", for: .normal )
+        button.setTitle("+12 oz.", for: .normal )
         button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
         button.backgroundColor = UIColor.undeadWhite
         button.layer.cornerRadius = 8
@@ -46,6 +52,7 @@ class Popup: UIView {
         button.layer.shadowRadius = 10.0
         button.layer.masksToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(addWaterButton12Tapped), for: .touchUpInside)
         return button
     }()
     
@@ -61,6 +68,7 @@ class Popup: UIView {
         button.layer.shadowRadius = 10.0
         button.layer.masksToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(addWaterButton17Tapped), for: .touchUpInside)
         return button
     }()
     
@@ -76,6 +84,7 @@ class Popup: UIView {
         button.layer.shadowRadius = 4.0
         button.layer.masksToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(addWaterButton32Tapped), for: .touchUpInside)
         return button
     }()
     
@@ -83,7 +92,7 @@ class Popup: UIView {
         let button = UIButton()
         button.setImage(UIImage(named: "check-mark"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(animateOut), for: .touchUpInside)
+        button.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -100,7 +109,7 @@ class Popup: UIView {
     fileprivate lazy var bottomHorizontalStackView: UIStackView = {
         let padding: CGFloat = 8
 
-        let stack = UIStackView(arrangedSubviews: [addWaterButton8, addWaterButton17, addWaterButton32 ])
+        let stack = UIStackView(arrangedSubviews: [addWaterButton12, addWaterButton17, addWaterButton32 ])
         stack.spacing = padding
         stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -165,6 +174,27 @@ class Popup: UIView {
         container.addSubview(submitButton)
         submitButton.topAnchor.constraint(equalTo: container.topAnchor, constant: -12).isActive = true
         submitButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: 12).isActive = true
+    }
+    
+    @objc func addWaterButton12Tapped() {
+        delegate.addedWater(intakeAmount: 12)
+        animateOut()
+    }
+    
+    @objc func addWaterButton17Tapped() {
+        delegate.addedWater(intakeAmount: 17)
+        animateOut()
+    }
+    
+    @objc func addWaterButton32Tapped() {
+        delegate.addedWater(intakeAmount: 32)
+        animateOut()
+    }
+    
+    @objc func submitButtonTapped() {
+        guard let inputText = inputTextField.text, let customIntakeAmount = Int(inputText) else { return }
+        delegate.addedWater(intakeAmount: customIntakeAmount)
+        animateOut()
     }
     
     fileprivate func applyBlurEffect() {
