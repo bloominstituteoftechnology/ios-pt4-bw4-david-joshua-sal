@@ -27,6 +27,7 @@
 		42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */; };
 		4271F75324A20D8100838864 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F75224A20D8100838864 /* SettingsView.swift */; };
 		42B38A1B24A612E9007FB388 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B38A1A24A612E9007FB388 /* LocalNotificationManager.swift */; };
+		42B38A1D24A61361007FB388 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B38A1C24A61361007FB388 /* UserSettings.swift */; };
 		42DC16D924A58A4000ED5465 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC16D824A58A4000ED5465 /* HealthKit.framework */; };
 		63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */; };
 		63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */; };
@@ -115,6 +116,7 @@
 		42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		4271F75224A20D8100838864 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		42B38A1A24A612E9007FB388 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		42B38A1C24A61361007FB388 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		42DC16D724A58A4000ED5465 /* Hydrate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydrate.entitlements; sourceTree = "<group>"; };
 		42DC16D824A58A4000ED5465 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		63F31FA624A1DD900096FE29 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				42B38A1A24A612E9007FB388 /* LocalNotificationManager.swift */,
+				42B38A1C24A61361007FB388 /* UserSettings.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				63F31FDB24A307FB0096FE29 /* DailyLogTableViewController.swift in Sources */,
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
 				E064D85924A5DBC400634C1A /* HealthKitWaterDataStore.swift in Sources */,
+				42B38A1D24A61361007FB388 /* UserSettings.swift in Sources */,
 				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
 				63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */,
