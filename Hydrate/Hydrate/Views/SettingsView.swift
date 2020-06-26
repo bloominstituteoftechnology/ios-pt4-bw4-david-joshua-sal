@@ -56,7 +56,7 @@ struct SettingsView: View {
                     //                        Text("Start notifications at")
                     //                    }.disabled(!userSettings.recieveNotifications)
                     
-                }.listRowBackground(Color.init(UIColor.ravenClawBlue).opacity(0.9))
+                }.listRowBackground(Color.init(UIColor.ravenClawBlue90))
                     .foregroundColor(Color.init(UIColor.undeadWhite))
                 
                 // App Settings Section
@@ -75,7 +75,7 @@ struct SettingsView: View {
                         Text("Add to Health App")
                     }.toggleStyle(ColoredToggleStyle())
                 }
-                .listRowBackground(Color.init(UIColor.ravenClawBlue).opacity(0.9))
+                .listRowBackground(Color.init(UIColor.ravenClawBlue90))
                 .foregroundColor(Color.init(UIColor.undeadWhite))
                 
                 //About Section
@@ -94,7 +94,7 @@ struct SettingsView: View {
                     NavigationLink(destination: SecondContentView()) {
                         Text("About Us")
                     }
-                }.listRowBackground(Color.init(UIColor.ravenClawBlue).opacity(0.9))
+                }.listRowBackground(Color.init(UIColor.ravenClawBlue90))
                     .foregroundColor(Color.init(UIColor.undeadWhite))
             }
             .navigationBarTitle("Settings")
