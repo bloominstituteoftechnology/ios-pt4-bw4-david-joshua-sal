@@ -18,6 +18,10 @@ struct ChartsView: View {
     ]
     
     init() {
+        let allIntakeEntries = dailyLogController.allIntakeEntries
+        let allDates = allIntakeEntries.compactMap { $0.timestamp?.startOfDay }
+        let daysWithIntakeEntries = Array(Set(allDates))
+        print(daysWithIntakeEntries)
     }
     
     var body: some View {
