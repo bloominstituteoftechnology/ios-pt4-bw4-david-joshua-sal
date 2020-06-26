@@ -37,7 +37,7 @@ struct ChartsView: View {
                     BarView(value: dataPoints[5])
                     BarView(value: dataPoints[6])
 
-                }.padding(.top, 8)
+                }.padding(.top, 0)
                     .animation(.default)
             }
             
@@ -52,12 +52,12 @@ struct BarView: View {
     var body: some View {
         VStack {
             ZStack (alignment: .bottom) {
-                Capsule().frame(width: 30, height: 200)
+                Capsule().frame(width: 30, height: 150)
                     .foregroundColor(Color(UIColor.ravenClawBlue90))
                 Capsule().frame(width: 30, height: value)
                     .foregroundColor(Color(UIColor.sicklySmurfBlue))
             }
-            Text("D").padding(.top, 8)
+            Text("D").padding(.top, 0)
             .foregroundColor(Color(UIColor.undeadWhite))
             
         }
