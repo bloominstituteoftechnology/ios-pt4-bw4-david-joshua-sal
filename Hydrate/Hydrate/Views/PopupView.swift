@@ -9,11 +9,10 @@
 import UIKit
 
 class Popup: UIView {
-
     
     fileprivate let inputTextField: CustomTextField = {
        let textField = CustomTextField()
-        textField.placeholder = "0.5"
+        textField.placeholder = "10"
         textField.backgroundColor = UIColor.undeadWhite
         textField.textColor = UIColor.sicklySmurfBlue
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -35,9 +34,9 @@ class Popup: UIView {
         return spacer
     }()
     
-    fileprivate let addWaterButton1: UIButton = {
+    fileprivate let addWaterButton8: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("+1 cup", for: .normal )
+        button.setTitle("+8 oz.", for: .normal )
         button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
         button.backgroundColor = UIColor.undeadWhite
         button.layer.cornerRadius = 8
@@ -50,11 +49,11 @@ class Popup: UIView {
         return button
     }()
     
-    fileprivate let addWaterButton2: UIButton = {
+    fileprivate let addWaterButton17: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
         button.backgroundColor = UIColor.undeadWhite
-        button.setTitle("+2 cups", for: .normal)
+        button.setTitle("+17 oz.", for: .normal)
         button.layer.cornerRadius = 8
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height:4)
@@ -65,9 +64,9 @@ class Popup: UIView {
         return button
     }()
     
-    fileprivate let addWaterButton3: UIButton = {
+    fileprivate let addWaterButton32: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("+4 cups", for: .normal)
+        button.setTitle("+32 oz.", for: .normal)
         button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
         button.backgroundColor = UIColor.undeadWhite
         button.layer.cornerRadius = 8
@@ -85,8 +84,6 @@ class Popup: UIView {
         button.setImage(UIImage(named: "check-mark"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(animateOut), for: .touchUpInside)
-
-
         return button
     }()
 
@@ -103,7 +100,7 @@ class Popup: UIView {
     fileprivate lazy var bottomHorizontalStackView: UIStackView = {
         let padding: CGFloat = 8
 
-        let stack = UIStackView(arrangedSubviews: [addWaterButton1, addWaterButton2, addWaterButton3 ])
+        let stack = UIStackView(arrangedSubviews: [addWaterButton8, addWaterButton17, addWaterButton32 ])
         stack.spacing = padding
         stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -114,7 +111,7 @@ class Popup: UIView {
     fileprivate let container : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "RavenclawBlue")?.withAlphaComponent(0.75)
+        view.backgroundColor = UIColor.ravenClawBlue.withAlphaComponent(0.75)
         view.isOpaque = false
         
         view.layer.cornerRadius = 24
@@ -154,20 +151,16 @@ class Popup: UIView {
         bottomHorizontalStackView.isLayoutMarginsRelativeArrangement = true
         bottomHorizontalStackView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         bottomHorizontalStackView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        bottomHorizontalStackView.widthAnchor.constraint(equalTo: container.widthAnchor).isActive = true
-        bottomHorizontalStackView.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-        bottomHorizontalStackView.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+        bottomHorizontalStackView.topAnchor.constraint(equalTo: container.centerYAnchor, constant: 16).isActive = true
         bottomHorizontalStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         container.addSubview(topHorizontalStackView)
         topHorizontalStackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         topHorizontalStackView.isLayoutMarginsRelativeArrangement = true
-        topHorizontalStackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 40).isActive = true
-        topHorizontalStackView.bottomAnchor.constraint(equalTo: bottomHorizontalStackView.topAnchor, constant: -8).isActive = true
+        topHorizontalStackView.bottomAnchor.constraint(equalTo: bottomHorizontalStackView.topAnchor, constant: -32).isActive = true
         topHorizontalStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         topHorizontalStackView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         topHorizontalStackView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        topHorizontalStackView.widthAnchor.constraint(equalTo: container.widthAnchor).isActive = true
         
         container.addSubview(submitButton)
         submitButton.topAnchor.constraint(equalTo: container.topAnchor, constant: -12).isActive = true
