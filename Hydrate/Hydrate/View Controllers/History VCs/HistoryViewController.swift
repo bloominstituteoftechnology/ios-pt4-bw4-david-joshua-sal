@@ -25,7 +25,7 @@ class HistoryViewController: UIViewController {
     
     fileprivate let chartView: UIView = {
         let chartView = UIView()
-        chartView.backgroundColor = .systemGray
+        chartView.backgroundColor = .ravenClawBlue
         return chartView
     }()
     
