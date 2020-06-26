@@ -5,13 +5,13 @@
 //  Created by Joshua Rutkowski on 6/23/20.
 //  Copyright © 2020 Hydrate. All rights reserved.
 //
-
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var userSettings = UserSettings()
     
     
-    @State var receive = false
+    //    @State var receive = false
     @State var sounds = true
     @State var haptic = true
     @State var health = false
@@ -30,6 +30,8 @@ struct SettingsView: View {
         
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.undeadWhite]
+        //        self.setNotification()
+        
     }
     
     var body: some View {
@@ -38,32 +40,43 @@ struct SettingsView: View {
             Form {
                 // Notifications Section
                 Section(header: Text("Notifcations")) {
-                    Toggle(isOn: $receive) {
+                    Toggle(isOn: $userSettings.recieveNotifications) {
                         Text("Receive Notifications")
+                        if (userSettings.recieveNotifications) {
+                            Text("\(self.setNotification())")
+                        }
                     }
                     .toggleStyle(ColoredToggleStyle())
-                    Stepper(value: $number, in: 1...8) {
-                        Text("\(number) Notification\(number > 1 ? "s" : "") per day")
-                    }.disabled(!receive)
-                    DatePicker(selection: $date, displayedComponents: .hourAndMinute) {
-                        Text("Start notifications at")
-                    }.disabled(!receive)
+                    //
+                    //                    Stepper(value: $number, in: 1...8) {
+                    //                        Text("\(number) Notification\(number > 1 ? "s" : "") per day")
+                    //                    }.disabled(!userSettings.recieveNotifications)
+                    //
+                    //                    DatePicker(selection: $date, displayedComponents: .hourAndMinute) {
+                    //                        Text("Start notifications at")
+                    //                    }.disabled(!userSettings.recieveNotifications)
+                    
                 }.listRowBackground(Color.init(UIColor.ravenClawBlue).opacity(0.9))
                     .foregroundColor(Color.init(UIColor.undeadWhite))
                 
                 // App Settings Section
                 Section(header: Text("App Settings")) {
-                    Toggle(isOn: $sounds) {
+                    Toggle(isOn: $userSettings.enableAppSounds) {
                         Text("In App Sounds")
-                    }.toggleStyle(ColoredToggleStyle())
-                    Toggle(isOn: $haptic) {
+                    }
+                    .toggleStyle(ColoredToggleStyle())
+                    
+                    Toggle(isOn: $userSettings.enableHapticFeedback) {
                         Text("Haptic Feedback")
-                    }.toggleStyle(ColoredToggleStyle())
-                    Toggle(isOn: $health) {
+                    }
+                    .toggleStyle(ColoredToggleStyle())
+                    
+                    Toggle(isOn: $userSettings.addToHealthApp) {
                         Text("Add to Health App")
                     }.toggleStyle(ColoredToggleStyle())
-                }.listRowBackground(Color.init(UIColor.ravenClawBlue).opacity(0.9))
-                    .foregroundColor(Color.init(UIColor.undeadWhite))
+                }
+                .listRowBackground(Color.init(UIColor.ravenClawBlue).opacity(0.9))
+                .foregroundColor(Color.init(UIColor.undeadWhite))
                 
                 //About Section
                 Section(header: Text("About")) {
@@ -87,7 +100,22 @@ struct SettingsView: View {
             .navigationBarTitle("Settings")
             
         }
+        
+        
     }
+    
+    
+    
+    
+    func setNotification() -> String {
+        let manager = LocalNotificationManager()
+        manager.requestPermission()
+        manager.addNotification(title: "This is a test reminder")
+        manager.scheduleNotifications()
+        return ""
+    }
+    
+    
 }
 
 struct SecondContentView: View {
@@ -125,4 +153,5 @@ struct ColoredToggleStyle: ToggleStyle {
         }
         .font(.body)
     }
+    
 }
