@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38"/>
+    <device id="watch40"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
@@ -11,11 +11,14 @@
             <objects>
                 <controller title="MainView" id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="Hydrate_WatchOS_Extension">
                     <items>
-                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-45" contentMode="scaleAspectFill" id="Gyu-hn-RF6">
+                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-45" contentMode="scaleAspectFill" layout="vertical" id="Gyu-hn-RF6">
                             <items>
                                 <label alignment="center" verticalAlignment="center" text="35%" id="msL-oA-nFS">
                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="system" pointSize="25"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="center" text="16 oz Left" id="RZO-77-mJp">
+                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </label>
                             </items>
                         </group>
@@ -67,6 +70,7 @@
                                     </connections>
                                 </button>
                                 <button width="1" alignment="left" title="Custom" id="roD-Y6-04x">
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <segue destination="JuG-0s-8v2" kind="push" id="3cv-KV-T5b"/>
                                     </connections>
