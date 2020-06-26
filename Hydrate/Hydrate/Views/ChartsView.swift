@@ -15,16 +15,110 @@ struct ChartsView: View {
     var dailyLogs: [DailyLog] = []
     var lastSevenDays: [DailyLog] = []
 
-    // Dummy data
-    @State var dataPoints: [CGFloat] = []
-    
+    var day1: CGFloat = 0
+    var day2: CGFloat = 0
+    var day3: CGFloat = 0
+    var day4: CGFloat = 0
+    var day5: CGFloat = 0
+    var day6: CGFloat = 0
+    var day7: CGFloat = 0
+
     init() {
         updateDailyLogs()
+        
+        checkIfIndexExists()
+    }
+
+    var body: some View {
+        ZStack {
+            Color(#colorLiteral(red: 0.2122643888, green: 0.2450331748, blue: 0.3367856145, alpha: 1))
+            VStack (alignment: .leading) {
+                VStack (alignment: .leading, spacing: 0){
+                    Text("Water Intake")
+                        .font(.system(size:24))
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color(UIColor.undeadWhite))
+                    Text("Weekly")
+                    .foregroundColor(Color(UIColor.sicklySmurfBlue))
+                }
+
+                HStack (spacing: 16) {
+                    BarView(value: day7)
+                    BarView(value: day6)
+                    BarView(value: day5)
+                    BarView(value: day4)
+                    BarView(value: day3)
+                    BarView(value: day2)
+                    BarView(value: day1)
+
+                }.padding(.top, 0)
+                    .animation(.default)
+            }
+            
+        }
+    }
+}
+// MARK: - BarView
+struct BarView: View {
+    var value: CGFloat = 0
+    
+    var body: some View {
+        VStack {
+            ZStack (alignment: .bottom) {
+                Capsule().frame(width: 30, height: 150)
+                    .foregroundColor(Color(UIColor.ravenClawBlue90))
+                Capsule().frame(width: 30, height: value)
+                    .foregroundColor(Color(UIColor.sicklySmurfBlue))
+            }
+            Text("D").padding(.top, 0)
+            .foregroundColor(Color(UIColor.undeadWhite))
+            
+        }
+    }
+}
+
+struct ChartsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChartsView()
+    }
+}
+
+// MARK: - Extension
+
+extension ChartsView {
+    fileprivate mutating func checkIfIndexExists() {
+        if ((0 < lastSevenDays.count ? lastSevenDays[0] : nil) != nil) {
+            day1 = CGFloat(lastSevenDays[0].totalIntakeAmount)
+        }
+        
+        if ((1 < lastSevenDays.count ? lastSevenDays[1] : nil) != nil) {
+            day2 = CGFloat(lastSevenDays[1].totalIntakeAmount)
+        }
+        
+        if ((2 < lastSevenDays.count ? lastSevenDays[2] : nil) != nil) {
+            day3 = CGFloat(lastSevenDays[2].totalIntakeAmount)
+        }
+        
+        if ((3 < lastSevenDays.count ? lastSevenDays[3] : nil) != nil) {
+            day4 = CGFloat(lastSevenDays[3].totalIntakeAmount)
+        }
+        
+        if ((4 < lastSevenDays.count ? lastSevenDays[4] : nil) != nil) {
+            day5 = CGFloat(lastSevenDays[4].totalIntakeAmount)
+        }
+        
+        if ((5 < lastSevenDays.count ? lastSevenDays[5] : nil) != nil) {
+            day6 = CGFloat(lastSevenDays[5].totalIntakeAmount)
+        }
+        
+        if ((6 < lastSevenDays.count ? lastSevenDays[6] : nil) != nil) {
+            day7 = CGFloat(lastSevenDays[6].totalIntakeAmount)
+        }
     }
     
     fileprivate mutating func updateDailyLogs() {
         let allIntakeEntries = dailyLogController.allIntakeEntries
-
+        
         let allDates = allIntakeEntries.compactMap { $0.timestamp?.startOfDay } // removes .hour, .minute, .second, etc. granularity from timestamps
         let daysWithIntakeEntries = Array(Set(allDates)) // removes duplicates (each day appears only once)
         
@@ -49,63 +143,5 @@ struct ChartsView: View {
         lastSevenDays = weekArray
         print(weekArray)
         
-    }
-    
-    func updateArray() {
-        
-    }
-    
-    var body: some View {
-        ZStack {
-            Color(#colorLiteral(red: 0.2122643888, green: 0.2450331748, blue: 0.3367856145, alpha: 1))
-            VStack (alignment: .leading) {
-                VStack (alignment: .leading, spacing: 0){
-                    Text("Water Intake")
-                        .font(.system(size:24))
-                        .fontWeight(.heavy)
-                        .foregroundColor(Color(UIColor.undeadWhite))
-                    Text("Weekly")
-                    .foregroundColor(Color(UIColor.sicklySmurfBlue))
-                }
-
-                HStack (spacing: 16) {
-                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
-                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
-                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
-                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
-                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
-                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
-                    BarView(value: CGFloat(lastSevenDays[0].totalIntakeAmount))
-
-                }.padding(.top, 0)
-                    .animation(.default)
-            }
-            
-        }
-    }
-}
-
-
-struct BarView: View {
-    var value: CGFloat = 0
-    
-    var body: some View {
-        VStack {
-            ZStack (alignment: .bottom) {
-                Capsule().frame(width: 30, height: 150)
-                    .foregroundColor(Color(UIColor.ravenClawBlue90))
-                Capsule().frame(width: 30, height: value)
-                    .foregroundColor(Color(UIColor.sicklySmurfBlue))
-            }
-            Text("D").padding(.top, 0)
-            .foregroundColor(Color(UIColor.undeadWhite))
-            
-        }
-    }
-}
-
-struct ChartsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChartsView()
     }
 }
