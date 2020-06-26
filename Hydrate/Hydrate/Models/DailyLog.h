@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@class IntakeEntry;
 
 @interface DailyLog : NSObject
 
-@end
+// Properties
+@property (nonatomic, readonly, nonnull) NSDate *date;
+@property (nonatomic, readonly, copy, nonnull) NSArray<IntakeEntry *> *entries;
 
-NS_ASSUME_NONNULL_END
+@property (nonatomic, readonly) NSInteger totalIntakeAmount;
+
+// Initializers
+- (nonnull instancetype)initWithDate:(nonnull NSDate *)date
+                             entries:(nonnull NSArray<IntakeEntry *> *)entries;
+
+@end
