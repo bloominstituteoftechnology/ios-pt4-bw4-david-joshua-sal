@@ -17,7 +17,7 @@
 		42443F082499C08A001DAA60 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42443F062499C08A001DAA60 /* Interface.storyboard */; };
 		42443F0A2499C08C001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443F092499C08C001DAA60 /* Assets.xcassets */; };
 		42443F112499C08C001DAA60 /* Hydrate-WatchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42443F102499C08C001DAA60 /* Hydrate-WatchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		42443F162499C08C001DAA60 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F152499C08C001DAA60 /* InterfaceController.swift */; };
+		42443F162499C08C001DAA60 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F152499C08C001DAA60 /* MainInterfaceController.swift */; };
 		42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F172499C08C001DAA60 /* ExtensionDelegate.swift */; };
 		42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443F192499C08C001DAA60 /* NotificationController.swift */; };
 		42443F1C2499C08E001DAA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42443F1B2499C08E001DAA60 /* Assets.xcassets */; };
@@ -28,6 +28,11 @@
 		42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC5249B9946001DAA60 /* WaveAnimationView.swift */; };
 		42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */; };
 		4271F75324A20D8100838864 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F75224A20D8100838864 /* SettingsView.swift */; };
+		42DC16D924A58A4000ED5465 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC16D824A58A4000ED5465 /* HealthKit.framework */; };
+		42DC16DA24A58BCC00ED5465 /* HealthKitSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D84724A4806F00634C1A /* HealthKitSetupHelper.swift */; };
+		42DC16DB24A58BCC00ED5465 /* HealthKitWaterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D84924A4807B00634C1A /* HealthKitWaterDataStore.swift */; };
+		42DC16DE24A58C2C00ED5465 /* HealthKitSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC16DC24A58C2B00ED5465 /* HealthKitSetupHelper.swift */; };
+		42DC16DF24A58C2C00ED5465 /* HealthKitWaterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC16DD24A58C2C00ED5465 /* HealthKitWaterDataStore.swift */; };
 		63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */; };
 		63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */; };
 		63F31FAB24A1DEF10096FE29 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */; };
@@ -38,6 +43,9 @@
 		63F31FD924A307CC0096FE29 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FD824A307CC0096FE29 /* HistoryViewController.swift */; };
 		63F31FDB24A307FB0096FE29 /* DailyLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FDA24A307FB0096FE29 /* DailyLogTableViewController.swift */; };
 		63F31FDD24A308340096FE29 /* IntakeEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */; };
+		E064D84024A4770400634C1A /* AddDrinkInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D83F24A4770400634C1A /* AddDrinkInterfaceController.swift */; };
+		E064D84224A478D500634C1A /* CustomDrinkInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064D84124A478D500634C1A /* CustomDrinkInterfaceController.swift */; };
+		E064D84E24A48F4B00634C1A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E064D84D24A48F4B00634C1A /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +106,7 @@
 		42443F092499C08C001DAA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42443F0B2499C08C001DAA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42443F102499C08C001DAA60 /* Hydrate-WatchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Hydrate-WatchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		42443F152499C08C001DAA60 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		42443F152499C08C001DAA60 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 		42443F172499C08C001DAA60 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		42443F192499C08C001DAA60 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		42443F1B2499C08E001DAA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +118,10 @@
 		42443FC5249B9946001DAA60 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
 		42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		4271F75224A20D8100838864 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		42DC16D724A58A4000ED5465 /* Hydrate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydrate.entitlements; sourceTree = "<group>"; };
+		42DC16D824A58A4000ED5465 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		42DC16DC24A58C2B00ED5465 /* HealthKitSetupHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitSetupHelper.swift; path = Hydrate/Resources/HealthKitSetupHelper.swift; sourceTree = SOURCE_ROOT; };
+		42DC16DD24A58C2C00ED5465 /* HealthKitWaterDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitWaterDataStore.swift; path = Hydrate/Resources/HealthKitWaterDataStore.swift; sourceTree = SOURCE_ROOT; };
 		63F31FA624A1DD900096FE29 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
 		63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntakeEntry+Convenience.swift"; sourceTree = "<group>"; };
 		63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -120,6 +132,12 @@
 		63F31FD824A307CC0096FE29 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		63F31FDA24A307FB0096FE29 /* DailyLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTableViewController.swift; sourceTree = "<group>"; };
 		63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeEntryTableViewController.swift; sourceTree = "<group>"; };
+		E064D83F24A4770400634C1A /* AddDrinkInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinkInterfaceController.swift; sourceTree = "<group>"; };
+		E064D84124A478D500634C1A /* CustomDrinkInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkInterfaceController.swift; sourceTree = "<group>"; };
+		E064D84724A4806F00634C1A /* HealthKitSetupHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitSetupHelper.swift; sourceTree = "<group>"; };
+		E064D84924A4807B00634C1A /* HealthKitWaterDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitWaterDataStore.swift; sourceTree = "<group>"; };
+		E064D84B24A48F4B00634C1A /* Hydrate-WatchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Hydrate-WatchOS Extension.entitlements"; sourceTree = "<group>"; };
+		E064D84D24A48F4B00634C1A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42DC16D924A58A4000ED5465 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E064D84E24A48F4B00634C1A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +176,7 @@
 				42443F052499C08A001DAA60 /* Hydrate-WatchOS */,
 				42443F142499C08C001DAA60 /* Hydrate-WatchOS Extension */,
 				42443EEC2499A774001DAA60 /* Products */,
+				E064D84C24A48F4B00634C1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +193,7 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				42DC16D724A58A4000ED5465 /* Hydrate.entitlements */,
 				63F31FA424A1DD6A0096FE29 /* Models */,
 				63F31FA324A1DD3D0096FE29 /* Model Controllers */,
 				42443F54249AF6E1001DAA60 /* Views */,
@@ -195,7 +217,12 @@
 		42443F142499C08C001DAA60 /* Hydrate-WatchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
-				42443F152499C08C001DAA60 /* InterfaceController.swift */,
+				42DC16DC24A58C2B00ED5465 /* HealthKitSetupHelper.swift */,
+				42DC16DD24A58C2C00ED5465 /* HealthKitWaterDataStore.swift */,
+				E064D84B24A48F4B00634C1A /* Hydrate-WatchOS Extension.entitlements */,
+				42443F152499C08C001DAA60 /* MainInterfaceController.swift */,
+				E064D83F24A4770400634C1A /* AddDrinkInterfaceController.swift */,
+				E064D84124A478D500634C1A /* CustomDrinkInterfaceController.swift */,
 				42443F172499C08C001DAA60 /* ExtensionDelegate.swift */,
 				42443F192499C08C001DAA60 /* NotificationController.swift */,
 				42443F1B2499C08E001DAA60 /* Assets.xcassets */,
@@ -259,6 +286,8 @@
 		63F31FDF24A30E380096FE29 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E064D84724A4806F00634C1A /* HealthKitSetupHelper.swift */,
+				E064D84924A4807B00634C1A /* HealthKitWaterDataStore.swift */,
 				42443EF72499A776001DAA60 /* Assets.xcassets */,
 				42443EF92499A776001DAA60 /* LaunchScreen.storyboard */,
 				42443EEE2499A774001DAA60 /* AppDelegate.swift */,
@@ -286,6 +315,15 @@
 				63F31FDC24A308340096FE29 /* IntakeEntryTableViewController.swift */,
 			);
 			path = "History VCs";
+			sourceTree = "<group>";
+		};
+		E064D84C24A48F4B00634C1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42DC16D824A58A4000ED5465 /* HealthKit.framework */,
+				E064D84D24A48F4B00634C1A /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +462,7 @@
 				63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */,
 				42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */,
 				63F31FAF24A1E18A0096FE29 /* Extensions+Date.swift in Sources */,
+				42DC16DA24A58BCC00ED5465 /* HealthKitSetupHelper.swift in Sources */,
 				63F31FB324A27D440096FE29 /* DailyLogController.swift in Sources */,
 				42443EF32499A774001DAA60 /* MainViewController.swift in Sources */,
 				63F31FAB24A1DEF10096FE29 /* CoreDataStack.swift in Sources */,
@@ -432,6 +471,7 @@
 				63F31FAD24A1E0130096FE29 /* IntakeEntryController.swift in Sources */,
 				63F31FDB24A307FB0096FE29 /* DailyLogTableViewController.swift in Sources */,
 				42443EEF2499A774001DAA60 /* AppDelegate.swift in Sources */,
+				42DC16DB24A58BCC00ED5465 /* HealthKitWaterDataStore.swift in Sources */,
 				42443F2D249A2B33001DAA60 /* Extensions+UIView.swift in Sources */,
 				4213096824A3D14700370194 /* UserSettings.swift in Sources */,
 				42443EF12499A774001DAA60 /* SceneDelegate.swift in Sources */,
@@ -449,7 +489,11 @@
 			files = (
 				42443F1A2499C08C001DAA60 /* NotificationController.swift in Sources */,
 				42443F182499C08C001DAA60 /* ExtensionDelegate.swift in Sources */,
-				42443F162499C08C001DAA60 /* InterfaceController.swift in Sources */,
+				42DC16DE24A58C2C00ED5465 /* HealthKitSetupHelper.swift in Sources */,
+				E064D84224A478D500634C1A /* CustomDrinkInterfaceController.swift in Sources */,
+				E064D84024A4770400634C1A /* AddDrinkInterfaceController.swift in Sources */,
+				42443F162499C08C001DAA60 /* MainInterfaceController.swift in Sources */,
+				42DC16DF24A58C2C00ED5465 /* HealthKitWaterDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,8 +650,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hydrate/Hydrate.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2YCSRP8773;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Hydrate/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -615,6 +661,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -624,8 +671,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hydrate/Hydrate.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2YCSRP8773;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Hydrate/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -633,6 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -642,8 +692,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Hydrate-WatchOS Extension/Hydrate-WatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2YCSRP8773;
+				DEVELOPMENT_TEAM = MFTQY9JN35;
 				INFOPLIST_FILE = "Hydrate-WatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -664,8 +715,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Hydrate-WatchOS Extension/Hydrate-WatchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2YCSRP8773;
+				DEVELOPMENT_TEAM = MFTQY9JN35;
 				INFOPLIST_FILE = "Hydrate-WatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -688,7 +740,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2YCSRP8773;
+				DEVELOPMENT_TEAM = MFTQY9JN35;
 				IBSC_MODULE = Hydrate_WatchOS_Extension;
 				INFOPLIST_FILE = "Hydrate-WatchOS/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate.watchkitapp;
@@ -707,7 +759,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2YCSRP8773;
+				DEVELOPMENT_TEAM = MFTQY9JN35;
 				IBSC_MODULE = Hydrate_WatchOS_Extension;
 				INFOPLIST_FILE = "Hydrate-WatchOS/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate.watchkitapp;
