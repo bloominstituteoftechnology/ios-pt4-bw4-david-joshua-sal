@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 
 struct ChartsView: View {
-    
+
     let dailyLogController = DailyLogController()
     var dailyLogs: [DailyLog] = []
     var lastSevenDays: [DailyLog] = []
@@ -25,7 +25,7 @@ struct ChartsView: View {
 
     init() {
         updateDailyLogs()
-        
+
         checkIfIndexExists()
     }
 
@@ -54,14 +54,14 @@ struct ChartsView: View {
                 }.padding(.top, 0)
                     .animation(.default)
             }
-            
+
         }
     }
 }
 // MARK: - BarView
 struct BarView: View {
     var value: CGFloat = 0
-    
+
     var body: some View {
         VStack {
             ZStack (alignment: .bottom) {
@@ -72,7 +72,7 @@ struct BarView: View {
             }
             Text("D").padding(.top, 0)
             .foregroundColor(Color(UIColor.undeadWhite))
-            
+
         }
     }
 }
@@ -90,58 +90,58 @@ extension ChartsView {
         if ((0 < lastSevenDays.count ? lastSevenDays[0] : nil) != nil) {
             day1 = CGFloat(lastSevenDays[0].totalIntakeAmount)
         }
-        
+
         if ((1 < lastSevenDays.count ? lastSevenDays[1] : nil) != nil) {
             day2 = CGFloat(lastSevenDays[1].totalIntakeAmount)
         }
-        
+
         if ((2 < lastSevenDays.count ? lastSevenDays[2] : nil) != nil) {
             day3 = CGFloat(lastSevenDays[2].totalIntakeAmount)
         }
-        
+
         if ((3 < lastSevenDays.count ? lastSevenDays[3] : nil) != nil) {
             day4 = CGFloat(lastSevenDays[3].totalIntakeAmount)
         }
-        
+
         if ((4 < lastSevenDays.count ? lastSevenDays[4] : nil) != nil) {
             day5 = CGFloat(lastSevenDays[4].totalIntakeAmount)
         }
-        
+
         if ((5 < lastSevenDays.count ? lastSevenDays[5] : nil) != nil) {
             day6 = CGFloat(lastSevenDays[5].totalIntakeAmount)
         }
-        
+
         if ((6 < lastSevenDays.count ? lastSevenDays[6] : nil) != nil) {
             day7 = CGFloat(lastSevenDays[6].totalIntakeAmount)
         }
     }
-    
+
     fileprivate mutating func updateDailyLogs() {
         let allIntakeEntries = dailyLogController.allIntakeEntries
-        
+
         let allDates = allIntakeEntries.compactMap { $0.timestamp?.startOfDay } // removes .hour, .minute, .second, etc. granularity from timestamps
         let daysWithIntakeEntries = Array(Set(allDates)) // removes duplicates (each day appears only once)
-        
+
         var dailyLogs: [DailyLog] = []
-        
+
         for day in daysWithIntakeEntries {
             let entries = allIntakeEntries.filter { $0.timestamp?.startOfDay == day }
             dailyLogs.append(DailyLog(date: day, entries: entries))
         }
-        
+
         self.dailyLogs = dailyLogs.sorted { $0.date > $1.date }
         print("+_______________________________+\n|\t\t\tDaily Logs\t\t\t|\n+_______________________________+")
         print(self.dailyLogs)
         print(self.dailyLogs[0].entries)
-        
+
         let dailyLogTotalIntakeAmount = dailyLogController.dailyLogs[0].totalIntakeAmount
         print("+_______________________________________+\n|\t\t\tTotal Intake Amount\t\t\t|\n+_______________________________________+")
         print(dailyLogTotalIntakeAmount)
-        
+
         let slice = dailyLogs.suffix(7)
         let weekArray = Array(slice)
         lastSevenDays = weekArray
         print(weekArray)
-        
+
     }
 }
