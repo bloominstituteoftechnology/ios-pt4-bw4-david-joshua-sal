@@ -19,6 +19,7 @@ class Popup: UIView {
     fileprivate let inputTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.placeholder = "10"
+        textField.attributedPlaceholder = NSAttributedString(string: "10", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.662745098, green: 0.662745098, blue: 0.6705882353, alpha: 1)])
         textField.backgroundColor = UIColor.undeadWhite
         textField.textColor = UIColor.sicklySmurfBlue
         textField.textAlignment = .center
