@@ -631,13 +631,13 @@
 				CODE_SIGN_ENTITLEMENTS = Hydrate/Hydrate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MFTQY9JN35;
 				INFOPLIST_FILE = Hydrate/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.HydrateSal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -652,13 +652,13 @@
 				CODE_SIGN_ENTITLEMENTS = Hydrate/Hydrate.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MFTQY9JN35;
 				INFOPLIST_FILE = Hydrate/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.HydrateSal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -679,7 +679,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.HydrateSal.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -702,7 +702,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.HydrateSal.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -721,7 +721,7 @@
 				DEVELOPMENT_TEAM = MFTQY9JN35;
 				IBSC_MODULE = Hydrate_WatchOS_Extension;
 				INFOPLIST_FILE = "Hydrate-WatchOS/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.HydrateSal.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -740,7 +740,7 @@
 				DEVELOPMENT_TEAM = MFTQY9JN35;
 				IBSC_MODULE = Hydrate_WatchOS_Extension;
 				INFOPLIST_FILE = "Hydrate-WatchOS/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.Hydrate.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaiOSBuldWeek.HydrateSal.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
