@@ -40,6 +40,10 @@ struct ChartsView: View {
         print("+_______________________________+\n|\t\t\tDaily Logs\t\t\t|\n+_______________________________+")
         print(self.dailyLogs)
         print(self.dailyLogs[0].entries)
+        
+        let dailyLogTotalIntakeAmount = dailyLogController.dailyLogs[0].totalIntakeAmount
+        print("+_______________________________________+\n|\t\t\tTotal Intake Amount\t\t\t|\n+_______________________________________+")
+        print(dailyLogTotalIntakeAmount)
     }
     
     var body: some View {
