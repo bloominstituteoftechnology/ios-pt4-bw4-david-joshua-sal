@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
     let undoWaterIntakeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = #colorLiteral(red: 0.8172292593, green: 0.8253206381, blue: 0.8253206381, alpha: 1)
+        button.tintColor = .undeadWhite
         let config = UIImage.SymbolConfiguration(pointSize: 60)
         let image = UIImage(systemName: "arrowshape.turn.up.left.circle.fill", withConfiguration: config)
         button.setImage(image, for: .normal)
@@ -239,9 +239,6 @@ class MainViewController: UIViewController {
     fileprivate func newMarkerView(withDisplayNumber displayNumber: Int) -> UIView {
         guard displayNumber > 0 else { return UIView() }
         
-        let markerLabelColor = #colorLiteral(red: 0.8469634652, green: 0.8471123576, blue: 0.8469651341, alpha: 0.3960027825) // UndeadWhite40
-        let markerLineColor = #colorLiteral(red: 0.8469634652, green: 0.8471123576, blue: 0.8469651341, alpha: 0.1984160959) // UndeadWhite20
-        
         let markerView = UIView()
         let label = UILabel()
         let lineView = UIView()
@@ -250,10 +247,10 @@ class MainViewController: UIViewController {
         
         label.textAlignment = .right
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = markerLabelColor
+        label.textColor = .markerLabelColor
         label.text = "\(displayNumber) oz."
         
-        lineView.backgroundColor = markerLineColor
+        lineView.backgroundColor = .markerLineColor
         
         markerView.translatesAutoresizingMaskIntoConstraints = false
         label.anchor(top: nil, leading: markerView.leadingAnchor, bottom: markerView.topAnchor, trailing: nil,
