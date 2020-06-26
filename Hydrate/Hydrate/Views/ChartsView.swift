@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ChartsView: View {
     
+    let dailyLogController = DailyLogController()
+
     // Dummy data
     @State var dataPoints: [CGFloat] = [
     10, 20, 30 , 40, 50, 60, 70
