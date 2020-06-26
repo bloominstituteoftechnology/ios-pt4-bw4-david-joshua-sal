@@ -318,6 +318,7 @@ class MainViewController: UIViewController {
     /// - Parameter sender: UILongPressGestureRecognizer
     fileprivate func handleGestureEnded(sender: UILongPressGestureRecognizer) {
         let pop = Popup()
+        pop.delegate = self
         self.view.addSubview(pop)
     }
     
@@ -371,3 +372,9 @@ class MainViewController: UIViewController {
     }
 }
 
+extension MainViewController: PopupDelegate {
+    func addedWater(intakeAmount: Int) {
+        recentlyAddedIntakeEntry = intakeEntryController.addIntakeEntry(withIntakeAmount: intakeAmount)
+        print("Added \(recentlyAddedIntakeEntry?.intakeAmount ?? 0) ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
+    }
+}
