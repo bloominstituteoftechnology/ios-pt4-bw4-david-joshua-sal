@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
+class Popup: UIView {
 
     
     fileprivate let inputTextField: CustomTextField = {
@@ -21,9 +21,9 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         return textField
     }()
     
-    fileprivate let cupLabel: UILabel = {
+    fileprivate let unitsLabel: UILabel = {
        let label = UILabel()
-        label.text = "cup(s)"
+        label.text = "ounces"
         label.textColor = UIColor.sicklySmurfBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -35,7 +35,7 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         return spacer
     }()
     
-    fileprivate let addOneCupButton: UIButton = {
+    fileprivate let addWaterButton1: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("+1 cup", for: .normal )
         button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
@@ -50,7 +50,7 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         return button
     }()
     
-    fileprivate let addTwoCupsButton: UIButton = {
+    fileprivate let addWaterButton2: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
         button.backgroundColor = UIColor.undeadWhite
@@ -65,7 +65,7 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         return button
     }()
     
-    fileprivate let addFourCupsButton: UIButton = {
+    fileprivate let addWaterButton3: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("+4 cups", for: .normal)
         button.setTitleColor(UIColor.ravenClawBlue, for: .normal)
@@ -89,17 +89,10 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
 
         return button
     }()
-    
-    fileprivate let picker: UIPickerView = {
-        let picker = UIPickerView()
-        picker.translatesAutoresizingMaskIntoConstraints = false
-        return picker
-    }()
-    
 
     fileprivate lazy var topHorizontalStackView: UIStackView = {
         let padding: CGFloat = 8
-        let stack = UIStackView(arrangedSubviews: [spacerView, inputTextField, cupLabel ])
+        let stack = UIStackView(arrangedSubviews: [spacerView, inputTextField, unitsLabel ])
         stack.spacing = padding
         stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -110,7 +103,7 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     fileprivate lazy var bottomHorizontalStackView: UIStackView = {
         let padding: CGFloat = 8
 
-        let stack = UIStackView(arrangedSubviews: [addOneCupButton, addTwoCupsButton, addFourCupsButton ])
+        let stack = UIStackView(arrangedSubviews: [addWaterButton1, addWaterButton2, addWaterButton3 ])
         stack.spacing = padding
         stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -119,13 +112,13 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }()
     
     fileprivate let container : UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = UIColor(named: "RavenclawBlue")?.withAlphaComponent(0.75)
-        v.isOpaque = false
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(named: "RavenclawBlue")?.withAlphaComponent(0.75)
+        view.isOpaque = false
         
-        v.layer.cornerRadius = 24
-        return v
+        view.layer.cornerRadius = 24
+        return view
     }()
     
     
@@ -139,8 +132,6 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         setupContainerView()
 
         animateIn()
-
-
     }
     
     required init?(coder: NSCoder) {
@@ -177,16 +168,6 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         topHorizontalStackView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         topHorizontalStackView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
         topHorizontalStackView.widthAnchor.constraint(equalTo: container.widthAnchor).isActive = true
-        
-        
-        container.addSubview(picker)
-        picker.delegate = self as UIPickerViewDelegate
-        picker.dataSource = self as UIPickerViewDataSource
-        picker.setValue(UIColor.undeadWhite, forKeyPath: "textColor")
-        picker.topAnchor.constraint(equalTo: bottomHorizontalStackView.bottomAnchor).isActive = true
-        picker.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        picker.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        picker.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
         
         container.addSubview(submitButton)
         submitButton.topAnchor.constraint(equalTo: container.topAnchor, constant: -12).isActive = true
@@ -235,27 +216,6 @@ class Popup: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             self.alpha = 1
 
         })
-    }
-    
-    
-    //MARK: - Picker
-    
-    let dataArray = ["Water", "Tea", "Soda", "Coffee", "Alcohol", "Other"]
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-           pickerView.subviews.forEach({
-             $0.isHidden = $0.frame.height < 1.0
-         })
-         return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-       return dataArray.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       let row = dataArray[row]
-       return row
     }
 }
 
