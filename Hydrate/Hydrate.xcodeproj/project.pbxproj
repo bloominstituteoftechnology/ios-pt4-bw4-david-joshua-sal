@@ -26,6 +26,7 @@
 		42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC5249B9946001DAA60 /* WaveAnimationView.swift */; };
 		42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */; };
 		4271F75324A20D8100838864 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F75224A20D8100838864 /* SettingsView.swift */; };
+		42B38A1B24A612E9007FB388 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B38A1A24A612E9007FB388 /* LocalNotificationManager.swift */; };
 		42DC16D924A58A4000ED5465 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC16D824A58A4000ED5465 /* HealthKit.framework */; };
 		63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */; };
 		63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */; };
@@ -113,6 +114,7 @@
 		42443FC5249B9946001DAA60 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
 		42443FC7249B9D91001DAA60 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		4271F75224A20D8100838864 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		42B38A1A24A612E9007FB388 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		42DC16D724A58A4000ED5465 /* Hydrate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydrate.entitlements; sourceTree = "<group>"; };
 		42DC16D824A58A4000ED5465 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		63F31FA624A1DD900096FE29 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		42443EED2499A774001DAA60 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				42B38A1924A612DB007FB388 /* Helpers */,
 				42DC16D724A58A4000ED5465 /* Hydrate.entitlements */,
 				63F31FA424A1DD6A0096FE29 /* Models */,
 				63F31FA324A1DD3D0096FE29 /* Model Controllers */,
@@ -232,6 +235,14 @@
 				4271F75224A20D8100838864 /* SettingsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		42B38A1924A612DB007FB388 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				42B38A1A24A612E9007FB388 /* LocalNotificationManager.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		63F31FA324A1DD3D0096FE29 /* Model Controllers */ = {
@@ -437,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B38A1B24A612E9007FB388 /* LocalNotificationManager.swift in Sources */,
 				42443FC6249B9946001DAA60 /* WaveAnimationView.swift in Sources */,
 				63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */,
 				42443F56249AF6F1001DAA60 /* PopupView.swift in Sources */,
