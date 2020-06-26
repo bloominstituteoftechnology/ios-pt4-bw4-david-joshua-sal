@@ -15,10 +15,11 @@
                             <items>
                                 <label alignment="center" verticalAlignment="center" text="35%" id="msL-oA-nFS">
                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" type="system" pointSize="25"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                 </label>
-                                <label alignment="center" verticalAlignment="center" text="16 oz Left" id="RZO-77-mJp">
+                                <label alignment="center" verticalAlignment="center" text="16 oz Left" textAlignment="center" id="RZO-77-mJp">
                                     <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="15"/>
                                 </label>
                             </items>
                         </group>
@@ -29,6 +30,11 @@
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="backgrounImageProgressGroup" destination="Gyu-hn-RF6" id="IQi-tB-mAC"/>
+                        <outlet property="waterPerDayRemainingLabel" destination="RZO-77-mJp" id="Oq0-3N-TsV"/>
+                        <outlet property="waterPercentageLabel" destination="msL-oA-nFS" id="Ja5-cD-uMh"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="71" y="66"/>
@@ -92,7 +98,11 @@
             <objects>
                 <controller id="JuG-0s-8v2" customClass="CustomDrinkInterfaceController" customModule="Hydrate_WatchOS_Extension">
                     <items>
-                        <picker height="100" alignment="left" id="ZKV-ss-kEA"/>
+                        <picker height="100" alignment="left" id="ZKV-ss-kEA">
+                            <connections>
+                                <action selector="pickerWasSelected:" destination="JuG-0s-8v2" id="k5f-S1-ImL"/>
+                            </connections>
+                        </picker>
                         <button width="1" alignment="left" title="Save" id="2lz-ic-3Bm">
                             <color key="backgroundColor" red="0.0076015526429999997" green="0.47532129290000003" blue="0.99726170300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
