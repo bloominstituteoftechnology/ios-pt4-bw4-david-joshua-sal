@@ -22,10 +22,13 @@ class MainInterfaceController: WKInterfaceController {
 //    let intakeEntryController = IntakeEntryController() -- unable to access coreData
     let healthKitStore = HKHealthStore()
     
+  
+    
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         readWater()
+        animateBackgroungImageBasedOnPercentage()
         
     }
     
@@ -60,6 +63,22 @@ class MainInterfaceController: WKInterfaceController {
         }
     }
     
+    // animate backgroundgroup based on percentage
+    func animateBackgroungImageBasedOnPercentage() {
+        var images: [UIImage]! = []
+        let percentage =  waterPercentageLabel.self// value of mlConversion
+        for i in 0...100 {
+            let name = "activity-\(i)"
+            images.append(UIImage(named: name)!)
+        }
+        let progressImages = UIImage.animatedImage(with: images, duration: 0.0)
+        backgrounImageProgressGroup.setBackgroundImage(progressImages)
+    
+    }
+    
+    
+    
+    
     //observe changes to healthApp
     func startObservingChanges() {
         let query: HKObserverQuery = HKObserverQuery(sampleType: HealthKitWaterDataStore.waterType, predicate: nil, updateHandler: self.waterChangedHandler)
@@ -75,15 +94,15 @@ class MainInterfaceController: WKInterfaceController {
             completionHandler()
     }
     //read water levels
-    private func readWater() {
+    public func readWater() {
         HealthKitWaterDataStore().readWaterData(completion: {total in
         print("total water consumed so far today: \(total) ml") //TODO Convert to Percentage
             // TODO create function to convert from ml to oz
             // 100 oz = 2950 ml
-            let mlConverstion = Int(total/2950 * 100)// intake / 2950 ml
+            let mlConversion = Int(total/2950 * 100)// intake / 2950 ml
             let remainingOzConversion = Int((2950 - total) / 29.54)
         DispatchQueue.main.async {
-            self.waterPercentageLabel.setText("\(mlConverstion) %") //TODO - in Percentage currently in ML
+            self.waterPercentageLabel.setText("\(mlConversion) %") //TODO - in Percentage currently in ML
             self.waterPerDayRemainingLabel.setText("\(remainingOzConversion) oz left") // 100 oz total per day
         }
     })
