@@ -10,11 +10,11 @@ import SwiftUI
 import CoreData
 
 struct ChartsView: View {
-
+    
     let dailyLogController = DailyLogController()
     var dailyLogs: [DailyLog] = []
     var lastSevenDays: [DailyLog] = []
-
+    
     var day1: CGFloat = 0
     var day2: CGFloat = 0
     var day3: CGFloat = 0
@@ -22,13 +22,13 @@ struct ChartsView: View {
     var day5: CGFloat = 0
     var day6: CGFloat = 0
     var day7: CGFloat = 0
-
+    
     init() {
         updateDailyLogs()
-
+        
         checkIfIndexExists()
     }
-
+    
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.2122643888, green: 0.2450331748, blue: 0.3367856145, alpha: 1))
@@ -39,9 +39,9 @@ struct ChartsView: View {
                         .fontWeight(.heavy)
                         .foregroundColor(Color(UIColor.undeadWhite))
                     Text("Weekly")
-                    .foregroundColor(Color(UIColor.sicklySmurfBlue))
+                        .foregroundColor(Color(UIColor.sicklySmurfBlue))
                 }
-
+                
                 HStack (spacing: 16) {
                     BarView(value: day7)
                     BarView(value: day6)
@@ -50,18 +50,18 @@ struct ChartsView: View {
                     BarView(value: day3)
                     BarView(value: day2)
                     BarView(value: day1)
-
+                    
                 }.padding(.top, 0)
                     .animation(.default)
             }
-
+            
         }
     }
 }
 // MARK: - BarView
 struct BarView: View {
     var value: CGFloat = 0
-
+    
     var body: some View {
         VStack {
             ZStack (alignment: .bottom) {
@@ -71,8 +71,8 @@ struct BarView: View {
                     .foregroundColor(Color(UIColor.sicklySmurfBlue))
             }
             Text("D").padding(.top, 0)
-            .foregroundColor(Color(UIColor.undeadWhite))
-
+                .foregroundColor(Color(UIColor.undeadWhite))
+            
         }
     }
 }
@@ -90,58 +90,51 @@ extension ChartsView {
         if ((0 < lastSevenDays.count ? lastSevenDays[0] : nil) != nil) {
             day1 = CGFloat(lastSevenDays[0].totalIntakeAmount)
         }
-
+        
         if ((1 < lastSevenDays.count ? lastSevenDays[1] : nil) != nil) {
             day2 = CGFloat(lastSevenDays[1].totalIntakeAmount)
         }
-
+        
         if ((2 < lastSevenDays.count ? lastSevenDays[2] : nil) != nil) {
             day3 = CGFloat(lastSevenDays[2].totalIntakeAmount)
         }
-
+        
         if ((3 < lastSevenDays.count ? lastSevenDays[3] : nil) != nil) {
             day4 = CGFloat(lastSevenDays[3].totalIntakeAmount)
         }
-
+        
         if ((4 < lastSevenDays.count ? lastSevenDays[4] : nil) != nil) {
             day5 = CGFloat(lastSevenDays[4].totalIntakeAmount)
         }
-
+        
         if ((5 < lastSevenDays.count ? lastSevenDays[5] : nil) != nil) {
             day6 = CGFloat(lastSevenDays[5].totalIntakeAmount)
         }
-
+        
         if ((6 < lastSevenDays.count ? lastSevenDays[6] : nil) != nil) {
             day7 = CGFloat(lastSevenDays[6].totalIntakeAmount)
         }
     }
-
+    
     fileprivate mutating func updateDailyLogs() {
         let allIntakeEntries = dailyLogController.allIntakeEntries
-
+        
         let allDates = allIntakeEntries.compactMap { $0.timestamp?.startOfDay } // removes .hour, .minute, .second, etc. granularity from timestamps
         let daysWithIntakeEntries = Array(Set(allDates)) // removes duplicates (each day appears only once)
-
+        
         var dailyLogs: [DailyLog] = []
-
+        
         for day in daysWithIntakeEntries {
             let entries = allIntakeEntries.filter { $0.timestamp?.startOfDay == day }
             dailyLogs.append(DailyLog(date: day, entries: entries))
         }
-
+        
         self.dailyLogs = dailyLogs.sorted { $0.date > $1.date }
-        print("+_______________________________+\n|\t\t\tDaily Logs\t\t\t|\n+_______________________________+")
-        print(self.dailyLogs)
-        print(self.dailyLogs[0].entries)
-
-        let dailyLogTotalIntakeAmount = dailyLogController.dailyLogs[0].totalIntakeAmount
-        print("+_______________________________________+\n|\t\t\tTotal Intake Amount\t\t\t|\n+_______________________________________+")
-        print(dailyLogTotalIntakeAmount)
-
+        
         let slice = dailyLogs.suffix(7)
         let weekArray = Array(slice)
         lastSevenDays = weekArray
         print(weekArray)
-
+        
     }
 }
