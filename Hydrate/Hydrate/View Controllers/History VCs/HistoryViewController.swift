@@ -75,7 +75,9 @@ class HistoryViewController: UIViewController {
         childView.view.translatesAutoresizingMaskIntoConstraints = false
         addChild(childView)
         childView.view.frame = chartView.bounds
+        
         chartView.addSubview(childView.view)
+        childView.view.centerXAnchor.constraint(equalTo: chartView.centerXAnchor).isActive = true
         childView.didMove(toParent: self)
         chartView.anchor(top: navigationBar.bottomAnchor,
                              leading: view.leadingAnchor,
