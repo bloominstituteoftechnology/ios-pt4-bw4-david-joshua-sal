@@ -37,6 +37,7 @@ struct ChartsView: View {
         }
         
         self.dailyLogs = dailyLogs.sorted { $0.date > $1.date }
+        print("+_______________________________+\n|\t\t\tDaily Logs\t\t\t|\n+_______________________________+")
         print(self.dailyLogs)
         print(self.dailyLogs[0].entries)
     }
