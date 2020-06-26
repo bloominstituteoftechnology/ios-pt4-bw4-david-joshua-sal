@@ -60,7 +60,7 @@ struct ChartsView: View {
                 }
 
                 HStack (spacing: 16) {
-                    BarView(value: dataPoints[0])
+                    BarView(value: CGFloat(dailyLogs[0].totalIntakeAmount))
                     BarView(value: dataPoints[1])
                     BarView(value: dataPoints[2])
                     BarView(value: dataPoints[3])
