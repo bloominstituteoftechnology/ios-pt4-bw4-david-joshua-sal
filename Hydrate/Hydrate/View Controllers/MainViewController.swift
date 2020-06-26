@@ -18,7 +18,9 @@ class MainViewController: UIViewController {
     // sets the current waterLevel for the wave animation. Values are 0.0...1.0.
     var waterLevel: Float {
         let percentOfTargetReached = Float(intakeEntryController.totalIntakeAmount) / Float(targetDailyIntake)
-        return min(percentOfTargetReached, 1.0)
+        let percentOfViewCoveredAtTargetMarker = Float(measurementMarkersView.bounds.height / view.bounds.height)
+        let percentOfViewUnderWater = percentOfTargetReached * percentOfViewCoveredAtTargetMarker
+        return min(percentOfViewUnderWater, 1.0)
     }
     
     var intakeEntryController = IntakeEntryController()
