@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HistoryViewController: UIViewController {
     
@@ -70,6 +71,12 @@ class HistoryViewController: UIViewController {
     
     fileprivate func setupChartView() {
         view.addSubview(chartView)
+        let childView = UIHostingController(rootView: ChartsView())
+        childView.view.translatesAutoresizingMaskIntoConstraints = false
+        addChild(childView)
+        childView.view.frame = chartView.bounds
+        chartView.addSubview(childView.view)
+        childView.didMove(toParent: self)
         chartView.anchor(top: navigationBar.bottomAnchor,
                              leading: view.leadingAnchor,
                              bottom: nil,
