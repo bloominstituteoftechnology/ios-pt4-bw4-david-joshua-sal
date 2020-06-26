@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     // sets the current waterLevel for the wave animation. Values are 0.0...1.0.
     var waterLevel: Float {
         let percentOfTargetReached = Float(intakeEntryController.totalIntakeAmount) / Float(targetDailyIntake)
-        let percentOfViewCoveredAtTargetMarker = Float(measurementMarkersView.bounds.height / view.bounds.height)
+        let percentOfViewCoveredAtTargetMarker = Float((view.bounds.height - 140) / view.bounds.height)
         let percentOfViewUnderWater = percentOfTargetReached * percentOfViewCoveredAtTargetMarker
         return min(percentOfViewUnderWater, 1.0)
     }
@@ -189,9 +189,9 @@ class MainViewController: UIViewController {
                                       leading: view.safeAreaLayoutGuide.leadingAnchor,
                                       bottom: view.bottomAnchor,
                                       trailing: view.safeAreaLayoutGuide.trailingAnchor,
-                                      padding: .init(top: 48, left: 16, bottom: 0, right: 16))
+                                      padding: .init(top: 36, left: 16, bottom: 0, right: 16))
         
-        let topPadding: CGFloat = 48
+        let topPadding: CGFloat = 36
         let fullMarkerViewHeight = view.bounds.height - topPadding - 104 // topControlsStackView.frame.maxY = 104
         
         let topMarkerIntervalOffset = targetDailyIntake % markerIntervalSize
