@@ -7,10 +7,12 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ChartsView: View {
     
     let dailyLogController = DailyLogController()
+    var dailyLogs: [DailyLog] = []
 
     // Dummy data
     @State var dataPoints: [CGFloat] = [
@@ -18,10 +20,25 @@ struct ChartsView: View {
     ]
     
     init() {
+        updateDailyLogs()
+    }
+    
+    fileprivate mutating func updateDailyLogs() {
         let allIntakeEntries = dailyLogController.allIntakeEntries
-        let allDates = allIntakeEntries.compactMap { $0.timestamp?.startOfDay }
-        let daysWithIntakeEntries = Array(Set(allDates))
-        print(daysWithIntakeEntries)
+
+        let allDates = allIntakeEntries.compactMap { $0.timestamp?.startOfDay } // removes .hour, .minute, .second, etc. granularity from timestamps
+        let daysWithIntakeEntries = Array(Set(allDates)) // removes duplicates (each day appears only once)
+        
+        var dailyLogs: [DailyLog] = []
+        
+        for day in daysWithIntakeEntries {
+            let entries = allIntakeEntries.filter { $0.timestamp?.startOfDay == day }
+            dailyLogs.append(DailyLog(date: day, entries: entries))
+        }
+        
+        self.dailyLogs = dailyLogs.sorted { $0.date > $1.date }
+        print(self.dailyLogs)
+        print(self.dailyLogs[0].entries)
     }
     
     var body: some View {
