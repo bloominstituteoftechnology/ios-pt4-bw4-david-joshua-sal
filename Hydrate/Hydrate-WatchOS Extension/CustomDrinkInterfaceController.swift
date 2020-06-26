@@ -20,18 +20,25 @@ class CustomDrinkInterfaceController: WKInterfaceController {
     var rangeOfDrinkSize: [Int] = [Int]()
     var pickerVolumeSelected: [String] = [String]()
     var selectedVolume = 0 // start with zero
+ 
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        //in Oz
+//        rangeOfDrinkSize = (10..<100).filter{ $0 % 10 == 0}
+//        let drinkSizes = rangeOfDrinkSize.map { pickerItem(amount: $0) }
         
-        rangeOfDrinkSize = (10..<1000).filter{ $0 % 10 == 0}
+        //in ML
+        rangeOfDrinkSize = (2..<100).filter{ $0 % 2 == 0}
         let drinkSizes = rangeOfDrinkSize.map { pickerItem(amount: $0) }
         customDrinkSizePicker.setItems(drinkSizes)
     }
     
     // picker amounts for scrolling
     func pickerItem(amount: Int) -> WKPickerItem {
-        let title = "\(amount) ml"
+//        let mlConversion = Int(amount / 30)
+//        let title = "\(mlConversion) Oz"
+        let title = "\(amount) Oz"
         let selectedItem = WKPickerItem()
         selectedItem.caption = title
         selectedItem.title = title
@@ -55,8 +62,10 @@ class CustomDrinkInterfaceController: WKInterfaceController {
     }
     
     
+    
     @IBAction func saveBtnWasPressed() {
-        HealthKitWaterDataStore().writeWaterData(amount: Double(selectedVolume))
+        let ozToMlConversion = selectedVolume * 30
+        HealthKitWaterDataStore().writeWaterData(amount: Double(ozToMlConversion))
         popToRootController()
     }
     
