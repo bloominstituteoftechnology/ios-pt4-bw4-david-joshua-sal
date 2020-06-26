@@ -23,6 +23,7 @@ class Popup: UIView {
         textField.textColor = UIColor.sicklySmurfBlue
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 8
+        textField.keyboardType = .numberPad
         return textField
     }()
     
