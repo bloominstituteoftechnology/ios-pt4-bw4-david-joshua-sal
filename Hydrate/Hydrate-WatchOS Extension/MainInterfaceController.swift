@@ -28,7 +28,7 @@ class MainInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         readWater()
-        animateBackgroungImageBasedOnPercentage()
+//        animateBackgroungImageBasedOnPercentage()
         
     }
     
@@ -36,6 +36,7 @@ class MainInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         readWater()
+//        animateBackgroungImageBasedOnPercentage()
         
     }
     
@@ -43,6 +44,7 @@ class MainInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
         readWater()
+//        animateBackgroungImageBasedOnPercentage()
     }
     
     func authorizeHealthKit() {
@@ -64,21 +66,15 @@ class MainInterfaceController: WKInterfaceController {
     }
     
     // animate backgroundgroup based on percentage
-    func animateBackgroungImageBasedOnPercentage() {
+    func animateBackgroungImageBasedOnPercentage(with percentage: Int) {
         var images: [UIImage]! = []
-        let percentage =  waterPercentageLabel.self// value of mlConversion
-        for i in 0...100 {
-            let name = "activity-\(i)"
-            images.append(UIImage(named: name)!)
-        }
+        let name = "activity-\(percentage)"
+        images.append(UIImage(named: name)!)
         let progressImages = UIImage.animatedImage(with: images, duration: 0.0)
         backgrounImageProgressGroup.setBackgroundImage(progressImages)
     
     }
-    
-    
-    
-    
+        
     //observe changes to healthApp
     func startObservingChanges() {
         let query: HKObserverQuery = HKObserverQuery(sampleType: HealthKitWaterDataStore.waterType, predicate: nil, updateHandler: self.waterChangedHandler)
@@ -104,6 +100,7 @@ class MainInterfaceController: WKInterfaceController {
         DispatchQueue.main.async {
             self.waterPercentageLabel.setText("\(mlConversion) %") //TODO - in Percentage currently in ML
             self.waterPerDayRemainingLabel.setText("\(remainingOzConversion) oz left") // 100 oz total per day
+            self.animateBackgroungImageBasedOnPercentage(with: mlConversion)
         }
     })
 }
