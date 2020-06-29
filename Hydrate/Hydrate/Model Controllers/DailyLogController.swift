@@ -26,7 +26,7 @@ class DailyLogController {
     }
     
     func delete(_ dailyLog: DailyLog) {
-        let context = CoreDataStack.shared.mainContext
+        let context = coreDataStack.mainContext
         
         for intakeEntry in dailyLog.entries {
             context.delete(intakeEntry)
@@ -35,6 +35,27 @@ class DailyLogController {
         do {
             try context.save()
             dailyLogs.removeAll(where: { $0.date == dailyLog.date })
+        } catch {
+            print("Error deleting intakeEntry: \(error)")
+        }
+    }
+    
+    func delete(_ intakeEntry: IntakeEntry) {
+        guard let entryDate = intakeEntry.timestamp?.startOfDay,
+            let dailyLogIndex = dailyLogs.firstIndex(where: { $0.date == entryDate }) else { return }
+        
+        let context = coreDataStack.mainContext
+        
+        context.delete(intakeEntry)
+        
+        do {
+            try context.save()
+            let intakeEntries = fetchIntakeEntries(for: entryDate)
+            if intakeEntries.count > 0 {
+                dailyLogs[dailyLogIndex].removeEntry(intakeEntry)
+            } else {
+                dailyLogs.remove(at: dailyLogIndex)
+            }
         } catch {
             print("Error deleting intakeEntry: \(error)")
         }
