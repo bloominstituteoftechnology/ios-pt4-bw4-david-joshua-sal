@@ -25,6 +25,21 @@ class DailyLogController {
         fetchAllIntakeEntries()
     }
     
+    func delete(_ dailyLog: DailyLog) {
+        let context = CoreDataStack.shared.mainContext
+        
+        for intakeEntry in dailyLog.entries {
+            context.delete(intakeEntry)
+        }
+        
+        do {
+            try context.save()
+            dailyLogs.removeAll(where: { $0.date == dailyLog.date })
+        } catch {
+            print("Error deleting intakeEntry: \(error)")
+        }
+    }
+    
     // MARK: - Private
     
     fileprivate var coreDataStack = CoreDataStack.shared
