@@ -378,9 +378,7 @@ extension MainViewController: PopupDelegate {
 }
 
 extension MainViewController: HistoryViewControllerDelegate {
-    func didDeleteDailyLog(forDate date: Date) {
-        if date.isInCurrentDay {
-            wave.setProgress(waterLevel)
-        }
+    func updateWaterLevel() {
+        wave.setProgress(waterLevel)
     }
 }
