@@ -9,7 +9,13 @@
 import UIKit
 import SwiftUI
 
+protocol HistoryViewControllerDelegate: class {
+    func didDeleteDailyLog(forDate date: Date)
+}
+
 class HistoryViewController: UIViewController {
+    
+    weak var delegate: HistoryViewControllerDelegate!
     
     // MARK: - UI Components
     
@@ -35,8 +41,9 @@ class HistoryViewController: UIViewController {
         return containerView
     }()
     
-    fileprivate let tableViewNavigationController: UINavigationController = {
+    fileprivate lazy var tableViewNavigationController: UINavigationController = {
         let dailyLogTableVC = DailyLogTableViewController()
+        dailyLogTableVC.delegate = self
         let navController = UINavigationController(rootViewController: dailyLogTableVC)
         navController.navigationBar.barTintColor = .ravenClawBlue
         navController.navigationBar.tintColor = .sicklySmurfBlue
@@ -108,5 +115,13 @@ class HistoryViewController: UIViewController {
                                                   leading: containerView.leadingAnchor,
                                                   bottom: containerView.bottomAnchor,
                                                   trailing: containerView.trailingAnchor)
+    }
+}
+
+extension HistoryViewController: DailyLogTableViewControllerDelegate {
+    func didDeleteDailyLog(forDate date: Date) {
+        if date.isInCurrentDay {
+            delegate.didDeleteDailyLog(forDate: date)
+        }
     }
 }
