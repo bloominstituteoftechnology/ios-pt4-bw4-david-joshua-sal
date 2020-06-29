@@ -268,6 +268,7 @@ class MainViewController: UIViewController {
     
     @objc fileprivate func handleShowHistoryTapped() {
         let hvc = HistoryViewController()
+        hvc.delegate = self
         present(hvc, animated: true, completion: nil)
     }
     
@@ -373,5 +374,13 @@ extension MainViewController: PopupDelegate {
     func addedWater(intakeAmount: Int) {
         recentlyAddedIntakeEntry = intakeEntryController.addIntakeEntry(withIntakeAmount: intakeAmount)
         print("Added \(recentlyAddedIntakeEntry?.intakeAmount ?? 0) ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
+    }
+}
+
+extension MainViewController: HistoryViewControllerDelegate {
+    func didDeleteDailyLog(forDate date: Date) {
+        if date.isInCurrentDay {
+            wave.setProgress(waterLevel)
+        }
     }
 }
