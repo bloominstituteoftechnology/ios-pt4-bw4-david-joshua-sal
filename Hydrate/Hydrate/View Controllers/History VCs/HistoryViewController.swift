@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 protocol HistoryViewControllerDelegate: class {
-    func didDeleteDailyLog(forDate date: Date)
+    func updateWaterLevel()
 }
 
 class HistoryViewController: UIViewController {
@@ -119,9 +119,16 @@ class HistoryViewController: UIViewController {
 }
 
 extension HistoryViewController: DailyLogTableViewControllerDelegate {
+    
+    func didUpdateDailyLog(forDate date: Date) {
+        if date.isInCurrentDay {
+            delegate.updateWaterLevel()
+        }
+    }
+    
     func didDeleteDailyLog(forDate date: Date) {
         if date.isInCurrentDay {
-            delegate.didDeleteDailyLog(forDate: date)
+            delegate.updateWaterLevel()
         }
     }
 }
