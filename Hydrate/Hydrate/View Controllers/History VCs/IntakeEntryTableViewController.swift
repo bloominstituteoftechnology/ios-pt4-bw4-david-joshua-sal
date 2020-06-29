@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol IntakeEntryTableViewControllerDelegate: class {
+    func didDeleteDailyLog(_ dailyLog: DailyLog)
+    func didDeleteIntakeEntry(_ intakeEntry: IntakeEntry)
+}
+
 class IntakeEntryTableViewController: UITableViewController {
     
     // MARK: - Properties
     
     var dailyLog: DailyLog!
+    
+    weak var delegate: IntakeEntryTableViewControllerDelegate!
     
     // MARK: - Lifecycle
     
