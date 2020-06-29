@@ -14,13 +14,9 @@
 {
     if (self = [super init]) {
         NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:( NSCalendarUnitMonth | NSCalendarUnitYear |
-                                                             NSCalendarUnitHour | NSCalendarUnitMinute |
-                                                             NSCalendarUnitSecond ) fromDate:date];
-        [components setHour:0];
-        [components setMinute:0];
-        [components setSecond:0];
-
+        NSDateComponents *components = [calendar components:(NSCalendarUnitYear |
+                                                             NSCalendarUnitMonth |
+                                                             NSCalendarUnitDay) fromDate:date];
         _date = [calendar dateFromComponents:components];
         _entries = entries.copy;
     }
