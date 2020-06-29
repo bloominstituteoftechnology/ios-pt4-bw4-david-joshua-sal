@@ -18,8 +18,6 @@ class IntakeEntryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         configureTableView()
         updateViews()
@@ -68,7 +66,7 @@ class IntakeEntryTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyLog.entries.count
+        return dailyLog.entryCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +75,9 @@ class IntakeEntryTableViewController: UITableViewController {
             cell = IntakeEntryTableViewController.intakeEntryCell
         }
         
-        let intakeEntry = dailyLog.entries[indexPath.row]
+        guard let dailyLog = dailyLog else { return cell }
+        
+        let intakeEntry = dailyLog.entry(at: indexPath.row)
         if let timestamp = intakeEntry.timestamp {
             cell.textLabel?.text = timeFormatter.string(from: timestamp)
         } else {
@@ -88,15 +88,21 @@ class IntakeEntryTableViewController: UITableViewController {
         return cell
     }
     
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            let intakeEntry = dailyLog.entry(at: indexPath.row)
+            dailyLog.removeEntry(intakeEntry)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            delegate.didDeleteIntakeEntry(intakeEntry)
+            
+            if dailyLog.entryCount == 0 {
+                perform(#selector(dismissController), with: nil, afterDelay: 0.35)
+            }
+        }
     }
-    */
+    
+    @objc fileprivate func dismissController() {
+        navigationController?.popViewController(animated: true)
+    }
 }
