@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol DailyLogTableViewControllerDelegate: class {
+    func didDeleteDailyLog(forDate date: Date)
+}
+
 class DailyLogTableViewController: UITableViewController {
 
     // MARK: - Properties
     
     let dailyLogController = DailyLogController()
+    
+    weak var delegate: DailyLogTableViewControllerDelegate!
     
     // MARK: - Lifecycle
     
@@ -21,9 +27,7 @@ class DailyLogTableViewController: UITableViewController {
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+                
         configureTableView()
         updateViews()
     }
@@ -80,17 +84,16 @@ class DailyLogTableViewController: UITableViewController {
         return cell
     }
     
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            let dailyLog = dailyLogController.dailyLogs[indexPath.row]
+//            let date = dailyLog.date
+            dailyLogController.delete(dailyLog)
+            delegate.didDeleteDailyLog(forDate: dailyLog.date)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
-    */
     
     // MARK: - Table view delegate
     
