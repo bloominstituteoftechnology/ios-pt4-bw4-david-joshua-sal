@@ -9,6 +9,7 @@
 import UIKit
 
 protocol DailyLogTableViewControllerDelegate: class {
+    func didUpdateDailyLog(forDate date: Date)
     func didDeleteDailyLog(forDate date: Date)
 }
 
@@ -29,6 +30,11 @@ class DailyLogTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
                 
         configureTableView()
+        updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateViews()
     }
     
@@ -88,7 +94,6 @@ class DailyLogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let dailyLog = dailyLogController.dailyLogs[indexPath.row]
-//            let date = dailyLog.date
             dailyLogController.delete(dailyLog)
             delegate.didDeleteDailyLog(forDate: dailyLog.date)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -101,6 +106,7 @@ class DailyLogTableViewController: UITableViewController {
         let dailyLog = dailyLogController.dailyLogs[indexPath.row]
         let intakeEntryTableVC = IntakeEntryTableViewController()
         intakeEntryTableVC.dailyLog = dailyLog
+        intakeEntryTableVC.delegate = self
         navigationController?.pushViewController(intakeEntryTableVC, animated: true)
     }
 }
@@ -114,5 +120,19 @@ extension UITableViewCell {
         button.tintColor = .sicklySmurfBlue
         self.accessoryView = button
         self.editingAccessoryView = button
+    }
+}
+
+extension DailyLogTableViewController: IntakeEntryTableViewControllerDelegate {
+    
+    func didDeleteIntakeEntry(_ intakeEntry: IntakeEntry) {
+        guard let date = intakeEntry.timestamp else { return }
+        dailyLogController.delete(intakeEntry)
+        delegate.didUpdateDailyLog(forDate: date)
+    }
+    
+    func didDeleteDailyLog(_ dailyLog: DailyLog) {
+        dailyLogController.delete(dailyLog)
+        delegate.didDeleteDailyLog(forDate: dailyLog.date)
     }
 }
