@@ -54,12 +54,7 @@ class DailyLogTableViewController: UITableViewController {
     }
     
     fileprivate var addDataButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "Add Data", style: .done, target: self, action: #selector(addDataButtonTapped))
-        
-        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)]
-        UIBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
-        
-        return button
+        UIBarButtonItem(title: "Add Data", style: .plain, target: self, action: #selector(addDataButtonTapped))
     }()
     
     fileprivate var dateFormatter: DateFormatter = {

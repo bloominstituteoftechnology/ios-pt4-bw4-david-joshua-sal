@@ -44,6 +44,10 @@ class IntakeEntryTableViewController: UITableViewController {
         return cell
     }
     
+    fileprivate var addDataButton: UIBarButtonItem = {
+        UIBarButtonItem(title: "Add Data", style: .plain, target: self, action: #selector(addDataButtonTapped))
+    }()
+    
     fileprivate var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -109,6 +113,20 @@ class IntakeEntryTableViewController: UITableViewController {
                 perform(#selector(dismissController), with: nil, afterDelay: 0.35)
             }
         }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if editing {
+            self.navigationItem.leftBarButtonItem = self.addDataButton
+        } else {
+            self.navigationItem.leftBarButtonItem = nil
+        }
+    }
+    
+    @objc fileprivate func addDataButtonTapped() {
+        
     }
     
     @objc fileprivate func dismissController() {
