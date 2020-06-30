@@ -26,6 +26,8 @@ class IntakeEntryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         configureTableView()
         updateViews()
     }
@@ -107,6 +109,10 @@ class IntakeEntryTableViewController: UITableViewController {
                 perform(#selector(dismissController), with: nil, afterDelay: 0.35)
             }
         }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        <#code#>
     }
     
     @objc fileprivate func dismissController() {
