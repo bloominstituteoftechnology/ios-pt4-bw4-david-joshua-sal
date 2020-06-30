@@ -53,6 +53,15 @@ class DailyLogTableViewController: UITableViewController {
         return cell
     }
     
+    fileprivate var addDataButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "Add Data", style: .done, target: self, action: #selector(addDataButtonTapped))
+        
+        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold)]
+        UIBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+        
+        return button
+    }()
+    
     fileprivate var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -100,6 +109,20 @@ class DailyLogTableViewController: UITableViewController {
             delegate.didDeleteDailyLog(forDate: dailyLog.date)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if editing {
+            self.navigationItem.leftBarButtonItem = self.addDataButton
+        } else {
+            self.navigationItem.leftBarButtonItem = nil
+        }
+    }
+    
+    @objc fileprivate func addDataButtonTapped() {
+        
     }
     
     // MARK: - Table view delegate
