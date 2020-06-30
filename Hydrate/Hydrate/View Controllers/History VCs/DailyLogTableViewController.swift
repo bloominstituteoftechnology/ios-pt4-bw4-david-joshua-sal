@@ -121,7 +121,6 @@ extension UITableViewCell {
         button.setImage(image, for: .normal)
         button.tintColor = .sicklySmurfBlue
         self.accessoryView = button
-        self.editingAccessoryView = button
     }
 }
 

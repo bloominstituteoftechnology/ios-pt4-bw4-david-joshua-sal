@@ -111,10 +111,6 @@ class IntakeEntryTableViewController: UITableViewController {
         }
     }
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        <#code#>
-    }
-    
     @objc fileprivate func dismissController() {
         navigationController?.popViewController(animated: true)
     }
