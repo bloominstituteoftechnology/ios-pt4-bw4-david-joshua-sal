@@ -6,9 +6,9 @@
 //  Copyright © 2020 Hydrate. All rights reserved.
 //
 
-import WatchKit
+//import WatchKit
 import ClockKit
-import UIKit
+//import UIKit
 
 enum PreferredUnit: Int {
     case milliliters
@@ -17,11 +17,23 @@ enum PreferredUnit: Int {
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
-    
-    
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
         handler([])
     }
+    
+    func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
+        handler(nil)
+    }
+    
+    func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
+        handler(nil)
+    }
+    
+    func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
+        handler(.showOnLockScreen)
+    }
+    
+    //Populte timeline
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         
