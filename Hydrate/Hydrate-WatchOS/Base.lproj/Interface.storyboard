@@ -6,10 +6,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
-        <!--MainView-->
+        <!--Hydrate-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="MainView" id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="Hydrate_WatchOS_Extension">
+                <controller title="Hydrate" id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="Hydrate_WatchOS_Extension">
                     <items>
                         <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-45" contentMode="scaleAspectFill" layout="vertical" id="Gyu-hn-RF6">
                             <items>
