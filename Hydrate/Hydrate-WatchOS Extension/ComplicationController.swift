@@ -76,6 +76,15 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(entry)
         // circular small
+        case .circularSmall:
+            let template = CLKComplicationTemplateCircularSmallRingText()
+            template.textProvider = CLKSimpleTextProvider(text: "💧")
+            template.fillFraction = fillFraction
+            template.ringStyle = .closed
+            //add tint color here
+            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+            handler(entry)
+        //mocular small
             
         default:
             handler(nil)
