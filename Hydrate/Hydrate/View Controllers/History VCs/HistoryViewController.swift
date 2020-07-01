@@ -91,11 +91,6 @@ class HistoryViewController: UIViewController {
                              bottom: nil,
                              trailing: view.trailingAnchor,
                              size: CGSize(width: view.bounds.width, height: 220))
-        setupChart()
-    }
-    
-    fileprivate func setupChart() {
-        // TODO: Setup chart
     }
     
     fileprivate func setupContainerView() {
