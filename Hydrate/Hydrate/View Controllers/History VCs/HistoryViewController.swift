@@ -26,6 +26,8 @@ class HistoryViewController: UIViewController {
         navigationBar.barTintColor = .ravenClawBlue
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.undeadWhite]
         navigationBar.isTranslucent = false
+        navigationBar.tintColor = .sicklySmurfBlue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
         return navigationBar
     }()
     
@@ -110,6 +112,10 @@ class HistoryViewController: UIViewController {
                                                   leading: containerView.leadingAnchor,
                                                   bottom: containerView.bottomAnchor,
                                                   trailing: containerView.trailingAnchor)
+    }
+    
+    @objc fileprivate func doneButtonTapped() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
