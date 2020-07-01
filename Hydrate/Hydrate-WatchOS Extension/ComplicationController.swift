@@ -118,7 +118,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let template = CLKComplicationTemplateGraphicCircularClosedGaugeText()
             template.centerTextProvider = CLKSimpleTextProvider(text: "💧")
             template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), fillFraction: fillFraction)
-            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(template)
         // graphic corner
         case .graphicCorner:
@@ -127,7 +126,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             // add tint color here
             template.outerTextProvider = CLKSimpleTextProvider(text: "\(displayVolume)")
             // add tint color for outer text here
-            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(template)
         // graphic bezel
         case .graphicBezel:
@@ -137,7 +135,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             circularTemplate.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), fillFraction: fillFraction)
             template.circularTemplate = circularTemplate
             template.textProvider = CLKSimpleTextProvider(text: "Water \(displayVolume) - \(displayPercentOfGoal)")
-            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(template)
         // circular small
         case .circularSmall:
@@ -146,7 +143,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.fillFraction = fillFraction
             template.ringStyle = .closed
             //add tint color here
-            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(template)
         //modular small
         case .modularSmall:
@@ -154,7 +150,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.fillFraction = fillFraction
             template.textProvider = CLKSimpleTextProvider(text: "💧")
             //add tint color here
-            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(template)
         default:
             handler(nil)
