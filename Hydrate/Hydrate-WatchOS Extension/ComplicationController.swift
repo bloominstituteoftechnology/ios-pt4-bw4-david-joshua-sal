@@ -49,12 +49,34 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         //switch view depending on complication family
         switch complication.family {
+        // graphic Circular
         case .graphicCircular:
             let template = CLKComplicationTemplateGraphicCircularClosedGaugeText()
             template.centerTextProvider = CLKSimpleTextProvider(text: "💧")
             template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), fillFraction: fillFraction)
             let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(entry)
+        // graphic corner
+        case .graphicCorner:
+            let template = CLKComplicationTemplateGraphicCornerStackText()
+            template.innerTextProvider = CLKSimpleTextProvider(text: "WATER: \(displayPercentOfGoal)")
+            // add tint color here
+            template.outerTextProvider = CLKSimpleTextProvider(text: "\(displayVolume)")
+            // add tint color for outer text here
+            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+            handler(entry)
+        // graphic bezel
+        case .graphicBezel:
+            let template = CLKComplicationTemplateGraphicBezelCircularText()
+            let circularTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText()
+            circularTemplate.centerTextProvider = CLKSimpleTextProvider(text: "💧")
+            circularTemplate.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), fillFraction: fillFraction)
+            template.circularTemplate = circularTemplate
+            template.textProvider = CLKSimpleTextProvider(text: "Water \(displayVolume) - \(displayPercentOfGoal)")
+            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+            handler(entry)
+        // circular small
+            
         default:
             handler(nil)
         }
