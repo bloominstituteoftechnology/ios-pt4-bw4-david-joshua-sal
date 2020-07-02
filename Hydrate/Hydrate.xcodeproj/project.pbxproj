@@ -30,6 +30,7 @@
 		42B38A1D24A61361007FB388 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B38A1C24A61361007FB388 /* UserSettings.swift */; };
 		42B38A2224A62447007FB388 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B38A2124A62447007FB388 /* ChartsView.swift */; };
 		42DC16D924A58A4000ED5465 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC16D824A58A4000ED5465 /* HealthKit.framework */; };
+		63859BFC24AE3037003F8F6C /* AddEntryPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63859BFB24AE3037003F8F6C /* AddEntryPopupView.swift */; };
 		63F31FA724A1DD900096FE29 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA524A1DD900096FE29 /* Hydrate.xcdatamodeld */; };
 		63F31FA924A1DE900096FE29 /* IntakeEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */; };
 		63F31FAB24A1DEF10096FE29 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */; };
@@ -122,6 +123,7 @@
 		42B38A2124A62447007FB388 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		42DC16D724A58A4000ED5465 /* Hydrate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydrate.entitlements; sourceTree = "<group>"; };
 		42DC16D824A58A4000ED5465 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		63859BFB24AE3037003F8F6C /* AddEntryPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryPopupView.swift; sourceTree = "<group>"; };
 		63F31FA624A1DD900096FE29 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
 		63F31FA824A1DE900096FE29 /* IntakeEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntakeEntry+Convenience.swift"; sourceTree = "<group>"; };
 		63F31FAA24A1DEF10096FE29 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				42443F57249AF70B001DAA60 /* CustomTextField.swift */,
 				4271F75224A20D8100838864 /* SettingsView.swift */,
 				42B38A2124A62447007FB388 /* ChartsView.swift */,
+				63859BFB24AE3037003F8F6C /* AddEntryPopupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				63F31FD924A307CC0096FE29 /* HistoryViewController.swift in Sources */,
 				63F31FDD24A308340096FE29 /* IntakeEntryTableViewController.swift in Sources */,
 				42443FC8249B9D91001DAA60 /* Extensions+UIColor.swift in Sources */,
+				63859BFC24AE3037003F8F6C /* AddEntryPopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
