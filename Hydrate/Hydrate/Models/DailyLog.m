@@ -53,6 +53,9 @@
 - (void)addEntry:(IntakeEntry *)entry
 {
     [self.internalEntries addObject:entry];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
+    [self.internalEntries sortUsingDescriptors:@[sortDescriptor]];
 }
 
 - (void)updateEntryAtIndex:(NSInteger)index withEntry:(nonnull IntakeEntry *)entry
