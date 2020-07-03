@@ -25,6 +25,32 @@ class DailyLogController {
         fetchAllIntakeEntries()
     }
     
+    func addIntakeEntry(withDate date: Date, intakeAmount: Int) {
+        let intakeEntry = IntakeEntry(intakeAmount: intakeAmount, timestamp: date)
+        
+        do {
+            try CoreDataStack.shared.saveContext()
+        } catch {
+            print("Error adding intakeEntry: \(error)")
+        }
+        
+        let dailyLogDate = date.startOfDay
+        
+        if let dailyLog = dailyLogs.first(where: { $0.date == dailyLogDate }) {
+            dailyLog.addEntry(intakeEntry)
+        } else {
+            addDailyLog(withIntakeEntry: intakeEntry)
+        }
+    }
+    
+    fileprivate func addDailyLog(withIntakeEntry intakeEntry: IntakeEntry) {
+        let dailyLogDate = intakeEntry.timestamp!.startOfDay
+        let dailyLog = DailyLog(date: dailyLogDate, entries: [intakeEntry])
+        let indexToInsert = dailyLogs.firstIndex(where: { $0.date < dailyLogDate }) ?? dailyLogs.count
+        
+        dailyLogs.insert(dailyLog, at: indexToInsert)
+    }
+    
     func delete(_ dailyLog: DailyLog) {
         let context = coreDataStack.mainContext
         
