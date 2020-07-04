@@ -117,7 +117,10 @@ class DailyLogTableViewController: UITableViewController {
     }
     
     @objc fileprivate func addDataButtonTapped() {
-        
+        print("Add Data button tapped")
+        let addEntryPopup = AddEntryPopup()
+        addEntryPopup.delegate = self
+        self.view.addSubview(addEntryPopup)
     }
     
     // MARK: - Table view delegate
@@ -153,5 +156,12 @@ extension DailyLogTableViewController: IntakeEntryTableViewControllerDelegate {
     func didDeleteDailyLog(_ dailyLog: DailyLog) {
         dailyLogController.delete(dailyLog)
         delegate.didDeleteDailyLog(forDate: dailyLog.date)
+    }
+}
+
+extension DailyLogTableViewController: AddEntryPopupDelegate {
+    func didAddIntakeEntry(withDate date: Date, intakeAmount: Int) {
+        dailyLogController.addIntakeEntry(withDate: date, intakeAmount: intakeAmount)
+        tableView.reloadData()
     }
 }
