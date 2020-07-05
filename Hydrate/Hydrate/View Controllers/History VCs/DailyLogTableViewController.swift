@@ -158,10 +158,3 @@ extension DailyLogTableViewController: IntakeEntryTableViewControllerDelegate {
         delegate.didDeleteDailyLog(forDate: dailyLog.date)
     }
 }
-
-extension DailyLogTableViewController: AddEntryPopupDelegate {
-    func didAddIntakeEntry(withDate date: Date, intakeAmount: Int) {
-        dailyLogController.addIntakeEntry(withDate: date, intakeAmount: intakeAmount)
-        tableView.reloadData()
-    }
-}
