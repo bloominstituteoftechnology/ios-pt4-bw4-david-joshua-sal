@@ -11,13 +11,14 @@ import UIKit
 protocol DailyLogTableViewControllerDelegate: class {
     func didUpdateDailyLog(forDate date: Date)
     func didDeleteDailyLog(forDate date: Date)
+    func addDataButtonTapped()
 }
 
 class DailyLogTableViewController: UITableViewController {
 
     // MARK: - Properties
     
-    let dailyLogController = DailyLogController()
+    var dailyLogController: DailyLogController!
     
     weak var delegate: DailyLogTableViewControllerDelegate!
     
@@ -118,9 +119,7 @@ class DailyLogTableViewController: UITableViewController {
     
     @objc fileprivate func addDataButtonTapped() {
         print("Add Data button tapped")
-        let addEntryPopup = AddEntryPopup()
-        addEntryPopup.delegate = self
-        self.view.addSubview(addEntryPopup)
+        delegate.addDataButtonTapped()
     }
     
     // MARK: - Table view delegate
