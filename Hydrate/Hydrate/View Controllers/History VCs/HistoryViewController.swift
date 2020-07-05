@@ -132,4 +132,22 @@ extension HistoryViewController: DailyLogTableViewControllerDelegate {
             delegate.updateWaterLevel()
         }
     }
+    
+    func addDataButtonTapped() {
+        let addEntryPopup = AddEntryPopup()
+        addEntryPopup.delegate = self
+        self.view.addSubview(addEntryPopup)
+    }
+}
+
+extension HistoryViewController: AddEntryPopupDelegate {
+    func didAddIntakeEntry(withDate date: Date, intakeAmount: Int) {
+        dailyLogController.addIntakeEntry(withDate: date, intakeAmount: intakeAmount)
+        guard let tableViewController = children.first else { return }
+        if let dailyLogTableVC = tableViewController as? DailyLogTableViewController {
+            dailyLogTableVC.tableView.reloadData()
+        } else if let intakeEntryTableVC = tableViewController as? IntakeEntryTableViewController {
+            intakeEntryTableVC.tableView.reloadData()
+        }
+    }
 }
