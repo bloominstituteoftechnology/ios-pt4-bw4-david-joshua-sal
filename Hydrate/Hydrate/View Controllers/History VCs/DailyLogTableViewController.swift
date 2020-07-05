@@ -54,7 +54,7 @@ class DailyLogTableViewController: UITableViewController {
         return cell
     }
     
-    fileprivate var addDataButton: UIBarButtonItem = {
+    fileprivate lazy var addDataButton: UIBarButtonItem = {
         UIBarButtonItem(title: "Add Data", style: .plain, target: self, action: #selector(addDataButtonTapped))
     }()
     
