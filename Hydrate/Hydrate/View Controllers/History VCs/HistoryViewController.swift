@@ -17,6 +17,8 @@ class HistoryViewController: UIViewController {
     
     weak var delegate: HistoryViewControllerDelegate!
     
+    let dailyLogController = DailyLogController()
+    
     // MARK: - UI Components
     
     fileprivate let navigationBar: UINavigationBar = {
@@ -46,6 +48,7 @@ class HistoryViewController: UIViewController {
     fileprivate lazy var tableViewNavigationController: UINavigationController = {
         let dailyLogTableVC = DailyLogTableViewController()
         dailyLogTableVC.delegate = self
+        dailyLogTableVC.dailyLogController = dailyLogController
         let navController = UINavigationController(rootViewController: dailyLogTableVC)
         navController.navigationBar.barTintColor = .ravenClawBlue
         navController.navigationBar.tintColor = .sicklySmurfBlue
