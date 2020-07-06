@@ -144,6 +144,7 @@ extension HistoryViewController: DailyLogTableViewControllerDelegate {
 }
 
 extension HistoryViewController: AddEntryPopupDelegate {
+    
     func didAddIntakeEntry(withDate date: Date, intakeAmount: Int) {
         dailyLogController.addIntakeEntry(withDate: date, intakeAmount: intakeAmount)
         guard let tableViewController = children.first else { return }
@@ -152,5 +153,9 @@ extension HistoryViewController: AddEntryPopupDelegate {
         } else if let intakeEntryTableVC = tableViewController as? IntakeEntryTableViewController {
             intakeEntryTableVC.tableView.reloadData()
         }
+    }
+    
+    func didEndEditing() {
+        view.endEditing(true)
     }
 }
