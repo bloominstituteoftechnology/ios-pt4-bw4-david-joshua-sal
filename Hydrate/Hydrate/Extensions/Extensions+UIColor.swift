@@ -16,7 +16,7 @@ extension UIColor {
     static let ravenClawBlue = UIColor(hex: 0x363e56)
     static let ravenClawBlue90 = UIColor(hex: 0x4a5167)
     static let ravenClawBlue70 = UIColor(hex: 0x727788)
-    static let disabledButtonColor = UIColor(hex: 0x4B4F55)
+    static let disabledButtonColor = UIColor(hex: 0x5D5F66)
     static let markerLabelColor = UIColor(hex: 0xd8d8d8).withAlphaComponent(0.4) // UndeadWhite40
     static let markerLineColor = UIColor(hex: 0xd8d8d8).withAlphaComponent(0.2) // UndeadWhite20
     
