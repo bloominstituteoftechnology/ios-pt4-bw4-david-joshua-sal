@@ -133,7 +133,7 @@ class Popup: UIView {
     fileprivate let container : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.ravenClawBlue.withAlphaComponent(0.75)
+        view.backgroundColor = UIColor.ravenClawBlue90.withAlphaComponent(0.75)
         view.isOpaque = false
         view.layer.cornerRadius = 24
         return view

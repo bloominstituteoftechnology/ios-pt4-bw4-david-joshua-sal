@@ -90,7 +90,7 @@ class AddEntryPopup: UIView {
     
     fileprivate let submitButton: UIButton = {
         let button = UIButton()
-        button.tintColor = #colorLiteral(red: 0.3628268117, green: 0.3721099301, blue: 0.4015064716, alpha: 1)
+        button.tintColor = UIColor.disabledButtonColor
         let config = UIImage.SymbolConfiguration(pointSize: 40)
         let image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: config)
         button.setImage(image, for: .normal)
