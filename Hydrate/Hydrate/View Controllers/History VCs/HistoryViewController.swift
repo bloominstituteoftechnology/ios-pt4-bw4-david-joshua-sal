@@ -93,10 +93,10 @@ class HistoryViewController: UIViewController {
         childView.view.centerXAnchor.constraint(equalTo: chartView.centerXAnchor).isActive = true
         childView.didMove(toParent: self)
         chartView.anchor(top: navigationBar.bottomAnchor,
-                             leading: view.leadingAnchor,
-                             bottom: nil,
-                             trailing: view.trailingAnchor,
-                             size: CGSize(width: view.bounds.width, height: 220))
+                         leading: view.leadingAnchor,
+                         bottom: nil,
+                         trailing: view.trailingAnchor,
+                         size: CGSize(width: view.bounds.width, height: 220))
     }
     
     fileprivate func setupContainerView() {

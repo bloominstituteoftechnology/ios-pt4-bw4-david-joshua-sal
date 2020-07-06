@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var userSettings = UserSettings()
     
+    @Environment(\.presentationMode) var presentationMode
     
     //    @State var receive = false
     @State var sounds = true
@@ -98,10 +99,15 @@ struct SettingsView: View {
                     .foregroundColor(Color.init(UIColor.undeadWhite))
             }
             .navigationBarTitle("Settings")
-            
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Done")
+                }.foregroundColor(Color.init(UIColor.sicklySmurfBlue))
+                    .font(.system(size: 17, weight: .semibold, design: .default))
+            )
         }
-        
-        
     }
     
     
