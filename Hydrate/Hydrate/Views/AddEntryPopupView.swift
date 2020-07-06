@@ -52,10 +52,11 @@ class AddEntryPopup: UIView {
 
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.662745098, green: 0.662745098, blue: 0.6705882353, alpha: 1)])
         textField.backgroundColor = UIColor.undeadWhite
-        textField.textColor = UIColor.ravenClawBlue
-        textField.font = .systemFont(ofSize: 18, weight: .medium)
+        textField.textColor = UIColor.sicklySmurfBlue
+        textField.font = .systemFont(ofSize: 17, weight: .medium)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 8
+        textField.heightAnchor.constraint(equalToConstant: 32).isActive = true
         textField.keyboardType = .numberPad
         textField.keyboardAppearance = UIKeyboardAppearance.dark
         textField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
@@ -73,9 +74,10 @@ class AddEntryPopup: UIView {
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.662745098, green: 0.662745098, blue: 0.6705882353, alpha: 1)])
         textField.backgroundColor = UIColor.undeadWhite
         textField.textColor = UIColor.sicklySmurfBlue
-        textField.font = .systemFont(ofSize: 18, weight: .medium)
+        textField.font = .systemFont(ofSize: 17, weight: .medium)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 8
+        textField.heightAnchor.constraint(equalToConstant: 32).isActive = true
         textField.keyboardType = .numberPad
         textField.keyboardAppearance = UIKeyboardAppearance.dark
         textField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
@@ -87,9 +89,10 @@ class AddEntryPopup: UIView {
         textField.attributedPlaceholder = NSAttributedString(string: "10", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.662745098, green: 0.662745098, blue: 0.6705882353, alpha: 1)])
         textField.backgroundColor = UIColor.undeadWhite
         textField.textColor = UIColor.sicklySmurfBlue
-        textField.font = .systemFont(ofSize: 18, weight: .medium)
+        textField.font = .systemFont(ofSize: 17, weight: .medium)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 8
+        textField.heightAnchor.constraint(equalToConstant: 32).isActive = true
         textField.keyboardType = .numberPad
         textField.keyboardAppearance = UIKeyboardAppearance.dark
         textField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
@@ -110,34 +113,34 @@ class AddEntryPopup: UIView {
     fileprivate lazy var dateStackView: UIStackView = {
         let label = UILabel()
         label.text = "Date"
-        label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.textColor = UIColor.sicklySmurfBlue
+        label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.textColor = #colorLiteral(red: 0.6352941176, green: 0.6509803922, blue: 0.6862745098, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         let padding: CGFloat = 8
         let stack = UIStackView(arrangedSubviews: [label, dateTextField])
         stack.axis = .vertical
-        stack.spacing = padding
+        stack.spacing = 8
         stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
+        stack.distribution = .fill
         return stack
     }()
     
     fileprivate lazy var timeStackView: UIStackView = {
         let label = UILabel()
         label.text = "Time"
-        label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.textColor = UIColor.sicklySmurfBlue
+        label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.textColor = #colorLiteral(red: 0.6352941176, green: 0.6509803922, blue: 0.6862745098, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         let padding: CGFloat = 8
         let stack = UIStackView(arrangedSubviews: [label, timeTextField])
         stack.axis = .vertical
-        stack.spacing = padding
+        stack.spacing = 8
         stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
+        stack.distribution = .fill
         return stack
     }()
     
