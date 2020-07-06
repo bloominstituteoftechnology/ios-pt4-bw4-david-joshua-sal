@@ -69,6 +69,7 @@ class DailyLogTableViewController: UITableViewController {
     
     fileprivate func configureTableView() {
         title = "Daily Logs"
+        tableView = UITableView(frame: self.tableView.frame, style: .insetGrouped)
         tableView.backgroundColor = .ravenClawBlue
         tableView.separatorColor = .ravenClawBlue
     }
