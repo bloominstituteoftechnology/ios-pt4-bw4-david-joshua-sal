@@ -142,19 +142,48 @@ class AddEntryPopup: UIView {
     }()
     
     fileprivate lazy var amountStackView: UIStackView = {
+        let unitsLabel = UILabel()
+        unitsLabel.text = "ounces"
+        unitsLabel.textColor = UIColor.undeadWhite
+        unitsLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let horizontalStackView = UIStackView(arrangedSubviews: [amountTextField, unitsLabel])
+        horizontalStackView.axis = .horizontal
+        horizontalStackView.distribution = .fill
+        horizontalStackView.alignment = .center
+        horizontalStackView.spacing = 6
+        
         let label = UILabel()
-        label.text = "Intake Amount"
-        label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.textColor = UIColor.sicklySmurfBlue
+        label.text = "Intake"
+        label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.textColor = #colorLiteral(red: 0.6352941176, green: 0.6509803922, blue: 0.6862745098, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         let padding: CGFloat = 8
-        let stack = UIStackView(arrangedSubviews: [label, amountTextField])
+        let stack = UIStackView(arrangedSubviews: [label, horizontalStackView])
         stack.axis = .vertical
-        stack.spacing = padding
+        stack.spacing = 8
         stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
+        stack.distribution = .fill
+        return stack
+    }()
+    
+    fileprivate lazy var inputStackView: UIStackView = {
+        let titleLabel = UILabel()
+        titleLabel.text = "New Intake Entry"
+        titleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+        titleLabel.textColor = UIColor.undeadWhite
+        titleLabel.textAlignment = .center
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let padding: CGFloat = 8
+        let stack = UIStackView(arrangedSubviews: [titleLabel, dateStackView, timeStackView, amountStackView])
+        stack.axis = .vertical
+        stack.spacing = 16
+        stack.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.distribution = .fillProportionally
         return stack
     }()
     
@@ -219,7 +248,6 @@ class AddEntryPopup: UIView {
             let timestamp = dateAndTimeFormatter.date(from: dateText + " at " + timeText),
             let amountText = amountTextField.text, let intakeAmount = Int(amountText) else { return }
         
-        let timestamp = date
         delegate.didAddIntakeEntry(withDate: timestamp, intakeAmount: intakeAmount)
         animateOut()
     }
@@ -275,29 +303,14 @@ class AddEntryPopup: UIView {
         container.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         container.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         container.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
-        //container.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25).isActive = true
+        container.heightAnchor.constraint(equalToConstant: 296).isActive = true
         
-        container.addSubview(dateStackView)
-        dateStackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        dateStackView.isLayoutMarginsRelativeArrangement = true
-        dateStackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 32).isActive = true
-        dateStackView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        dateStackView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        
-        container.addSubview(timeStackView)
-        timeStackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        timeStackView.isLayoutMarginsRelativeArrangement = true
-        timeStackView.topAnchor.constraint(equalTo: dateStackView.bottomAnchor, constant: 16).isActive = true
-        timeStackView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        timeStackView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        
-        container.addSubview(amountStackView)
-        amountStackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        amountStackView.isLayoutMarginsRelativeArrangement = true
-        amountStackView.topAnchor.constraint(equalTo: timeStackView.bottomAnchor, constant: 16).isActive = true
-        amountStackView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        amountStackView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        amountStackView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -32).isActive = true
+        container.addSubview(inputStackView)
+        inputStackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        inputStackView.isLayoutMarginsRelativeArrangement = true
+        inputStackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 16).isActive = true
+        inputStackView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+        inputStackView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
         
         container.addSubview(submitButton)
         submitButton.topAnchor.constraint(equalTo: container.topAnchor, constant: -12).isActive = true
