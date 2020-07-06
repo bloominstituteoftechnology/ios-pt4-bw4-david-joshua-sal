@@ -358,6 +358,8 @@ class AddEntryPopup: UIView {
     fileprivate func setupDatePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
+        toolbar.tintColor = .sicklySmurfBlue
+        toolbar.barTintColor = #colorLiteral(red: 0.1883931463, green: 0.1966297553, blue: 0.2213395825, alpha: 1)
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerDoneButtonPressed))
         toolbar.setItems([doneButton], animated: true)
@@ -371,6 +373,8 @@ class AddEntryPopup: UIView {
     fileprivate func setupTimePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
+        toolbar.tintColor = .sicklySmurfBlue
+        toolbar.barTintColor = #colorLiteral(red: 0.1883931463, green: 0.1966297553, blue: 0.2213395825, alpha: 1)
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(timePickerDoneButtonPressed))
         toolbar.setItems([doneButton], animated: true)
