@@ -19,16 +19,23 @@ class AddEntryPopup: UIView {
     
     weak var delegate: AddEntryPopupDelegate!
     
-    fileprivate var dateFormatter: DateFormatter = {
+    fileprivate lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
+        dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         return dateFormatter
     }()
     
-    fileprivate var timeFormatter: DateFormatter = {
+    fileprivate lazy var timeFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }()
+    
+    fileprivate lazy var dateAndTimeFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
         return dateFormatter
     }()
@@ -39,7 +46,7 @@ class AddEntryPopup: UIView {
         let textField = CustomTextField()
         
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
+        formatter.dateStyle = .medium
         formatter.timeStyle = .none
         let placeholder = formatter.string(from: Date())
 
