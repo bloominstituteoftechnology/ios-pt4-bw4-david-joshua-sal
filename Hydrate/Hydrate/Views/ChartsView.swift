@@ -12,20 +12,11 @@ struct ChartsView: View {
     
     let dailyLogController = DailyLogController()
     var dailyLogs: [DailyLog] = []
-    var lastSevenDays: [DailyLog] = []
-    
-    var day1: CGFloat = 0
-    var day2: CGFloat = 0
-    var day3: CGFloat = 0
-    var day4: CGFloat = 0
-    var day5: CGFloat = 0
-    var day6: CGFloat = 0
-    var day7: CGFloat = 0
-    
+    var dayOfWeekLabels = [String]()
+    var totalsToChart = [Int]()
+
     init() {
         updateDailyLogs()
-        
-        checkIfIndexExists()
     }
     
     var body: some View {
@@ -37,19 +28,18 @@ struct ChartsView: View {
                         .font(.system(size:24))
                         .fontWeight(.heavy)
                         .foregroundColor(Color(UIColor.undeadWhite))
-                    Text("Weekly")
-                        .foregroundColor(Color(UIColor.sicklySmurfBlue))
+                    Text("Last Seven Days")
+                        .foregroundColor(Color(UIColor.undeadWhite65))
                 }
                 
                 HStack (spacing: 16) {
-                    BarView(value: day7)
-                    BarView(value: day6)
-                    BarView(value: day5)
-                    BarView(value: day4)
-                    BarView(value: day3)
-                    BarView(value: day2)
-                    BarView(value: day1)
-                    
+                    BarView(value: CGFloat(totalsToChart[0]), label: dayOfWeekLabels[0])
+                    BarView(value: CGFloat(totalsToChart[1]), label: dayOfWeekLabels[1])
+                    BarView(value: CGFloat(totalsToChart[2]), label: dayOfWeekLabels[2])
+                    BarView(value: CGFloat(totalsToChart[3]), label: dayOfWeekLabels[3])
+                    BarView(value: CGFloat(totalsToChart[4]), label: dayOfWeekLabels[4])
+                    BarView(value: CGFloat(totalsToChart[5]), label: dayOfWeekLabels[5])
+                    BarView(value: CGFloat(totalsToChart[6]), label: dayOfWeekLabels[6])
                 }.padding(.top, 0)
                     .animation(.default)
             }
@@ -60,18 +50,19 @@ struct ChartsView: View {
 // MARK: - BarView
 struct BarView: View {
     var value: CGFloat = 0
+    var label: String = ""
     
     var body: some View {
         VStack {
             ZStack (alignment: .bottom) {
-                Capsule().frame(width: 30, height: 150)
+                Capsule().frame(width: 30, height: 125)
                     .foregroundColor(Color(UIColor.ravenClawBlue90))
                 Capsule().frame(width: 30, height: value)
                     .foregroundColor(Color(UIColor.sicklySmurfBlue))
             }
-            Text("D").padding(.top, 0)
-                .foregroundColor(Color(UIColor.undeadWhite))
-            
+            Text(label).padding(.top, 0)
+                .foregroundColor(Color(UIColor.undeadWhite65))
+                .font(.system(size: 15, weight: .medium, design: .default))
         }
     }
 }
@@ -84,35 +75,6 @@ struct ChartsView_Previews: PreviewProvider {
 
 // MARK: - Extension
 extension ChartsView {
-    fileprivate mutating func checkIfIndexExists() {
-        if ((0 < lastSevenDays.count ? lastSevenDays[0] : nil) != nil) {
-            day1 = CGFloat(lastSevenDays[0].totalIntakeAmount)
-        }
-        
-        if ((1 < lastSevenDays.count ? lastSevenDays[1] : nil) != nil) {
-            day2 = CGFloat(lastSevenDays[1].totalIntakeAmount)
-        }
-        
-        if ((2 < lastSevenDays.count ? lastSevenDays[2] : nil) != nil) {
-            day3 = CGFloat(lastSevenDays[2].totalIntakeAmount)
-        }
-        
-        if ((3 < lastSevenDays.count ? lastSevenDays[3] : nil) != nil) {
-            day4 = CGFloat(lastSevenDays[3].totalIntakeAmount)
-        }
-        
-        if ((4 < lastSevenDays.count ? lastSevenDays[4] : nil) != nil) {
-            day5 = CGFloat(lastSevenDays[4].totalIntakeAmount)
-        }
-        
-        if ((5 < lastSevenDays.count ? lastSevenDays[5] : nil) != nil) {
-            day6 = CGFloat(lastSevenDays[5].totalIntakeAmount)
-        }
-        
-        if ((6 < lastSevenDays.count ? lastSevenDays[6] : nil) != nil) {
-            day7 = CGFloat(lastSevenDays[6].totalIntakeAmount)
-        }
-    }
     
     fileprivate mutating func updateDailyLogs() {
         let allIntakeEntries = dailyLogController.allIntakeEntries
@@ -129,10 +91,20 @@ extension ChartsView {
         
         self.dailyLogs = dailyLogs.sorted { $0.date > $1.date }
         
-        let slice = dailyLogs.suffix(7)
-        let weekArray = Array(slice)
-        lastSevenDays = weekArray
-        print(weekArray)
+        let lastSevenDailyLogs = Array(dailyLogs.suffix(7))
         
+        let dayOfWeekFormatter = DateFormatter()
+        dayOfWeekFormatter.dateFormat = "M/d"
+        let calendar = Calendar.current
+        let today = Date().startOfDay
+        
+        for dayOffset in -6...0 {
+            let day = calendar.date(byAdding: .day, value: dayOffset, to: today)!
+            dayOfWeekLabels.append(dayOfWeekFormatter.string(from: day))
+            
+            let dailyLog = lastSevenDailyLogs.first(where: { $0.date == day })
+            let total = dailyLog?.totalIntakeAmount ?? 0
+            totalsToChart.append(total)
+        }
     }
 }
