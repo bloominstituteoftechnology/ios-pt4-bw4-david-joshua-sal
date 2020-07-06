@@ -29,7 +29,7 @@ class DailyLogController {
         let intakeEntry = IntakeEntry(intakeAmount: intakeAmount, timestamp: date)
         
         do {
-            try CoreDataStack.shared.saveContext()
+            try coreDataStack.saveContext()
         } catch {
             print("Error adding intakeEntry: \(error)")
         }

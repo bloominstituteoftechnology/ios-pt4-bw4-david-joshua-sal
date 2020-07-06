@@ -11,6 +11,7 @@ import SwiftUI
 
 protocol HistoryViewControllerDelegate: class {
     func updateWaterLevel()
+    func didAddIntakeEntry()
 }
 
 class HistoryViewController: UIViewController {
@@ -155,7 +156,7 @@ extension HistoryViewController: AddEntryPopupDelegate {
         dailyLogController.addIntakeEntry(withDate: date, intakeAmount: intakeAmount)
         
         if date.isInCurrentDay {
-            delegate.updateWaterLevel()
+            delegate.didAddIntakeEntry()
         }
         
         guard let navController = children.last as? UINavigationController else { return }

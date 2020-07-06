@@ -378,6 +378,11 @@ extension MainViewController: PopupDelegate {
 }
 
 extension MainViewController: HistoryViewControllerDelegate {
+    func didAddIntakeEntry() {
+        intakeEntryController.fetchIntakeEntries()
+        wave.setProgress(waterLevel)
+    }
+    
     func updateWaterLevel() {
         wave.setProgress(waterLevel)
     }
