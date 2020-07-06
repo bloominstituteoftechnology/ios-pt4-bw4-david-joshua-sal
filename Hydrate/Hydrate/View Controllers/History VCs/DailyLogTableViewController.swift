@@ -73,8 +73,9 @@ class DailyLogTableViewController: UITableViewController {
         tableView.separatorColor = .ravenClawBlue
     }
     
-    fileprivate func updateViews() {
+    func updateViews() {
         guard isViewLoaded else { return }
+        setEditing(false, animated: true)
         tableView.reloadData()
     }
 
