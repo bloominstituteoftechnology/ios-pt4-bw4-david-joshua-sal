@@ -12,6 +12,7 @@ protocol DailyLogTableViewControllerDelegate: class {
     func didUpdateDailyLog(forDate date: Date)
     func didDeleteDailyLog(forDate date: Date)
     func addDataButtonTapped()
+    func addDataButtonTapped(for date: Date)
 }
 
 class DailyLogTableViewController: UITableViewController {
@@ -120,7 +121,6 @@ class DailyLogTableViewController: UITableViewController {
     }
     
     @objc fileprivate func addDataButtonTapped() {
-        print("Add Data button tapped")
         delegate.addDataButtonTapped()
     }
     
@@ -157,5 +157,9 @@ extension DailyLogTableViewController: IntakeEntryTableViewControllerDelegate {
     func didDeleteDailyLog(_ dailyLog: DailyLog) {
         dailyLogController.delete(dailyLog)
         delegate.didDeleteDailyLog(forDate: dailyLog.date)
+    }
+    
+    func addDataButtonTappedForDate(_ date: Date) {
+        delegate.addDataButtonTapped(for: date)
     }
 }
