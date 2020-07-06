@@ -147,11 +147,17 @@ extension HistoryViewController: AddEntryPopupDelegate {
     
     func didAddIntakeEntry(withDate date: Date, intakeAmount: Int) {
         dailyLogController.addIntakeEntry(withDate: date, intakeAmount: intakeAmount)
-        guard let tableViewController = children.first else { return }
-        if let dailyLogTableVC = tableViewController as? DailyLogTableViewController {
-            dailyLogTableVC.tableView.reloadData()
-        } else if let intakeEntryTableVC = tableViewController as? IntakeEntryTableViewController {
-            intakeEntryTableVC.tableView.reloadData()
+        
+        if date.isInCurrentDay {
+            delegate.updateWaterLevel()
+        }
+        
+        guard let navController = children.last as? UINavigationController else { return }
+        
+        if let dailyLogTableVC = navController.topViewController as? DailyLogTableViewController {
+            dailyLogTableVC.updateViews()
+        } else if let intakeEntryTableVC = navController.topViewController as? IntakeEntryTableViewController {
+            intakeEntryTableVC.updateViews()
         }
     }
     
