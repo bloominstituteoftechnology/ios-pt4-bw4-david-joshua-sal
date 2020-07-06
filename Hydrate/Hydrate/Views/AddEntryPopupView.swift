@@ -10,6 +10,7 @@ import UIKit
 
 protocol AddEntryPopupDelegate: class {
     func didAddIntakeEntry(withDate date: Date, intakeAmount: Int)
+    func didEndEditing()
 }
 
 class AddEntryPopup: UIView {
