@@ -11,6 +11,7 @@ import UIKit
 protocol IntakeEntryTableViewControllerDelegate: class {
     func didDeleteDailyLog(_ dailyLog: DailyLog)
     func didDeleteIntakeEntry(_ intakeEntry: IntakeEntry)
+    func addDataButtonTappedForDate(_ date: Date)
 }
 
 class IntakeEntryTableViewController: UITableViewController {
@@ -44,7 +45,7 @@ class IntakeEntryTableViewController: UITableViewController {
         return cell
     }
     
-    fileprivate var addDataButton: UIBarButtonItem = {
+    fileprivate lazy var addDataButton: UIBarButtonItem = {
         UIBarButtonItem(title: "Add Data", style: .plain, target: self, action: #selector(addDataButtonTapped))
     }()
     
@@ -127,7 +128,7 @@ class IntakeEntryTableViewController: UITableViewController {
     }
     
     @objc fileprivate func addDataButtonTapped() {
-        
+        delegate.addDataButtonTappedForDate(dailyLog.date)
     }
     
     @objc fileprivate func dismissController() {

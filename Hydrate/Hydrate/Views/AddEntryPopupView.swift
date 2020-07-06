@@ -233,6 +233,11 @@ class AddEntryPopup: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    convenience init(for date: Date) {
+        self.init()
+        self.dateTextField.text = dateFormatter.string(from: date)
+    }
+    
     // MARK: - Selectors
     
     @objc func textFieldValueChanged() {

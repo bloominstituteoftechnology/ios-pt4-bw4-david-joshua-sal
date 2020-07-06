@@ -141,6 +141,12 @@ extension HistoryViewController: DailyLogTableViewControllerDelegate {
         addEntryPopup.delegate = self
         self.view.addSubview(addEntryPopup)
     }
+    
+    func addDataButtonTapped(for date: Date) {
+        let addEntryPopup = AddEntryPopup(for: date)
+        addEntryPopup.delegate = self
+        self.view.addSubview(addEntryPopup)
+    }
 }
 
 extension HistoryViewController: AddEntryPopupDelegate {
