@@ -167,6 +167,20 @@ class AddEntryPopup: UIView {
         return view
     }()
     
+    fileprivate let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.maximumDate = Date()
+        return datePicker
+    }()
+    
+    fileprivate let timePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .time
+        return datePicker
+    }()
+    
+    // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -176,6 +190,9 @@ class AddEntryPopup: UIView {
         
         self.frame = UIScreen.main.bounds
         setupContainerView()
+        
+        setupDatePicker()
+        setupTimePicker()
 
         animateIn()
     }
@@ -198,13 +215,31 @@ class AddEntryPopup: UIView {
     }
     
     @objc func submitButtonTapped() {
-        guard let dateText = dateTextField.text, let date = dateFormatter.date(from: dateText),
-            let timeText = timeTextField.text, let time = timeFormatter.date(from: timeText),
+        guard let dateText = dateTextField.text, let timeText = timeTextField.text,
+            let timestamp = dateAndTimeFormatter.date(from: dateText + " at " + timeText),
             let amountText = amountTextField.text, let intakeAmount = Int(amountText) else { return }
         
         let timestamp = date
         delegate.didAddIntakeEntry(withDate: timestamp, intakeAmount: intakeAmount)
         animateOut()
+    }
+    
+    @objc func datePickerDoneButtonPressed() {
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
+        delegate.didEndEditing()
+    }
+    
+    @objc func timePickerDoneButtonPressed() {
+        timeTextField.text = timeFormatter.string(from: timePicker.date)
+        delegate.didEndEditing()
+    }
+    
+    @objc func dateChanged() {
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func timeChanged() {
+        timeTextField.text = timeFormatter.string(from: timePicker.date)
     }
     
     @objc fileprivate func animateOut() {
@@ -286,5 +321,30 @@ class AddEntryPopup: UIView {
             self.isOpaque = false
             
         }
+    }
+    
+    fileprivate func setupDatePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerDoneButtonPressed))
+        toolbar.setItems([doneButton], animated: true)
+        
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        
+        dateTextField.inputAccessoryView = toolbar
+        dateTextField.inputView = datePicker
+    }
+    
+    fileprivate func setupTimePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(timePickerDoneButtonPressed))
+        toolbar.setItems([doneButton], animated: true)
+        
+        timePicker.addTarget(self, action: #selector(timeChanged), for: .valueChanged)
+        timeTextField.inputAccessoryView = toolbar
+        timeTextField.inputView = timePicker
     }
 }
