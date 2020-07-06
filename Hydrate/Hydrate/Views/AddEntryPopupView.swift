@@ -294,13 +294,24 @@ class AddEntryPopup: UIView {
         })
     }
     
+    @objc fileprivate func handleTapInContainer() {
+        if dateTextField.isFirstResponder {
+            datePickerDoneButtonPressed()
+        } else if timeTextField.isFirstResponder {
+            timePickerDoneButtonPressed()
+        } else {
+            delegate.didEndEditing()
+        }
+    }
+    
     // MARK: - Helpers
     
     fileprivate func setupContainerView() {
         self.addSubview(container)
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animateOut)))
-
-        container.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        container.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapInContainer)))
+        
+        container.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -350).isActive = true
         container.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         container.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
         container.heightAnchor.constraint(equalToConstant: 296).isActive = true
