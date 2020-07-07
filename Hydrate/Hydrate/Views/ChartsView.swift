@@ -10,7 +10,7 @@ import CoreData
 
 struct ChartsView: View {
     
-    let dailyLogController = DailyLogController()
+    var dailyLogController = DailyLogController()
     var dailyLogs: [DailyLog] = []
     var dayOfWeekLabels = [String]()
     var totalsToChart = [Int]()
@@ -76,27 +76,16 @@ struct ChartsView_Previews: PreviewProvider {
 // MARK: - Extension
 extension ChartsView {
     
-    fileprivate mutating func updateDailyLogs() {
-        let allIntakeEntries = dailyLogController.allIntakeEntries
-        
-        let allDates = allIntakeEntries.compactMap { $0.timestamp?.startOfDay } // removes .hour, .minute, .second, etc. granularity from timestamps
-        let daysWithIntakeEntries = Array(Set(allDates)) // removes duplicates (each day appears only once)
-        
-        var dailyLogs: [DailyLog] = []
-        
-        for day in daysWithIntakeEntries {
-            let entries = allIntakeEntries.filter { $0.timestamp?.startOfDay == day }
-            dailyLogs.append(DailyLog(date: day, entries: entries))
-        }
-        
-        self.dailyLogs = dailyLogs.sorted { $0.date > $1.date }
-        
+    mutating func updateDailyLogs() {
         let lastSevenDailyLogs = Array(dailyLogs.suffix(7))
         
         let dayOfWeekFormatter = DateFormatter()
         dayOfWeekFormatter.dateFormat = "M/d"
         let calendar = Calendar.current
         let today = Date().startOfDay
+        
+        dayOfWeekLabels = []
+        totalsToChart = []
         
         for dayOffset in -6...0 {
             let day = calendar.date(byAdding: .day, value: dayOffset, to: today)!

@@ -84,7 +84,14 @@ class HistoryViewController: UIViewController {
     
     fileprivate func setupChartView() {
         view.addSubview(chartView)
-        let childView = UIHostingController(rootView: ChartsView())
+        
+        var chartsView = ChartsView()
+        let startOfLastSevenDays = Calendar.current.date(byAdding: .day, value: -6, to: Date().startOfDay)!
+        let dailyLogsToChart = dailyLogController.dailyLogs.filter { $0.date >= startOfLastSevenDays }
+        chartsView.dailyLogs = dailyLogsToChart
+        chartsView.updateDailyLogs()
+        
+        let childView = UIHostingController(rootView: chartsView)
         childView.view.translatesAutoresizingMaskIntoConstraints = false
         addChild(childView)
         childView.view.frame = chartView.bounds
@@ -121,17 +128,36 @@ class HistoryViewController: UIViewController {
     @objc fileprivate func doneButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
+    
+    fileprivate func updateChartData() {
+        guard let hostingController = children.first as? UIHostingController<ChartsView> else { return }
+        hostingController.rootView.dailyLogController = dailyLogController
+        let startOfLastSevenDays = Calendar.current.date(byAdding: .day, value: -6, to: Date().startOfDay)!
+        let dailyLogsToChart = dailyLogController.dailyLogs.filter { $0.date >= startOfLastSevenDays }
+        hostingController.rootView.dailyLogs = dailyLogsToChart
+        hostingController.rootView.updateDailyLogs()
+    }
 }
 
 extension HistoryViewController: DailyLogTableViewControllerDelegate {
     
     func didUpdateDailyLog(forDate date: Date) {
+        let startOfLastSevenDays = Calendar.current.date(byAdding: .day, value: -6, to: Date().startOfDay)!
+        if date > startOfLastSevenDays {
+            updateChartData()
+        }
+        
         if date.isInCurrentDay {
             delegate.updateWaterLevel()
         }
     }
     
     func didDeleteDailyLog(forDate date: Date) {
+        let startOfLastSevenDays = Calendar.current.date(byAdding: .day, value: -6, to: Date().startOfDay)!
+        if date > startOfLastSevenDays {
+            updateChartData()
+        }
+        
         if date.isInCurrentDay {
             delegate.updateWaterLevel()
         }
@@ -165,6 +191,11 @@ extension HistoryViewController: AddEntryPopupDelegate {
             dailyLogTableVC.updateViews()
         } else if let intakeEntryTableVC = navController.topViewController as? IntakeEntryTableViewController {
             intakeEntryTableVC.updateViews()
+        }
+        
+        let startOfLastSevenDays = Calendar.current.date(byAdding: .day, value: -6, to: Date().startOfDay)!
+        if date > startOfLastSevenDays {
+            updateChartData()
         }
     }
     
