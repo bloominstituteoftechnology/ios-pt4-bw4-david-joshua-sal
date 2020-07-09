@@ -285,6 +285,7 @@ class MainViewController: UIViewController {
         intakeEntryController.delete(lastIntakeEntry)
         print("Removed \(removeAmount) ounces of water. Total intake: \(intakeEntryController.totalIntakeAmount) ounces.")
         wave.setProgress(waterLevel)
+        activeHideAnimationUuid = nil
         hideUndoButton()
     }
     
@@ -338,26 +339,39 @@ class MainViewController: UIViewController {
     
     // MARK: - Undo Button Animations
     
+    /// The var 'activeHideAnimationUuid' stores a UUID corresponding to the last (recent) scheduled call to hideUndoButton()
+    /// The hide animation in the hideUndoButton() method will only run if the UUID passed in matches the activeHideAnimationUuid
+    /// This logic prevents unwanted, previously scheduled calls to hideUndoButton() from hiding the button prematurely
+    var activeHideAnimationUuid: UUID?
+    
+    /// Triggers an animation to temporarily reveal an undoButton immediately after the user adds water to their daily intake
+    /// Schedules a call to hideUndoButton() to hide the undoButton if it is not tapped within a few seconds after appearing on screen
     fileprivate func showUndoButton() {
+        let hideAnimationUuid = UUID()
+        activeHideAnimationUuid = hideAnimationUuid
+        
         undoWaterIntakeButton.layer.removeAllAnimations()
         undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
         undoButtonCenterXAnchor.constant = 112
         
-        // move right and scale up animation
+        // move right and scale up animation (show button)
         UIView.animate(withDuration: 0.15, delay: 0.05, options: [.curveEaseOut], animations: {
             self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             self.view.layoutIfNeeded()
         }, completion: nil)
         
-        // pulse animation
+        // pulse button animation
         UIView.animate(withDuration: 0.45, delay: 0.1, options: [.repeat, .curveEaseIn, .autoreverse, .allowUserInteraction], animations: {
             self.undoWaterIntakeButton.transform = CGAffineTransform(scaleX: 1.12, y: 1.12)
         }, completion: nil)
         
-        perform(#selector(hideUndoButton), with: nil, afterDelay: 3.65)
+        // schedule a future animation to hide the undoButton
+        perform(#selector(hideUndoButton), with: hideAnimationUuid, afterDelay: 3.65)
     }
     
-    @objc fileprivate func hideUndoButton() {
+    @objc fileprivate func hideUndoButton(hideAnimationUuid: UUID? = nil) {
+        guard hideAnimationUuid == activeHideAnimationUuid else { return }
+        
         undoButtonCenterXAnchor.constant = 0
         
         // move left and scale down animation
