@@ -82,7 +82,7 @@ struct SettingsView: View {
                 //About Section
                 Section(header: Text("About")) {
                     Button(action: {
-                        if let url = URL(string: "https://github.com/LambdaSchool/ios-pt4-bw4-david-joshua-sal/issues") {
+                        if let url = URL(string: "https://github.com/BloomInstituteOfTechnology/ios-pt4-bw4-david-joshua-sal/issues") {
                             UIApplication.shared.open(url) }
                     }) {
                         Text("Report an issue")
